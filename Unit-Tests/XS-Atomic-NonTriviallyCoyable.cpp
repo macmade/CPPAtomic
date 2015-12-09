@@ -56,7 +56,52 @@
 
 using namespace testing;
 
-TEST( XS_Atomic_NonTriviallyCopyable, test )
+TEST( XS_Atomic_NonTriviallyCopyable, CTOR )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, CTOR_V )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, CCTOR )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, MCTOR )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, OperatorAssign )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, OperatorAssign_V )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, OperatorCast )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, OperatorMemberAccess )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, IsLockFree )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_NonTriviallyCopyable, Swap )
 {
     ASSERT_TRUE( true );
 }

@@ -56,7 +56,97 @@
 
 using namespace testing;
 
-TEST( XS_Atomic_TriviallyCopyable, test )
+TEST( XS_Atomic_TriviallyCopyable, CTOR )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, CTOR_V )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, CCTOR )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, MCTOR )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorAssign )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorAssign_V )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorCast )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorMemberAccess )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorIncrement )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorIncrement_I )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorDecrement )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorDecrement_I )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorPlusEqual )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorMinusEqual )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorAndEqual )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorOrEqual )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, OperatorXorEqual )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, IsLockFree )
+{
+    ASSERT_TRUE( true );
+}
+
+TEST( XS_Atomic_TriviallyCopyable, Swap )
 {
     ASSERT_TRUE( true );
 }

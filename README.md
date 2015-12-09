@@ -11,10 +11,7 @@ CPPAtomic
 About
 -----
 
-C++11 atomics for **non trivially-copyable** types and **trivially-copyable** types.
-Replacement of `std::atomic`.
-
-
+Replacement of `std::atomic` supporting **non trivially-copyable** types.
 
 License
 -------

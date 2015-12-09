@@ -107,31 +107,70 @@ namespace XS
             
             Atomic< _T_ > & operator ++ ( void )
             {
+                this->_v++;
+                
                 return *( this );
             }
             
             Atomic< _T_ > operator ++ ( int )
             {
-                return *( this );
+                Atomic< _T_ > a( *( this ) );
+                
+                operator++();
+                
+                return a;
             }
             
             Atomic< _T_ > & operator -- ( void )
             {
+                this->_v--;
+                
                 return *( this );
             }
             
             Atomic< _T_ > operator -- ( int )
             {
+                Atomic< _T_ > a( *( this ) );
+                
+                operator--();
+                
+                return a;
+            }
+            
+            Atomic< _T_ > & operator += ( _T_ v )
+            {
+                this->_v += v;
+                
                 return *( this );
             }
             
-            /*
-            Atomic< _T_ > & operator +=
-            Atomic< _T_ > & operator -=
-            Atomic< _T_ > & operator &=
-            Atomic< _T_ > & operator |=
-            Atomic< _T_ > & operator ^=
-            */
+            Atomic< _T_ > & operator -= ( _T_ v )
+            {
+                this->_v -= v;
+                
+                return *( this );
+            }
+            
+            Atomic< _T_ > & operator &= ( _T_ v )
+            {
+                this->_v &= v;
+                
+                return *( this );
+            }
+            
+            Atomic< _T_ > & operator |= ( _T_ v )
+            {
+                this->_v |= v;
+                
+                return *( this );
+            }
+            
+            Atomic< _T_ > & operator ^= ( _T_ v )
+            {
+                this->_v ^= v;
+                
+                return *( this );
+            }
             
             bool IsLockFree( void )
             {
@@ -209,34 +248,6 @@ namespace XS
                 
                 return this->_v;
             }
-            
-            Atomic< _T_ > & operator ++ ( void )
-            {
-                return *( this );
-            }
-            
-            Atomic< _T_ > operator ++ ( int )
-            {
-                return *( this );
-            }
-            
-            Atomic< _T_ > & operator -- ( void )
-            {
-                return *( this );
-            }
-            
-            Atomic< _T_ > operator -- ( int )
-            {
-                return *( this );
-            }
-            
-            /*
-            Atomic< _T_ > & operator +=
-            Atomic< _T_ > & operator -=
-            Atomic< _T_ > & operator &=
-            Atomic< _T_ > & operator |=
-            Atomic< _T_ > & operator ^=
-            */
             
             bool IsLockFree( void )
             {

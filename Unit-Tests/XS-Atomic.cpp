@@ -63,6 +63,18 @@ class Bar
         Bar( void )
         {}
         
+        Bar( const Bar & o )
+        {
+            ( void )o;
+        }
+        
+        Bar & operator =( const Bar & o )
+        {
+            ( void )o;
+            
+            return *( this );
+        }
+        
         int Test( void )
         {
             return 42;

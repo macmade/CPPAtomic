@@ -71,7 +71,7 @@ namespace XS
             Atomic( _T_ v ): _v{ v }
             {}
             
-            Atomic( const Atomic & o ): _v{ o._v }
+            Atomic( const Atomic & o ): _v{ o._v.load() }
             {}
             
             Atomic( const Atomic && o ): _v{ std::move( o._v ) }
@@ -102,6 +102,39 @@ namespace XS
             _T_ * operator ->( void ) const
             {
                 return this->_v;
+            }
+            
+            Atomic & operator ++ ( void )
+            {
+                return *( this );
+            }
+            
+            Atomic operator ++ ( int )
+            {
+                return *( this );
+            }
+            
+            Atomic & operator -- ( void )
+            {
+                return *( this );
+            }
+            
+            Atomic operator -- ( int )
+            {
+                return *( this );
+            }
+            
+            /*
+            Atomic & operator +=
+            Atomic & operator -=
+            Atomic & operator &=
+            Atomic & operator |=
+            Atomic & operator ^=
+            */
+            
+            bool IsLockFree( void )
+            {
+                return this->_v.is_lock_free();
             }
             
             friend void swap( Atomic< _T_ > & o1, Atomic< _T_ > & o2 )
@@ -174,6 +207,39 @@ namespace XS
                 _L_ l( this->_rmtx );
                 
                 return this->_v;
+            }
+            
+            Atomic & operator ++ ( void )
+            {
+                return *( this );
+            }
+            
+            Atomic operator ++ ( int )
+            {
+                return *( this );
+            }
+            
+            Atomic & operator -- ( void )
+            {
+                return *( this );
+            }
+            
+            Atomic operator -- ( int )
+            {
+                return *( this );
+            }
+            
+            /*
+            Atomic & operator +=
+            Atomic & operator -=
+            Atomic & operator &=
+            Atomic & operator |=
+            Atomic & operator ^=
+            */
+            
+            bool IsLockFree( void )
+            {
+                return false;
             }
             
             friend void swap( Atomic< _T_ > & o1, Atomic< _T_ > & o2 )

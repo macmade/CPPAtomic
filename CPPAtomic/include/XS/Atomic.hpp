@@ -29,89 +29,17 @@
 
 /*!
  * @copyright   (c) 2015 - Jean-David Gadina - www.xs-labs.com
- * @brief       Declaration of the XS::PIMPL::Object template class
+ * @brief       Replacement of std::atomic supporting non trivially-copyable types
  */
 
-#ifndef XS_PIMPL_OBJECT_H
-#define XS_PIMPL_OBJECT_H
-
-#ifdef _WIN32
-    #ifdef XS_PIMPL_EXPORTS
-        #define XS_PIMPL_API    __declspec( dllexport )
-    #else
-        #define XS_PIMPL_API    __declspec( dllimport )
-    #endif
-#else
-    #define     XS_PIMPL_API    
-#endif
+#ifndef XS_ATOMIC_H
+#define XS_ATOMIC_H
 
 namespace XS
 {
-    namespace PIMPL
-    {
-        /*!
-         * @brief           Generic PIMPL class
-         * @tparam          T   The class extending XS::PIMPL::Object
-         */
-        template< class T >
-        class XS_PIMPL_API Object
-        {
-            public:
-                
-                /*!
-                 * @brief       Class constructor (no parameters)
-                 */
-                Object( void );
-                
-                /*!
-                 * @brief       Class constructor (with parameters)
-                 */
-                template< typename A1, typename ... A2 > 
-                Object( A1 a1, A2 ... a2 );
-                
-                /*!
-                 * @brief       Class copy constructor
-                 * @param       o   Another object to be used as data source for the initialization
-                 */
-                Object( const Object< T > & o );
-                
-                /*!
-                 * @brief       Class move constructor
-                 * @param       o   Another object to be used as data source for the initialization
-                 */
-                Object( Object< T > && o );
-                
-                /*!
-                 * @brief       Class destructor
-                 */
-                virtual ~Object( void );
-                
-                /*!
-                 * @brief       Assignment operator
-                 * @param       o   Another object to use as data source
-                 */
-                Object< T > & operator =( Object< T > o );
-                
-                /*!
-                 * @brief           ADL - Swap function for XS::PIMPL::Object
-                 * @tparam          U   The class extending XS::PIMPL::Object
-                 * @param           o1  The first object to swap
-                 * @param           o2  The second object to swap
-                 */
-                template< class U >
-                friend void swap( Object< U > & o1, Object< U > & o2 );
-                
-            private:
-                
-                friend T;
-                class  IMPL;
-                
-                /*!
-                 * @brief       A pointer to the class' private implementation
-                 */
-                 IMPL * impl;
-        };
-    }
+    template< typename _T_ >
+    class Atomic
+    {};
 }
 
-#endif /* XS_PIMPL_OBJECT_H */
+#endif /* XS_ATOMIC_H */

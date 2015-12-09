@@ -51,6 +51,8 @@
 #pragma clang diagnostic pop
 #endif
 
+#include <XS/Atomic.hpp>
+
 using namespace testing;
 
 TEST( XS_Atomic, test )

@@ -1,0 +1,7 @@
+language: objective-c
+script:
+- xctool -project "CPPAtomic.xcodeproj" -scheme "CPPAtomic-Tests" test
+before_install:
+- bash Scripts/travis-before.sh
+after_success:
+- bash Scripts/travis-after.sh

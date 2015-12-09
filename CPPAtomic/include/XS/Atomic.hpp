@@ -47,13 +47,14 @@ namespace XS
     {
         public:
             
-            Atomic( void )              = delete;
-            Atomic( _T_ v )             = delete;
-            Atomic( const Atomic & o )  = delete;
-            Atomic( const Atomic && o ) = delete;
+            Atomic( void )                     = delete;
+            Atomic( _T_ v )                    = delete;
+            Atomic( const Atomic< _T_ > & o )  = delete;
+            Atomic( const Atomic< _T_ > && o ) = delete;
             
-            Atomic & operator =( const Atomic & o )  = delete;
-            Atomic & operator =( const Atomic && o ) = delete;
+            Atomic< _T_ > & operator =( _T_ v )                    = delete;
+            Atomic< _T_ > & operator =( const Atomic< _T_ > & o )  = delete;
+            Atomic< _T_ > & operator =( const Atomic< _T_ > && o ) = delete;
     };
     
     template< typename _T_ >
@@ -71,23 +72,23 @@ namespace XS
             Atomic( _T_ v ): _v{ v }
             {}
             
-            Atomic( const Atomic & o ): _v{ o._v.load() }
+            Atomic( const Atomic< _T_ > & o ): _v{ o._v.load() }
             {}
             
-            Atomic( const Atomic && o ): _v{ std::move( o._v ) }
+            Atomic( const Atomic< _T_ > && o ): _v{ std::move( o._v ) }
             {}
             
             ~Atomic( void )
             {}
             
-            Atomic & operator =( Atomic o )
+            Atomic< _T_ > & operator =( Atomic< _T_ > o )
             {
                 this->_v = o._v;
                 
                 return *( this );
             }
             
-            Atomic & operator =( _T_ v )
+            Atomic< _T_ > & operator =( _T_ v )
             {
                 this->_v = v;
                 
@@ -104,32 +105,32 @@ namespace XS
                 return this->_v;
             }
             
-            Atomic & operator ++ ( void )
+            Atomic< _T_ > & operator ++ ( void )
             {
                 return *( this );
             }
             
-            Atomic operator ++ ( int )
+            Atomic< _T_ > operator ++ ( int )
             {
                 return *( this );
             }
             
-            Atomic & operator -- ( void )
+            Atomic< _T_ > & operator -- ( void )
             {
                 return *( this );
             }
             
-            Atomic operator -- ( int )
+            Atomic< _T_ > operator -- ( int )
             {
                 return *( this );
             }
             
             /*
-            Atomic & operator +=
-            Atomic & operator -=
-            Atomic & operator &=
-            Atomic & operator |=
-            Atomic & operator ^=
+            Atomic< _T_ > & operator +=
+            Atomic< _T_ > & operator -=
+            Atomic< _T_ > & operator &=
+            Atomic< _T_ > & operator |=
+            Atomic< _T_ > & operator ^=
             */
             
             bool IsLockFree( void )
@@ -165,16 +166,16 @@ namespace XS
             Atomic( _T_ v ): _v{ v }
             {}
             
-            Atomic( const Atomic & o ): Atomic( o, _L_( o._rmtx ) )
+            Atomic( const Atomic< _T_ > & o ): Atomic< _T_ >( o, _L_( o._rmtx ) )
             {}
             
-            Atomic( const Atomic && o ): Atomic( o, _L_( o._rmtx ) )
+            Atomic( const Atomic< _T_ > && o ): Atomic< _T_ >( o, _L_( o._rmtx ) )
             {}
             
             ~Atomic( void )
             {}
             
-            Atomic & operator =( Atomic o )
+            Atomic< _T_ > & operator =( Atomic< _T_ > o )
             {
                 std::lock( this->_rmtx, o._rmtx );
                 
@@ -186,7 +187,7 @@ namespace XS
                 return *( this );
             }
             
-            Atomic & operator =( _T_ v )
+            Atomic< _T_ > & operator =( _T_ v )
             {
                 _L_ l( this->_rmtx );
                 
@@ -209,32 +210,32 @@ namespace XS
                 return this->_v;
             }
             
-            Atomic & operator ++ ( void )
+            Atomic< _T_ > & operator ++ ( void )
             {
                 return *( this );
             }
             
-            Atomic operator ++ ( int )
+            Atomic< _T_ > operator ++ ( int )
             {
                 return *( this );
             }
             
-            Atomic & operator -- ( void )
+            Atomic< _T_ > & operator -- ( void )
             {
                 return *( this );
             }
             
-            Atomic operator -- ( int )
+            Atomic< _T_ > operator -- ( int )
             {
                 return *( this );
             }
             
             /*
-            Atomic & operator +=
-            Atomic & operator -=
-            Atomic & operator &=
-            Atomic & operator |=
-            Atomic & operator ^=
+            Atomic< _T_ > & operator +=
+            Atomic< _T_ > & operator -=
+            Atomic< _T_ > & operator &=
+            Atomic< _T_ > & operator |=
+            Atomic< _T_ > & operator ^=
             */
             
             bool IsLockFree( void )
@@ -256,12 +257,12 @@ namespace XS
             
         private:
             
-            Atomic( const Atomic & o, _L_ & l ): _v{ o._v }
+            Atomic( const Atomic< _T_ > & o, _L_ & l ): _v{ o._v }
             {
                 ( void )l;
             }
             
-            Atomic( const Atomic && o, _L_ & l ): _v{ std::move( o._v ) }
+            Atomic( const Atomic< _T_ > && o, _L_ & l ): _v{ std::move( o._v ) }
             {
                 ( void )l;
             }

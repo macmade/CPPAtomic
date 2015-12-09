@@ -172,7 +172,7 @@ namespace XS
                 return *( this );
             }
             
-            bool IsLockFree( void )
+            bool IsLockFree( void ) const
             {
                 return this->_v.is_lock_free();
             }
@@ -249,7 +249,7 @@ namespace XS
                 return this->_v;
             }
             
-            bool IsLockFree( void )
+            bool IsLockFree( void ) const
             {
                 return false;
             }

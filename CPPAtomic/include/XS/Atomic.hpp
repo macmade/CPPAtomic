@@ -42,7 +42,7 @@
 
 namespace XS
 {
-    template< typename _T_, class _E_ >
+    template< typename _T_, class _E_ = void >
     class Atomic
     {
         public:
@@ -57,15 +57,63 @@ namespace XS
     };
     
     template< typename _T_ >
-    class Atomic< _T_, typename std::enable_if< std::is_trivially_copyable< _T_ >::value && !std::is_pointer< _T_ >::value && !std::is_reference< _T_ >::value >::type >
-    {};
+    class Atomic< _T_, typename std::enable_if< std::is_trivially_copyable< _T_ >::value >::type >
+    {
+        public:
+            
+            Atomic( void ): _v{}
+            {}
+            
+            Atomic( _T_ v ): _v{ v }
+            {}
+            
+            Atomic( const Atomic & o ): _v{ o._v }
+            {}
+            
+            Atomic( const Atomic && o ): _v{ std::move( o._v ) }
+            {}
+            
+            ~Atomic( void )
+            {}
+            
+            Atomic & operator =( Atomic o )
+            {
+                this->_v = o._v;
+                
+                return *( this );
+            }
+            
+            Atomic & operator =( _T_ v )
+            {
+                this->_v = v;
+                
+                return *( this );
+            }
+            
+            operator _T_ ( void ) const
+            {
+                return this->_v;
+            }
+            
+            _T_ * operator ->( void ) const
+            {
+                return this->_v;
+            }
+            
+            friend void swap( Atomic< _T_ > & o1, Atomic< _T_ > & o2 )
+            {
+                using std::swap;
+                
+                swap( o1._v, o2._v );
+            }
+            
+        private:
+            
+            std::atomic< _T_ > _v;
+    };
     
     template< typename _T_ >
-    class Atomic< _T_, typename std::enable_if< std::is_trivially_copyable< _T_ >::value && std::is_pointer< _T_ >::value >::type >
-    {};
-    
-    template< typename _T_ >
-    class Atomic< _T_, typename std::enable_if< !std::is_trivially_copyable< _T_ >::value && !std::is_reference< _T_ >::value >::type >
+    class Atomic< _T_, typename std::enable_if< !std::is_trivially_copyable< _T_ >::value >::type >
     {};
 }
 

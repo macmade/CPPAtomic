@@ -123,12 +123,12 @@ class XS_Atomic: public ::testing::Test
         
     private:
         
-        int          _int;
-        int *        _intptr;
-        double       _double;
-        std::string  _string;
-        Bar          _bar;
-        Bar *        _barptr;
+        XS::Atomic< int >       _int;
+        XS::Atomic< int * >     _intptr;
+        XS::Atomic< double >    _double;
+        std::string             _string;
+        Bar                     _bar;
+        XS::Atomic< Bar * >     _barptr;
 };
 
 TEST_F( XS_Atomic, test )

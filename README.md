@@ -58,7 +58,14 @@ Using `XS::Atomic` instead, everything will compile and be fine:
 
 ### Implementation details
 
-...
+`XS::Atomic` uses two template specialisations.
+One for trivially-copyable types, the second for non trivially-copyable types.
+
+When used with a trivially-copyable type, `XS-Atomic` will simply use `std::atomic`, relying on the STL implementation, and allowing lock-free when possible.
+
+When used with a non trivially-copyable type, `XS-Atomic` will use locking to ensure synchronisation.
+It will use a `std::recursive_mutex`, along with `std::lock_guard` and `std::lock`.
+
 
 License
 -------

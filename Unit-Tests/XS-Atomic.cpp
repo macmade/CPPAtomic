@@ -35,6 +35,7 @@
 /* Disabled warnings for GoogleMock */
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Wglobal-constructors"
+#pragma clang diagnostic ignored "-Wpadded"
 #pragma clang diagnostic push
 #if __clang_major__ >= 7
 #pragma clang diagnostic ignored "-Wreserved-id-macro"
@@ -72,10 +73,12 @@ class XS_Atomic: public ::testing::Test
 {
     public:
         
-        /*
         XS_Atomic( void ):
             _intptr( new int( 42 ) ),
             _barptr( new Bar() )
+        {}
+        
+        virtual ~XS_Atomic( void )
         {}
         
         int GetInt( void )
@@ -120,13 +123,12 @@ class XS_Atomic: public ::testing::Test
         
     private:
         
-        XS::Atomic< int >         _int;
-        XS::Atomic< int * >       _intptr;
-        XS::Atomic< double >      _double;
-        XS::Atomic< std::string > _string;
-        XS::Atomic< Bar >         _bar;
-        XS::Atomic< Bar * >       _barptr;
-    */
+        int          _int;
+        int *        _intptr;
+        double       _double;
+        std::string  _string;
+        Bar          _bar;
+        Bar *        _barptr;
 };
 
 TEST_F( XS_Atomic, test )

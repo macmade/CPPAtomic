@@ -35,10 +35,37 @@
 #ifndef XS_ATOMIC_H
 #define XS_ATOMIC_H
 
+#include <type_traits>
+#include <utility>
+#include <atomic>
+#include <mutex>
+
 namespace XS
 {
-    template< typename _T_ >
+    template< typename _T_, class _E_ >
     class Atomic
+    {
+        public:
+            
+            Atomic( void )              = delete;
+            Atomic( _T_ v )             = delete;
+            Atomic( const Atomic & o )  = delete;
+            Atomic( const Atomic && o ) = delete;
+            
+            Atomic & operator =( const Atomic & o )  = delete;
+            Atomic & operator =( const Atomic && o ) = delete;
+    };
+    
+    template< typename _T_ >
+    class Atomic< _T_, typename std::enable_if< std::is_trivially_copyable< _T_ >::value && !std::is_pointer< _T_ >::valuee && !std::is_reference< _T_ >::value >::type >
+    {};
+    
+    template< typename _T_ >
+    class Atomic< _T_, typename std::enable_if< std::is_trivially_copyable< _T_ >::value && std::is_pointer< _T_ >::value >::type >
+    {};
+    
+    template< typename _T_ >
+    class Atomic< _T_, typename std::enable_if< !std::is_trivially_copyable< _T_ >::value && !std::is_reference< _T_ >::value >::type >
     {};
 }
 

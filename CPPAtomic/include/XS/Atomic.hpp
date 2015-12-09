@@ -95,6 +95,26 @@ namespace XS
                 return *( this );
             }
             
+            bool operator ==( const Atomic< _T_ > & o ) const
+            {
+                return this->_v == o._v;
+            }
+            
+            bool operator ==( _T_ v ) const
+            {
+                return this->_v == v;
+            }
+            
+            bool operator !=( const Atomic< _T_ > & o ) const
+            {
+                return !operator==( o );
+            }
+            
+            bool operator !=( _T_ v ) const
+            {
+                return !operator==( v );
+            }
+            
             operator _T_ ( void ) const
             {
                 return this->_v;
@@ -233,6 +253,33 @@ namespace XS
                 this->_v = v;
                 
                 return *( this );
+            }
+            
+            bool operator ==( const Atomic< _T_ > & o ) const
+            {
+                std::lock( this->_rmtx, o._rmtx );
+                
+                _L_ l1( this->_rmtx, std::adopt_lock );
+                _L_ l2( o._rmtx,     std::adopt_lock );
+                
+                return this->_v == o._v;
+            }
+            
+            bool operator ==( _T_ v ) const
+            {
+                _L_ l( this->_rmtx );
+                
+                return this->_v == v;
+            }
+            
+            bool operator !=( const Atomic< _T_ > & o ) const
+            {
+                return !operator==( o );
+            }
+            
+            bool operator !=( _T_ v ) const
+            {
+                return !operator==( v );
             }
             
             operator _T_ ( void ) const

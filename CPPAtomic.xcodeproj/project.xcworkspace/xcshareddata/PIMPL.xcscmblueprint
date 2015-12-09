@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EA75150531006966844D38F6DEFA072DB263D143",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EA75150531006966844D38F6DEFA072DB263D143" : 0,
+    "A59B79241FF48B87B8A2D6239F13C873F14163E3" : 0,
+    "DC27B5DA8A3BAEC9EFF8F0DE9ED4ADFB1116243D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5521C9A6-96AA-455E-BEE7-6714F09EF258",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EA75150531006966844D38F6DEFA072DB263D143" : "CPPAtomic\/",
+    "A59B79241FF48B87B8A2D6239F13C873F14163E3" : "PIMPL\/Submodules\/gmock-xcode\/",
+    "DC27B5DA8A3BAEC9EFF8F0DE9ED4ADFB1116243D" : "PIMPL"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PIMPL",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PIMPL.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/macmade\/gmock-xcode.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A59B79241FF48B87B8A2D6239F13C873F14163E3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:macmade\/PIMPL.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DC27B5DA8A3BAEC9EFF8F0DE9ED4ADFB1116243D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:macmade\/CPPAtomic.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EA75150531006966844D38F6DEFA072DB263D143"
+    }
+  ]
+}

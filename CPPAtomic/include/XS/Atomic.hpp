@@ -59,6 +59,10 @@ namespace XS
     template< typename _T_ >
     class Atomic< _T_, typename std::enable_if< std::is_trivially_copyable< _T_ >::value >::type >
     {
+        private:
+            
+            typedef std::atomic< _T_ > _A_;
+            
         public:
             
             Atomic( void ): _v{}
@@ -109,12 +113,17 @@ namespace XS
             
         private:
             
-            std::atomic< _T_ > _v;
+            _A_ _v;
     };
     
     template< typename _T_ >
     class Atomic< _T_, typename std::enable_if< !std::is_trivially_copyable< _T_ >::value >::type >
     {
+        private:
+            
+            typedef std::recursive_mutex    _M_;
+            typedef std::lock_guard< _M_ >  _L_;
+            
         public:
             
             Atomic( void ): _v{}
@@ -123,10 +132,10 @@ namespace XS
             Atomic( _T_ v ): _v{ v }
             {}
             
-            Atomic( const Atomic & o ): Atomic( o, std::lock_guard< std::recursive_mutex >( o._rmtx ) )
+            Atomic( const Atomic & o ): Atomic( o, _L_( o._rmtx ) )
             {}
             
-            Atomic( const Atomic && o ): Atomic( o, std::lock_guard< std::recursive_mutex >( o._rmtx ) )
+            Atomic( const Atomic && o ): Atomic( o, _L_( o._rmtx ) )
             {}
             
             ~Atomic( void )
@@ -136,8 +145,8 @@ namespace XS
             {
                 std::lock( this->_rmtx, o._rmtx );
                 
-                std::lock_guard< std::recursive_mutex > l1( this->_rmtx, std::adopt_lock );
-                std::lock_guard< std::recursive_mutex > l2( o._rmtx,     std::adopt_lock );
+                _L_ l1( this->_rmtx, std::adopt_lock );
+                _L_ l2( o._rmtx,     std::adopt_lock );
                 
                 this->_v = o._v;
                 
@@ -146,7 +155,7 @@ namespace XS
             
             Atomic & operator =( _T_ v )
             {
-                std::lock_guard< std::recursive_mutex > l( this->_rmtx );
+                _L_ l( this->_rmtx );
                 
                 this->_v = v;
                 
@@ -155,14 +164,14 @@ namespace XS
             
             operator _T_ ( void ) const
             {
-                std::lock_guard< std::recursive_mutex > l( this->_rmtx );
+                _L_ l( this->_rmtx );
                 
                 return this->_v;
             }
             
             _T_ * operator ->( void ) const
             {
-                std::lock_guard< std::recursive_mutex > l( this->_rmtx );
+                _L_ l( this->_rmtx );
                 
                 return this->_v;
             }
@@ -171,8 +180,8 @@ namespace XS
             {
                 std::lock( o1._rmtx, o2._rmtx );
                 
-                std::lock_guard< std::recursive_mutex > l1( o1._rmtx, std::adopt_lock );
-                std::lock_guard< std::recursive_mutex > l2( o2._rmtx, std::adopt_lock );
+                _L_ l1( o1._rmtx, std::adopt_lock );
+                _L_ l2( o2._rmtx, std::adopt_lock );
                 
                 using std::swap;
                 
@@ -181,18 +190,18 @@ namespace XS
             
         private:
             
-            Atomic( const Atomic & o, std::lock_guard< std::recursive_mutex > & l ): _v{ o._v }
+            Atomic( const Atomic & o, _L_ & l ): _v{ o._v }
             {
                 ( void )l;
             }
             
-            Atomic( const Atomic && o, std::lock_guard< std::recursive_mutex > & l ): _v{ std::move( o._v ) }
+            Atomic( const Atomic && o, _L_ & l ): _v{ std::move( o._v ) }
             {
                 ( void )l;
             }
             
-            _T_                          _v;
-            mutable std::recursive_mutex _rmtx;
+            _T_         _v;
+            mutable _M_ _rmtx;
     };
 }
 

@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051F9C7D1C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */; };
+		051F9C7E1C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C781C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp */; };
+		051F9C7F1C19C3EE005D471A /* XS-Atomic-Trivial-Float.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C791C19C3EE005D471A /* XS-Atomic-Trivial-Float.cpp */; };
+		051F9C801C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */; };
+		051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */; };
+		051F9C821C19C3EE005D471A /* XS-Atomic-Trivial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial.cpp */; };
 		053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053BEDBD1B8EFDE6007D82A4 /* GoogleMock.framework */; };
 		053BEDEC1B90ABB2007D82A4 /* travis-after.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE71B90ABB2007D82A4 /* travis-after.sh */; };
 		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
-		05A6C6881C18AE00002C6A44 /* XS-Atomic-TriviallyCoyable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A6C6871C18AE00002C6A44 /* XS-Atomic-TriviallyCoyable.cpp */; };
-		05A6C6931C18D13A002C6A44 /* XS-Atomic-NonTriviallyCoyable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A6C6921C18D13A002C6A44 /* XS-Atomic-NonTriviallyCoyable.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,15 +57,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051F9C721C19C348005D471A /* Non-Trivial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "Non-Trivial.hpp"; sourceTree = "<group>"; };
+		051F9C731C19C348005D471A /* Trivial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Trivial.hpp; sourceTree = "<group>"; };
+		051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Non-Trivial.cpp"; sourceTree = "<group>"; };
+		051F9C781C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Bool.cpp"; sourceTree = "<group>"; };
+		051F9C791C19C3EE005D471A /* XS-Atomic-Trivial-Float.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Float.cpp"; sourceTree = "<group>"; };
+		051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Integral.cpp"; sourceTree = "<group>"; };
+		051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Pointer.cpp"; sourceTree = "<group>"; };
+		051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial.cpp"; sourceTree = "<group>"; };
 		053BEDAC1B8EFDC1007D82A4 /* CPPAtomic-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPPAtomic-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
 		053BEDC71B8EFE1E007D82A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		053BEDE71B90ABB2007D82A4 /* travis-after.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
 		053BEDE81B90ABB2007D82A4 /* travis-before.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		053BEDF91B90B37E007D82A4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		05A6C6871C18AE00002C6A44 /* XS-Atomic-TriviallyCoyable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-TriviallyCoyable.cpp"; sourceTree = "<group>"; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
-		05A6C6921C18D13A002C6A44 /* XS-Atomic-NonTriviallyCoyable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-NonTriviallyCoyable.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +86,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051F9C711C19C348005D471A /* Atomic */ = {
+			isa = PBXGroup;
+			children = (
+				051F9C721C19C348005D471A /* Non-Trivial.hpp */,
+				051F9C731C19C348005D471A /* Trivial.hpp */,
+			);
+			path = Atomic;
+			sourceTree = "<group>";
+		};
 		053BEDA51B8EFCB6007D82A4 /* Unit-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				05A6C6871C18AE00002C6A44 /* XS-Atomic-TriviallyCoyable.cpp */,
-				05A6C6921C18D13A002C6A44 /* XS-Atomic-NonTriviallyCoyable.cpp */,
+				051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */,
+				051F9C781C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp */,
+				051F9C791C19C3EE005D471A /* XS-Atomic-Trivial-Float.cpp */,
+				051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */,
+				051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */,
+				051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial.cpp */,
 				053BEDC71B8EFE1E007D82A4 /* Info.plist */,
 				053BEDF91B90B37E007D82A4 /* Prefix.pch */,
 			);
@@ -127,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				05A6C6891C18AEDD002C6A44 /* Atomic.hpp */,
+				051F9C711C19C348005D471A /* Atomic */,
 			);
 			path = XS;
 			sourceTree = "<group>";
@@ -273,8 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A6C6931C18D13A002C6A44 /* XS-Atomic-NonTriviallyCoyable.cpp in Sources */,
-				05A6C6881C18AE00002C6A44 /* XS-Atomic-TriviallyCoyable.cpp in Sources */,
+				051F9C7D1C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp in Sources */,
+				051F9C7E1C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp in Sources */,
+				051F9C7F1C19C3EE005D471A /* XS-Atomic-Trivial-Float.cpp in Sources */,
+				051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */,
+				051F9C801C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp in Sources */,
+				051F9C821C19C3EE005D471A /* XS-Atomic-Trivial.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

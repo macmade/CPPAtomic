@@ -29,43 +29,29 @@
 
 /*!
  * @copyright   (c) 2015 - Jean-David Gadina - www.xs-labs.com
- * @brief       Replacement of std::atomic supporting non trivially-copyable types
+ * @brief       Test case XS::Atomic
  */
 
-#ifndef XS_ATOMIC_H
-#define XS_ATOMIC_H
+/* Disabled warnings for GoogleMock */
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wglobal-constructors"
+#pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic push
+#if __clang_major__ >= 7
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
+#endif
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
+#pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic ignored "-Wused-but-marked-unused"
+#pragma clang diagnostic ignored "-Wdeprecated"
+#endif
 
-#include <type_traits>
-#include <utility>
-#include <atomic>
-#include <mutex>
+#include <GoogleMock/GoogleMock.h>
 
-namespace XS
-{
-    /*!
-     * @class           Atomic
-     * @abstract        ...
-     * @templatefield   _T_     ...
-     * @templatefield   _E_     ...
-     * @discussion      ...
-     */
-    template< typename _T_, class _E_ = void >
-    class Atomic
-    {
-        public:
-            
-            Atomic( void )                     = delete;
-            Atomic( _T_ v )                    = delete;
-            Atomic( const Atomic< _T_ > & o )  = delete;
-            Atomic( const Atomic< _T_ > && o ) = delete;
-            
-            Atomic< _T_ > & operator =( _T_ v )                    = delete;
-            Atomic< _T_ > & operator =( const Atomic< _T_ > & o )  = delete;
-            Atomic< _T_ > & operator =( const Atomic< _T_ > && o ) = delete;
-    };
-}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 
-#include <XS/Atomic/Trivial.hpp>
-#include <XS/Atomic/Non-Trivial.hpp>
+#include <XS/Atomic.hpp>
 
-#endif /* XS_ATOMIC_H */
+using namespace testing;

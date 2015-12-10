@@ -55,3 +55,74 @@
 #include <XS/Atomic.hpp>
 
 using namespace testing;
+
+TEST( XS_Atomic_Trivial_Pointer, CTOR )
+{
+    XS::Atomic< const char * > a;
+    
+    ASSERT_TRUE( a == nullptr );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, CTOR_V )
+{
+    XS::Atomic< const char * > a{ "hello, world" };
+    
+    ASSERT_TRUE( strcmp( a, "hello, world" ) == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, CCTOR )
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ a1 };
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, OperatorAssign )
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2;
+    
+    a2 = a1;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, OperatorAssign_V )
+{
+    XS::Atomic< const char * > a;
+    
+    a = "hello, world";
+    
+    ASSERT_TRUE( strcmp( a, "hello, world" ) == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, OperatorCast )
+{
+    XS::Atomic< const char * > a{ "hello, world" };
+    
+    ASSERT_TRUE( strcmp( static_cast< const char * >( a ), "hello, world" ) == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, IsLockFree )
+{
+    XS::Atomic< const char * > a;
+    
+    ASSERT_TRUE( a.IsLockFree() );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, Swap )
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ "hello, universe" };
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "hello, universe" ) == 0 );
+    
+    swap( a1, a2 );
+    
+    ASSERT_TRUE( strcmp( a1, "hello, universe" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+}

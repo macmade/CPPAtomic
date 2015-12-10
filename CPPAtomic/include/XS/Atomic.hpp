@@ -75,15 +75,14 @@ namespace XS
             Atomic( const Atomic< _T_ > & o ): _v{ o._v.load() }
             {}
             
-            Atomic( const Atomic< _T_ > && o ): _v{ std::move( o._v ) }
-            {}
+            Atomic( const Atomic< _T_ > && o ) = delete;
             
             ~Atomic( void )
             {}
             
             Atomic< _T_ > & operator =( Atomic< _T_ > o )
             {
-                this->_v = o._v;
+                this->_v = o._v.load();
                 
                 return *( this );
             }
@@ -116,11 +115,6 @@ namespace XS
             }
             
             operator _T_ ( void ) const
-            {
-                return this->_v;
-            }
-            
-            _T_ * operator ->( void ) const
             {
                 return this->_v;
             }
@@ -283,13 +277,6 @@ namespace XS
             }
             
             operator _T_ ( void ) const
-            {
-                _L_ l( this->_rmtx );
-                
-                return this->_v;
-            }
-            
-            _T_ * operator ->( void ) const
             {
                 _L_ l( this->_rmtx );
                 

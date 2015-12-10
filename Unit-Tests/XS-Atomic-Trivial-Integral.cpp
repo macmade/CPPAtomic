@@ -146,3 +146,49 @@ TEST( XS_Atomic_Trivial_Integral, Swap )
     ASSERT_TRUE( a1 == 43 );
     ASSERT_TRUE( a2 == 42 );
 }
+
+/*******************************************************************************
+ * Equality comparable
+ ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Integral, OperatorEqual )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 42 };
+    XS::Atomic< int > a3{ 43 };
+    
+    ASSERT_TRUE(  a1 == a2 );
+    ASSERT_FALSE( a1 == a3 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, OperatorEqual_V )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 43 };
+    
+    ASSERT_TRUE(  a1 == 42 );
+    ASSERT_FALSE( a1 == 43 );
+    ASSERT_TRUE(  a2 == 43 );
+    ASSERT_FALSE( a2 == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, OperatorNotEqual )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 42 };
+    XS::Atomic< int > a3{ 43 };
+    
+    ASSERT_FALSE( a1 != a2 );
+    ASSERT_TRUE(  a1 != a3 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, OperatorNotEqual_V )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 43 };
+    
+    ASSERT_TRUE(  a1 == 42 );
+    ASSERT_FALSE( a1 == 43 );
+    ASSERT_TRUE(  a2 == 43 );
+    ASSERT_FALSE( a2 == 42 );
+}

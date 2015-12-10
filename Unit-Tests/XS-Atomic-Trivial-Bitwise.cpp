@@ -146,3 +146,49 @@ TEST( XS_Atomic_Trivial_Bitwise, Swap )
     ASSERT_TRUE( a1 == static_cast< unsigned int >( 43 ) );
     ASSERT_TRUE( a2 == static_cast< unsigned int >( 42 ) );
 }
+
+/*******************************************************************************
+ * Equality comparable
+ ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Bitwise, OperatorEqual )
+{
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2{ 42 };
+    XS::Atomic< unsigned int > a3{ 43 };
+    
+    ASSERT_TRUE(  a1 == a2 );
+    ASSERT_FALSE( a1 == a3 );
+}
+
+TEST( XS_Atomic_Trivial_Bitwise, OperatorEqual_V )
+{
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2{ 43 };
+    
+    ASSERT_TRUE(  a1 == static_cast< unsigned int >( 42 ) );
+    ASSERT_FALSE( a1 == static_cast< unsigned int >( 43 ) );
+    ASSERT_TRUE(  a2 == static_cast< unsigned int >( 43 ) );
+    ASSERT_FALSE( a2 == static_cast< unsigned int >( 42 ) );
+}
+
+TEST( XS_Atomic_Trivial_Bitwise, OperatorNotEqual )
+{
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2{ 42 };
+    XS::Atomic< unsigned int > a3{ 43 };
+    
+    ASSERT_FALSE( a1 != a2 );
+    ASSERT_TRUE(  a1 != a3 );
+}
+
+TEST( XS_Atomic_Trivial_Bitwise, OperatorNotEqual_V )
+{
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2{ 43 };
+    
+    ASSERT_TRUE(  a1 == static_cast< unsigned int >( 42 ) );
+    ASSERT_FALSE( a1 == static_cast< unsigned int >( 43 ) );
+    ASSERT_TRUE(  a2 == static_cast< unsigned int >( 43 ) );
+    ASSERT_FALSE( a2 == static_cast< unsigned int >( 42 ) );
+}

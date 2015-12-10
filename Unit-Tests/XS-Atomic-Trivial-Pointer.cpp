@@ -106,6 +106,22 @@ TEST( XS_Atomic_Trivial_Pointer, OperatorCast )
     ASSERT_TRUE( strcmp( static_cast< const char * >( a ), "hello, world" ) == 0 );
 }
 
+TEST( XS_Atomic_Trivial_Pointer, Load )
+{
+    XS::Atomic< const char * > a{ "hello, world" };
+    
+    ASSERT_TRUE( strcmp( a.Load(), "hello, world" ) == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Pointer, Store )
+{
+    XS::Atomic< const char * > a;
+    
+    a.Store( "hello, world" );
+    
+    ASSERT_TRUE( strcmp( a.Load(), "hello, world" ) == 0 );
+}
+
 TEST( XS_Atomic_Trivial_Pointer, IsLockFree )
 {
     XS::Atomic< const char * > a;

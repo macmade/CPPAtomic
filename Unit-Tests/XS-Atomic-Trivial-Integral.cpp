@@ -106,6 +106,22 @@ TEST( XS_Atomic_Trivial_Integral, OperatorCast )
     ASSERT_TRUE( static_cast< int >( a ) == 42 );
 }
 
+TEST( XS_Atomic_Trivial_Integral, Load )
+{
+    XS::Atomic< int > a{ 42 };
+    
+    ASSERT_TRUE( a == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, Store )
+{
+    XS::Atomic< int > a;
+    
+    a.Store( 42 );
+    
+    ASSERT_TRUE( a == 42 );
+}
+
 TEST( XS_Atomic_Trivial_Integral, IsLockFree )
 {
     XS::Atomic< int > a;

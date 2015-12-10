@@ -106,6 +106,22 @@ TEST( XS_Atomic_Trivial_Bitwise, OperatorCast )
     ASSERT_TRUE( static_cast< unsigned int >( a ) == 42 );
 }
 
+TEST( XS_Atomic_Trivial_Bitwise, Load )
+{
+    XS::Atomic< unsigned int > a{ 42 };
+    
+    ASSERT_TRUE( a.Load() == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Bitwise, Store )
+{
+    XS::Atomic< unsigned int > a;
+    
+    a.Store( 42 );
+    
+    ASSERT_TRUE( a == static_cast< unsigned int >( 42 ) );
+}
+
 TEST( XS_Atomic_Trivial_Bitwise, IsLockFree )
 {
     XS::Atomic< unsigned int > a;

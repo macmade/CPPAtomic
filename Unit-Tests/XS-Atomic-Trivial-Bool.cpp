@@ -110,6 +110,24 @@ TEST( XS_Atomic_Trivial_Bool, OperatorCast )
     ASSERT_TRUE( static_cast< bool >( a2 ) == false );
 }
 
+TEST( XS_Atomic_Trivial_Bool, Load )
+{
+    XS::Atomic< bool > a1{ true };
+    XS::Atomic< bool > a2{ false };
+    
+    ASSERT_TRUE( a1.Load() == true );
+    ASSERT_TRUE( a2.Load() == false );
+}
+
+TEST( XS_Atomic_Trivial_Bool, Store )
+{
+    XS::Atomic< bool > a;
+    
+    a.Store( true );
+    
+    ASSERT_TRUE( a == true );
+}
+
 TEST( XS_Atomic_Trivial_Bool, IsLockFree )
 {
     XS::Atomic< bool > a;

@@ -119,6 +119,22 @@ TEST( XS_Atomic_Trivial_Struct, OperatorCast )
     ASSERT_TRUE( IsP( static_cast< P >( a ), 42, 43 ) );
 }
 
+TEST( XS_Atomic_Trivial_Struct, Load )
+{
+    XS::Atomic< P > a{ { 42, 43 } };
+    
+    ASSERT_TRUE( IsP( a, 42, 43 ) );
+}
+
+TEST( XS_Atomic_Trivial_Struct, Store )
+{
+    XS::Atomic< P > a;
+    
+    a.Store( { 42, 43 } );
+    
+    ASSERT_TRUE( IsP( a, 42, 43 ) );
+}
+
 TEST( XS_Atomic_Trivial_Struct, IsLockFree )
 {
     XS::Atomic< P > a;

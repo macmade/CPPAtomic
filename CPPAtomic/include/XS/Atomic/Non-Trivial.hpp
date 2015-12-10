@@ -101,6 +101,20 @@ namespace XS
                 return this->_v;
             }
             
+            _T_ Load( void )
+            {
+                _L_ l( this->_rmtx );
+                
+                return this->_v;
+            }
+            
+            void Store( _T_ v )
+            {
+                _L_ l( this->_rmtx );
+                
+                this->_v = v;
+            }
+            
             bool IsLockFree( void ) const
             {
                 return false;

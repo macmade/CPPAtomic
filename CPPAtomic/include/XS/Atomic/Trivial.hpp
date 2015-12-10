@@ -111,6 +111,16 @@ namespace XS
                 return this->_v;
             }
             
+            _T_ Load( void )
+            {
+                return this->_v.load();
+            }
+            
+            void Store( _T_ v )
+            {
+                this->_v.store( v );
+            }
+            
             bool IsLockFree( void ) const
             {
                 return this->_v.is_lock_free();

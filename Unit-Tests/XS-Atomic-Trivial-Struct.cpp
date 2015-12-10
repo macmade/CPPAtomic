@@ -56,36 +56,37 @@
 
 using namespace testing;
 
-struct P
+typedef struct
 {
     int x;
     int y;
-};
+}
+P;
 
-static bool IsP( struct P p, int x, int y );
-static bool IsP( struct P p, int x, int y )
+static bool IsP( P p, int x, int y );
+static bool IsP( P p, int x, int y )
 {
     return p.x == x && p.y == y;
 }
 
 TEST( XS_Atomic_Trivial_Struct, CTOR )
 {
-    XS::Atomic< struct P > a;
+    XS::Atomic< P > a;
     
     ASSERT_TRUE( IsP( a, 0, 0 ) );
 }
 
 TEST( XS_Atomic_Trivial_Struct, CTOR_V )
 {
-    XS::Atomic< struct P > a{ { 42, 43 } };
+    XS::Atomic< P > a{ { 42, 43 } };
     
     ASSERT_TRUE( IsP( a, 42, 43 ) );
 }
 
 TEST( XS_Atomic_Trivial_Struct, CCTOR )
 {
-    XS::Atomic< struct P > a1{ { 42, 43 } };
-    XS::Atomic< struct P > a2{ a1 };
+    XS::Atomic< P > a1{ { 42, 43 } };
+    XS::Atomic< P > a2{ a1 };
     
     ASSERT_TRUE( IsP( a1, 42, 43 ) );
     ASSERT_TRUE( IsP( a2, 42, 43 ) );
@@ -93,8 +94,8 @@ TEST( XS_Atomic_Trivial_Struct, CCTOR )
 
 TEST( XS_Atomic_Trivial_Struct, OperatorAssign )
 {
-    XS::Atomic< struct P > a1{ { 42, 43 } };
-    XS::Atomic< struct P > a2;
+    XS::Atomic< P > a1{ { 42, 43 } };
+    XS::Atomic< P > a2;
     
     a2 = a1;
     
@@ -104,7 +105,7 @@ TEST( XS_Atomic_Trivial_Struct, OperatorAssign )
 
 TEST( XS_Atomic_Trivial_Struct, OperatorAssign_V )
 {
-    XS::Atomic< struct P > a;
+    XS::Atomic< P > a;
     
     a = { 42, 43 };
     
@@ -113,22 +114,22 @@ TEST( XS_Atomic_Trivial_Struct, OperatorAssign_V )
 
 TEST( XS_Atomic_Trivial_Struct, OperatorCast )
 {
-    XS::Atomic< struct P > a{ { 42, 43 } };
+    XS::Atomic< P > a{ { 42, 43 } };
     
-    ASSERT_TRUE( IsP( static_cast< struct P >( a ), 42, 43 ) );
+    ASSERT_TRUE( IsP( static_cast< P >( a ), 42, 43 ) );
 }
 
 TEST( XS_Atomic_Trivial_Struct, IsLockFree )
 {
-    XS::Atomic< struct P > a;
+    XS::Atomic< P > a;
     
     ASSERT_TRUE( a.IsLockFree() );
 }
 
 TEST( XS_Atomic_Trivial_Struct, Swap )
 {
-    XS::Atomic< struct P > a1{ { 42, 43 } };
-    XS::Atomic< struct P > a2{ { 44, 45 } };
+    XS::Atomic< P > a1{ { 42, 43 } };
+    XS::Atomic< P > a2{ { 44, 45 } };
     
     ASSERT_TRUE( IsP( a1, 42, 43 ) );
     ASSERT_TRUE( IsP( a2, 44, 45 ) );

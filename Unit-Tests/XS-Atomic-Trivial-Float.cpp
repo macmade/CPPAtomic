@@ -55,3 +55,80 @@
 #include <XS/Atomic.hpp>
 
 using namespace testing;
+
+static bool FloatIsEqual( float x, float y );
+static bool FloatIsEqual( float x, float y )
+{
+    return fabsf( x - y ) < FLT_EPSILON;
+}
+
+TEST( XS_Atomic_Trivial_Float, CTOR )
+{
+    XS::Atomic< float > a;
+    
+    ASSERT_TRUE( FloatIsEqual( a, 0.0 ) );
+}
+
+TEST( XS_Atomic_Trivial_Float, CTOR_V )
+{
+    XS::Atomic< float > a{ 42 };
+    
+    ASSERT_TRUE( FloatIsEqual( a, 42.0 ) );
+}
+
+TEST( XS_Atomic_Trivial_Float, CCTOR )
+{
+    XS::Atomic< float > a1{ 42 };
+    XS::Atomic< float > a2{ a1 };
+    
+    ASSERT_TRUE( FloatIsEqual( a1, 42.0 ) );
+    ASSERT_TRUE( FloatIsEqual( a2, 42.0 ) );
+}
+
+TEST( XS_Atomic_Trivial_Float, OperatorAssign )
+{
+    XS::Atomic< float > a1{ 42 };
+    XS::Atomic< float > a2;
+    
+    a2 = a1;
+    
+    ASSERT_TRUE( FloatIsEqual( a1, 42.0 ) );
+    ASSERT_TRUE( FloatIsEqual( a2, 42.0 ) );
+}
+
+TEST( XS_Atomic_Trivial_Float, OperatorAssign_V )
+{
+    XS::Atomic< float > a;
+    
+    a = 42;
+    
+    ASSERT_TRUE( FloatIsEqual( a, 42.0 ) );
+}
+
+TEST( XS_Atomic_Trivial_Float, OperatorCast )
+{
+    XS::Atomic< float > a{ 42 };
+    
+    ASSERT_TRUE( FloatIsEqual( static_cast< float >( a ), 42.0 ) );
+}
+
+TEST( XS_Atomic_Trivial_Float, IsLockFree )
+{
+    XS::Atomic< float > a;
+    
+    ASSERT_TRUE( a.IsLockFree() );
+}
+
+TEST( XS_Atomic_Trivial_Float, Swap )
+{
+    XS::Atomic< float > a1{ 42 };
+    XS::Atomic< float > a2{ 43 };
+    
+    ASSERT_TRUE( FloatIsEqual( a1, 42.0 ) );
+    ASSERT_TRUE( FloatIsEqual( a2, 43.0 ) );
+    
+    swap( a1, a2 );
+    
+    ASSERT_TRUE( FloatIsEqual( a1, 43.0 ) );
+    ASSERT_TRUE( FloatIsEqual( a2, 42.0 ) );
+}

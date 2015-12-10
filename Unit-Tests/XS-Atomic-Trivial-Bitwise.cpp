@@ -56,6 +56,10 @@
 
 using namespace testing;
 
+/*******************************************************************************
+ * Common definitions
+ ******************************************************************************/
+
 TEST( XS_Atomic_Trivial_Bitwise, CTOR )
 {
     XS::Atomic< unsigned int > a;

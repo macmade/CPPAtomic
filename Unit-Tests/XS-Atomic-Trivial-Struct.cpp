@@ -72,6 +72,10 @@ static bool IsP( P p, int x, int y )
     return p.x == x && p.y == y;
 }
 
+/*******************************************************************************
+ * Common definitions
+ ******************************************************************************/
+
 TEST( XS_Atomic_Trivial_Struct, CTOR )
 {
     XS::Atomic< P > a;

@@ -62,6 +62,10 @@ static bool FloatIsEqual( float x, float y )
     return fabsf( x - y ) < FLT_EPSILON;
 }
 
+/*******************************************************************************
+ * Common definitions
+ ******************************************************************************/
+
 TEST( XS_Atomic_Trivial_Float, CTOR )
 {
     XS::Atomic< float > a;

@@ -56,6 +56,10 @@
 
 using namespace testing;
 
+/*******************************************************************************
+ * Common definitions
+ ******************************************************************************/
+
 TEST( XS_Atomic_Trivial_Pointer, CTOR )
 {
     XS::Atomic< const char * > a;

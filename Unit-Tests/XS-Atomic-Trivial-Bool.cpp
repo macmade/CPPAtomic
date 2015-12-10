@@ -56,6 +56,10 @@
 
 using namespace testing;
 
+/*******************************************************************************
+ * Common definitions
+ ******************************************************************************/
+             
 TEST( XS_Atomic_Trivial_Bool, CTOR )
 {
     XS::Atomic< bool > a;
@@ -147,4 +151,52 @@ TEST( XS_Atomic_Trivial_Bool, Swap )
     
     ASSERT_TRUE( a1 == false );
     ASSERT_TRUE( a2 == true );
+}
+
+/*******************************************************************************
+ * Equality comparable
+ ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Bool, OperatorEqual )
+{
+    XS::Atomic< bool > a1{ true };
+    XS::Atomic< bool > a2{ true };
+    XS::Atomic< bool > a3{ false };
+    
+    ASSERT_TRUE(  a1 == a2 );
+    ASSERT_FALSE( a1 == a3 );
+}
+
+TEST( XS_Atomic_Trivial_Bool, OperatorEqual_V )
+{
+    XS::Atomic< bool > a1{ true };
+    XS::Atomic< bool > a2{ true };
+    XS::Atomic< bool > a3{ false };
+    XS::Atomic< bool > a4{ false };
+    
+    ASSERT_TRUE(  a1 == a2 );
+    ASSERT_FALSE( a1 == a3 );
+    ASSERT_TRUE(  a3 == a4 );
+    ASSERT_FALSE( a3 == a1 );
+}
+
+TEST( XS_Atomic_Trivial_Bool, OperatorNotEqual )
+{
+    XS::Atomic< bool > a1{ true };
+    XS::Atomic< bool > a2{ true };
+    XS::Atomic< bool > a3{ false };
+    
+    ASSERT_FALSE( a1 != a2 );
+    ASSERT_TRUE(  a1 != a3 );
+}
+
+TEST( XS_Atomic_Trivial_Bool, OperatorNotEqual_V )
+{
+    XS::Atomic< bool > a1{ true };
+    XS::Atomic< bool > a2{ false };
+    
+    ASSERT_TRUE(  a1 == true );
+    ASSERT_FALSE( a1 == false );
+    ASSERT_TRUE(  a2 == false );
+    ASSERT_FALSE( a2 == true );
 }

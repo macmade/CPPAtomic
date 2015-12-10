@@ -54,6 +54,9 @@
 
 #include <XS/Atomic.hpp>
 
+/* SDK version 10.11 solves issues when using a struct with std::atomic */
+#if !defined( __APPLE__ ) || defined( MAC_OS_X_VERSION_10_11 )
+
 using namespace testing;
 
 typedef struct
@@ -155,3 +158,5 @@ TEST( XS_Atomic_Trivial_Struct, Swap )
     ASSERT_TRUE( IsP( a1, 44, 45 ) );
     ASSERT_TRUE( IsP( a2, 42, 43 ) );
 }
+
+#endif

@@ -56,77 +56,73 @@
 
 using namespace testing;
 
-TEST( XS_Atomic_Trivial_Bool, CTOR )
+TEST( XS_Atomic_Trivial_Bitwise, CTOR )
 {
-    XS::Atomic< bool > a;
+    XS::Atomic< unsigned int > a;
     
-    ASSERT_TRUE( a == false );
+    ASSERT_TRUE( a == static_cast< unsigned int >( 0 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bool, CTOR_V )
+TEST( XS_Atomic_Trivial_Bitwise, CTOR_V )
 {
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ false };
+    XS::Atomic< unsigned int > a{ 42 };
     
-    ASSERT_TRUE( a1 == true );
-    ASSERT_TRUE( a2 == false );
+    ASSERT_TRUE( a == static_cast< unsigned int >( 42 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bool, CCTOR )
+TEST( XS_Atomic_Trivial_Bitwise, CCTOR )
 {
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ a1 };
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2{ a1 };
     
-    ASSERT_TRUE( a1 == true );
-    ASSERT_TRUE( a2 == true );
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 42 ) );
+    ASSERT_TRUE( a2 == static_cast< unsigned int >( 42 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bool, OperatorAssign )
+TEST( XS_Atomic_Trivial_Bitwise, OperatorAssign )
 {
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2;
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2;
     
     a2 = a1;
     
-    ASSERT_TRUE( a1 == true );
-    ASSERT_TRUE( a2 == true );
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 42 ) );
+    ASSERT_TRUE( a2 == static_cast< unsigned int >( 42 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bool, OperatorAssign_V )
+TEST( XS_Atomic_Trivial_Bitwise, OperatorAssign_V )
 {
-    XS::Atomic< bool > a;
+    XS::Atomic< unsigned int > a;
     
-    a = true;
+    a = 42;
     
-    ASSERT_TRUE( a == true );
+    ASSERT_TRUE( a == static_cast< unsigned int >( 42 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bool, OperatorCast )
+TEST( XS_Atomic_Trivial_Bitwise, OperatorCast )
 {
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ false };
+    XS::Atomic< unsigned int > a{ 42 };
     
-    ASSERT_TRUE( static_cast< bool >( a1 ) == true );
-    ASSERT_TRUE( static_cast< bool >( a2 ) == false );
+    ASSERT_TRUE( static_cast< unsigned int >( a ) == 42 );
 }
 
-TEST( XS_Atomic_Trivial_Bool, IsLockFree )
+TEST( XS_Atomic_Trivial_Bitwise, IsLockFree )
 {
-    XS::Atomic< bool > a;
+    XS::Atomic< unsigned int > a;
     
     ASSERT_TRUE( a.IsLockFree() );
 }
 
-TEST( XS_Atomic_Trivial_Bool, Swap )
+TEST( XS_Atomic_Trivial_Bitwise, Swap )
 {
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ false };
+    XS::Atomic< unsigned int > a1{ 42 };
+    XS::Atomic< unsigned int > a2{ 43 };
     
-    ASSERT_TRUE( a1 == true );
-    ASSERT_TRUE( a2 == false );
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 42 ) );
+    ASSERT_TRUE( a2 == static_cast< unsigned int >( 43 ) );
     
     swap( a1, a2 );
     
-    ASSERT_TRUE( a1 == false );
-    ASSERT_TRUE( a2 == true );
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 43 ) );
+    ASSERT_TRUE( a2 == static_cast< unsigned int >( 42 ) );
 }

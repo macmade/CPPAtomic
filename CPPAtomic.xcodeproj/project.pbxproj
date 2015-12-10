@@ -13,6 +13,7 @@
 		051F9C801C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */; };
 		051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */; };
 		051F9C821C19C3EE005D471A /* XS-Atomic-Trivial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial.cpp */; };
+		051F9C851C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C841C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp */; };
 		053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053BEDBD1B8EFDE6007D82A4 /* GoogleMock.framework */; };
 		053BEDEC1B90ABB2007D82A4 /* travis-after.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE71B90ABB2007D82A4 /* travis-after.sh */; };
 		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
@@ -65,6 +66,7 @@
 		051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Integral.cpp"; sourceTree = "<group>"; };
 		051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Pointer.cpp"; sourceTree = "<group>"; };
 		051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial.cpp"; sourceTree = "<group>"; };
+		051F9C841C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Bitwise.cpp"; sourceTree = "<group>"; };
 		053BEDAC1B8EFDC1007D82A4 /* CPPAtomic-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPPAtomic-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
 		053BEDC71B8EFE1E007D82A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */,
+				051F9C841C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp */,
 				051F9C781C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp */,
 				051F9C791C19C3EE005D471A /* XS-Atomic-Trivial-Float.cpp */,
 				051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */,
@@ -303,6 +306,7 @@
 				051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */,
 				051F9C801C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp in Sources */,
 				051F9C821C19C3EE005D471A /* XS-Atomic-Trivial.cpp in Sources */,
+				051F9C851C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

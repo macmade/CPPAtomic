@@ -53,8 +53,12 @@ namespace XS
     {
         private:
             
-            typedef std::atomic< _T_ > _A_;
+            typedef std::atomic< _T_ >      _A_;
+            typedef std::recursive_mutex    _M_;
+            typedef std::lock_guard< _M_ >  _L_;
+            
             _A_ _v;
+            _M_ _m;
             
             template< class _U_ >
             struct IsEqualityComparable: public std::integral_constant< bool, std::is_same< _U_ , bool >::value || std::is_integral< _U_ >::value || std::is_pointer< _U_ >::value >
@@ -114,9 +118,16 @@ namespace XS
             
             friend void swap( Atomic< _T_ > & o1, Atomic< _T_ > & o2 )
             {
-                using std::swap;
+                std::lock( o1._m, o2._m );
                 
-                swap( o1._v, o2._v );
+                _L_ l1( o1._m, std::adopt_lock );
+                _L_ l2( o2._m, std::adopt_lock );
+                
+                _T_ v1 = o1._v.load();
+                _T_ v2 = o2._v.load();
+                
+                o1._v.store( v2 );
+                o2._v.store( v1 );
             }
             
             /*******************************************************************

@@ -55,3 +55,74 @@
 #include <XS/Atomic.hpp>
 
 using namespace testing;
+
+TEST( XS_Atomic_Trivial_Integral, CTOR )
+{
+    XS::Atomic< int > a;
+    
+    ASSERT_TRUE( a == 0 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, CTOR_V )
+{
+    XS::Atomic< int > a{ 42 };
+    
+    ASSERT_TRUE( a == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, CCTOR )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ a1 };
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, OperatorAssign )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, OperatorAssign_V )
+{
+    XS::Atomic< int > a;
+    
+    a = 42;
+    
+    ASSERT_TRUE( a == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, OperatorCast )
+{
+    XS::Atomic< int > a{ 42 };
+    
+    ASSERT_TRUE( static_cast< int >( a ) == 42 );
+}
+
+TEST( XS_Atomic_Trivial_Integral, IsLockFree )
+{
+    XS::Atomic< int > a;
+    
+    ASSERT_TRUE( a.IsLockFree() );
+}
+
+TEST( XS_Atomic_Trivial_Integral, Swap )
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 43 };
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 43 );
+    
+    swap( a1, a2 );
+    
+    ASSERT_TRUE( a1 == 43 );
+    ASSERT_TRUE( a2 == 42 );
+}

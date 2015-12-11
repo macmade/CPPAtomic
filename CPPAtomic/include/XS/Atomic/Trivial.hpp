@@ -87,8 +87,6 @@ namespace XS
             Atomic( const Atomic< _T_ > & o ): _v{ o._v.load() }
             {}
             
-            Atomic( const Atomic< _T_ > && o ) = delete;
-            
             ~Atomic( void )
             {}
             
@@ -253,7 +251,7 @@ namespace XS
                 
                 operator--();
                 
-                return a;
+                return a.Load();
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >

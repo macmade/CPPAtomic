@@ -173,9 +173,21 @@ namespace XS
              ******************************************************************/
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
+            bool operator >( const Atomic< _T_ > & o ) const
+            {
+                return this->_v.load() > o._v.load();
+            }
+            
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
             bool operator >( _T_ v ) const
             {
                 return this->_v.load() > v;
+            }
+            
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
+            bool operator <( const Atomic< _T_ > & o ) const
+            {
+                return this->_v.load() < o._v.load();
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
@@ -185,9 +197,21 @@ namespace XS
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
+            bool operator >=( const Atomic< _T_ > & o ) const
+            {
+                return this->_v.load() >= o._v.load();
+            }
+            
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
             bool operator >=( _T_ v ) const
             {
                 return this->_v.load() >= v;
+            }
+            
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
+            bool operator <=( const Atomic< _T_ > & o ) const
+            {
+                return this->_v.load() <= o._v.load();
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
@@ -233,9 +257,25 @@ namespace XS
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
+            Atomic< _T_ > & operator += ( const Atomic< _T_ > & o )
+            {
+                this->_v += o;
+                
+                return *( this );
+            }
+            
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
             Atomic< _T_ > & operator += ( _T_ v )
             {
                 this->_v += v;
+                
+                return *( this );
+            }
+            
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && IsArithmetic< _U_ >::value > >
+            Atomic< _T_ > & operator -= ( const Atomic< _T_ > & o )
+            {
+                this->_v -= o;
                 
                 return *( this );
             }

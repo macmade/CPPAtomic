@@ -91,9 +91,6 @@ TEST( XS_Atomic_Trivial_NonTrivial, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_NonTrivial, SimpleAssignmentOperator )
-{}
-
 TEST( XS_Atomic_Trivial_NonTrivial, AdditionAssignmentOperator )
 {}
 

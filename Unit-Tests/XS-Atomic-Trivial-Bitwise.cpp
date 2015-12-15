@@ -144,9 +144,6 @@ TEST( XS_Atomic_Trivial_Bitwise, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_Bitwise, SimpleAssignmentOperator )
-{}
-
 TEST( XS_Atomic_Trivial_Bitwise, AdditionAssignmentOperator )
 {}
 

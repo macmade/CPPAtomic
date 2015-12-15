@@ -144,9 +144,6 @@ TEST( XS_Atomic_Trivial_Pointer, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_Pointer, SimpleAssignmentOperator )
-{}
-
 TEST( XS_Atomic_Trivial_Pointer, AdditionAssignmentOperator )
 {}
 

@@ -150,9 +150,6 @@ TEST( XS_Atomic_Trivial_Bool, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_Bool, SimpleAssignmentOperator )
-{}
-
 TEST( XS_Atomic_Trivial_Bool, AdditionAssignmentOperator )
 {}
 

@@ -160,9 +160,6 @@ TEST( XS_Atomic_Trivial_Struct, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_Struct, SimpleAssignmentOperator )
-{}
-
 TEST( XS_Atomic_Trivial_Struct, AdditionAssignmentOperator )
 {}
 

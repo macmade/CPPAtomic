@@ -144,9 +144,6 @@ TEST( XS_Atomic_Trivial_Integral, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_Integral, SimpleAssignmentOperator )
-{}
-
 TEST( XS_Atomic_Trivial_Integral, AdditionAssignmentOperator )
 {}
 

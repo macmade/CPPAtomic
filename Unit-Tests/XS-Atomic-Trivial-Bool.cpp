@@ -147,47 +147,5 @@ TEST( XS_Atomic_Trivial_Bool, Swap )
 }
 
 /*******************************************************************************
- * Equality comparable
+ * Type specific
  ******************************************************************************/
-
-TEST( XS_Atomic_Trivial_Bool, OperatorEqual )
-{
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ true };
-    XS::Atomic< bool > a3{ false };
-    
-    ASSERT_TRUE(  a1 == a2 );
-    ASSERT_FALSE( a1 == a3 );
-}
-
-TEST( XS_Atomic_Trivial_Bool, OperatorEqual_V )
-{
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ false };
-    
-    ASSERT_TRUE(  a1 == true );
-    ASSERT_FALSE( a1 == false );
-    ASSERT_TRUE(  a2 == false );
-    ASSERT_FALSE( a2 == true );
-}
-
-TEST( XS_Atomic_Trivial_Bool, OperatorNotEqual )
-{
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ true };
-    XS::Atomic< bool > a3{ false };
-    
-    ASSERT_FALSE( a1 != a2 );
-    ASSERT_TRUE(  a1 != a3 );
-}
-
-TEST( XS_Atomic_Trivial_Bool, OperatorNotEqual_V )
-{
-    XS::Atomic< bool > a1{ true };
-    XS::Atomic< bool > a2{ false };
-    
-    ASSERT_TRUE(  a1 == true );
-    ASSERT_FALSE( a1 == false );
-    ASSERT_TRUE(  a2 == false );
-    ASSERT_FALSE( a2 == true );
-}

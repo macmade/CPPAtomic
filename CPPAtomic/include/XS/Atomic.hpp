@@ -107,6 +107,10 @@ namespace XS
             template< class _U_ > struct HasGreaterThanOrEqualToOperator:           public std::integral_constant< bool, TrivialValueIsArithmetic<         _U_ >::value || XS::TypeTraits::HasGreaterThanOrEqualToOperator<          _U_, bool,  const _U_ & >::value > {};
         
         public:
+
+            /*******************************************************************
+             * Common definitions
+             ******************************************************************/
             
             Atomic( void ): _v{}
             {}
@@ -186,6 +190,10 @@ namespace XS
                 
                 swap( o1._v, o2._v );
             }
+
+            /*******************************************************************
+             * Type specific
+             ******************************************************************/
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionAssignmentOperator< _U_ >::value > >
             Atomic< _T_ > & operator +=( const Atomic< _T_ > & o )

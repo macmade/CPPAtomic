@@ -145,190 +145,481 @@ TEST( XS_Atomic_Trivial_Integral, Swap )
  ******************************************************************************/
 
 TEST( XS_Atomic_Trivial_Integral, AdditionAssignmentOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    a1 += a2;
+    
+    ASSERT_TRUE( a1 == 52 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, AdditionAssignmentOperator_V )
-{}
+{
+    XS::Atomic< int > a{ 42 };
+    
+    a += 10;
+    
+    ASSERT_TRUE( a == 52 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, SubtractionAssignmentOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    a1 -= a2;
+    
+    ASSERT_TRUE( a1 == 32 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, SubtractionAssignmentOperator_V )
-{}
+{
+    XS::Atomic< int > a{ 42 };
+    
+    a -= 10;
+    
+    ASSERT_TRUE( a == 32 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, MultiplicationAssignmentOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    a1 *= a2;
+    
+    ASSERT_TRUE( a1 == 420 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, MultiplicationAssignmentOperator_V )
-{}
+{
+    XS::Atomic< int > a{ 42 };
+    
+    a *= 10;
+    
+    ASSERT_TRUE( a == 420 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, DivisionAssignmentOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    a1 /= a2;
+    
+    ASSERT_TRUE( a1 == 4 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, DivisionAssignmentOperator_V )
-{}
+{
+    XS::Atomic< int > a{ 42 };
+    
+    a /= 10;
+    
+    ASSERT_TRUE( a == 4 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, ModuloAssignmentOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    a1 %= a2;
+    
+    ASSERT_TRUE( a1 == 2 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, ModuloAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseANDAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseANDAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseORAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseORAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseXORAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseXORAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseLeftShiftAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseLeftShiftAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseRightShiftAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseRightShiftAssignmentOperator_V )
-{}
+{
+    XS::Atomic< int > a{ 42 };
+    
+    a %= 10;
+    
+    ASSERT_TRUE( a == 2 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, PreIncrementOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = ++a1;
+    
+    ASSERT_TRUE( a1 == 43 );
+    ASSERT_TRUE( a2 == 43 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, PreDecrementOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = --a1;
+    
+    ASSERT_TRUE( a1 == 41 );
+    ASSERT_TRUE( a2 == 41 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, PostIncrementOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1++;
+    
+    ASSERT_TRUE( a1 == 43 );
+    ASSERT_TRUE( a2 == 42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, PostDecrementOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1--;
+    
+    ASSERT_TRUE( a1 == 41 );
+    ASSERT_TRUE( a2 == 42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, UnaryPlusOperator )
-{}
+{
+    XS::Atomic< int > a1{  42 };
+    XS::Atomic< int > a2{ -42 };
+    XS::Atomic< int > a3;
+    XS::Atomic< int > a4;
+    
+    a3 = +a1;
+    a4 = +a2;
+    
+    ASSERT_TRUE( a1 ==  42 );
+    ASSERT_TRUE( a2 == -42 );
+    ASSERT_TRUE( a3 ==  42 );
+    ASSERT_TRUE( a4 == -42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, UnaryMinusOperator )
-{}
+{
+    XS::Atomic< int > a1{  42 };
+    XS::Atomic< int > a2{ -42 };
+    XS::Atomic< int > a3;
+    XS::Atomic< int > a4;
+    
+    a3 = -a1;
+    a4 = -a2;
+    
+    ASSERT_TRUE( a1 ==  42 );
+    ASSERT_TRUE( a2 == -42 );
+    ASSERT_TRUE( a3 == -42 );
+    ASSERT_TRUE( a4 ==  42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, AdditionOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    XS::Atomic< int > a3;
+    
+    a3 = a1 + a2;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 10 );
+    ASSERT_TRUE( a3 == 52 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, AdditionOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1 + 10;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 52 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, SubtractionOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    XS::Atomic< int > a3;
+    
+    a3 = a1 - a2;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 10 );
+    ASSERT_TRUE( a3 == 32 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, SubtractionOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1 - 10;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 32 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, MultiplicationOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    XS::Atomic< int > a3;
+    
+    a3 = a1 * a2;
+    
+    ASSERT_TRUE( a1 ==  42 );
+    ASSERT_TRUE( a2 ==  10 );
+    ASSERT_TRUE( a3 == 420 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, MultiplicationOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1 * 10;
+    
+    ASSERT_TRUE( a1 ==  42 );
+    ASSERT_TRUE( a2 == 420 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, DivisionOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    XS::Atomic< int > a3;
+    
+    a3 = a1 / a2;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 10 );
+    ASSERT_TRUE( a3 ==  4 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, DivisionOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1 / 10;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 ==  4 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, ModuloOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    XS::Atomic< int > a3;
+    
+    a3 = a1 % a2;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 == 10 );
+    ASSERT_TRUE( a3 ==  2 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, ModuloOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseANDOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseANDOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseOROperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseOROperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseXOROperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseXOROperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseLeftShiftOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseLeftShiftOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseLightShiftOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Integral, BitwiseLightShiftOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2;
+    
+    a2 = a1 % 10;
+    
+    ASSERT_TRUE( a1 == 42 );
+    ASSERT_TRUE( a2 ==  2 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, NegationOperator )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 1 };
+    
+    ASSERT_TRUE(  !a1 );
+    ASSERT_FALSE( !a2 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, ANDOperator )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 0 };
+    XS::Atomic< int > a3{ 1 };
+    XS::Atomic< int > a4{ 1 };
+    
+    ASSERT_FALSE( a1 && a2 );
+    ASSERT_FALSE( a1 && a3 );
+    ASSERT_TRUE(  a3 && a4 );
+    ASSERT_FALSE( a3 && a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, ANDOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 1 };
+    
+    ASSERT_FALSE( a1 && 0 );
+    ASSERT_FALSE( a1 && 1 );
+    ASSERT_TRUE(  a2 && 1 );
+    ASSERT_FALSE( a2 && 0 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, InclusiveOROperator )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 0 };
+    XS::Atomic< int > a3{ 1 };
+    XS::Atomic< int > a4{ 1 };
+    
+    ASSERT_FALSE( a1 || a2 );
+    ASSERT_TRUE(  a1 || a3 );
+    ASSERT_TRUE(  a3 || a4 );
+    ASSERT_TRUE(  a3 || a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, InclusiveOROperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 1 };
+    
+    ASSERT_FALSE( a1 || 0 );
+    ASSERT_TRUE(  a1 || 1 );
+    ASSERT_TRUE(  a2 || 1 );
+    ASSERT_TRUE(  a2 || 0 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, EqualToOperator )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 0 };
+    XS::Atomic< int > a3{ 1 };
+    XS::Atomic< int > a4{ 1 };
+    
+    ASSERT_TRUE(  a1 == a2 );
+    ASSERT_FALSE( a1 == a3 );
+    ASSERT_TRUE(  a3 == a4 );
+    ASSERT_FALSE( a3 == a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, EqualToOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 1 };
+    
+    ASSERT_TRUE(  a1 == 0 );
+    ASSERT_FALSE( a1 == 1 );
+    ASSERT_TRUE(  a2 == 1 );
+    ASSERT_FALSE( a2 == 0 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, NotEqualToOperator )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 0 };
+    XS::Atomic< int > a3{ 1 };
+    XS::Atomic< int > a4{ 1 };
+    
+    ASSERT_FALSE( a1 != a2 );
+    ASSERT_TRUE(  a1 != a3 );
+    ASSERT_FALSE( a3 != a4 );
+    ASSERT_TRUE(  a3 != a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, NotEqualToOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 0 };
+    XS::Atomic< int > a2{ 1 };
+    
+    ASSERT_FALSE( a1 != 0 );
+    ASSERT_TRUE(  a1 != 1 );
+    ASSERT_FALSE( a2 != 1 );
+    ASSERT_TRUE(  a2 != 0 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, LessThanOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 42 };
+    XS::Atomic< int > a3{ 10 };
+    
+    ASSERT_FALSE( a1 < a2 );
+    ASSERT_FALSE( a1 < a3 );
+    ASSERT_TRUE(  a3 < a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, LessThanOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    ASSERT_FALSE( a1 < 42 );
+    ASSERT_FALSE( a1 < 10 );
+    ASSERT_TRUE(  a2 < 42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, GreaterThanOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 42 };
+    XS::Atomic< int > a3{ 10 };
+    
+    ASSERT_FALSE( a1 > a2 );
+    ASSERT_TRUE(  a1 > a3 );
+    ASSERT_FALSE( a3 > a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, GreaterThanOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    ASSERT_FALSE( a1 > 42 );
+    ASSERT_TRUE(  a1 > 10 );
+    ASSERT_FALSE( a2 > 42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, LessThanOrEqualToOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 42 };
+    XS::Atomic< int > a3{ 10 };
+    
+    ASSERT_TRUE(  a1 <= a2 );
+    ASSERT_FALSE( a1 <= a3 );
+    ASSERT_TRUE(  a3 <= a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, LessThanOrEqualToOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    ASSERT_TRUE(  a1 <= 42 );
+    ASSERT_FALSE( a1 <= 10 );
+    ASSERT_TRUE(  a2 <= 42 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, GreaterThanOrEqualToOperator )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 42 };
+    XS::Atomic< int > a3{ 10 };
+    
+    ASSERT_TRUE(  a1 >= a2 );
+    ASSERT_TRUE(  a1 >= a3 );
+    ASSERT_FALSE( a3 >= a1 );
+}
 
 TEST( XS_Atomic_Trivial_Integral, GreaterThanOrEqualToOperator_V )
-{}
+{
+    XS::Atomic< int > a1{ 42 };
+    XS::Atomic< int > a2{ 10 };
+    
+    ASSERT_TRUE(  a1 >= 42 );
+    ASSERT_TRUE(  a1 >= 10 );
+    ASSERT_FALSE( a2 >= 42 );
+}

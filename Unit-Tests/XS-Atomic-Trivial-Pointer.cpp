@@ -143,3 +143,114 @@ TEST( XS_Atomic_Trivial_Pointer, Swap )
 /*******************************************************************************
  * Type specific
  ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Pointer, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Pointer, GreaterThanOrEqualToOperator )
+{}

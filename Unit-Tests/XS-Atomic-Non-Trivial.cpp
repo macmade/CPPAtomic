@@ -59,3 +59,145 @@ using namespace testing;
 /*******************************************************************************
  * Common definitions
  ******************************************************************************/
+             
+TEST( XS_Atomic_Trivial_NonTrivial, CTOR )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, CTOR_V )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, CCTOR )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, OperatorAssign )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, OperatorAssign_V )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, OperatorCast )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, Load )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, Store )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, Swap )
+{}
+
+/*******************************************************************************
+ * Type specific
+ ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_NonTrivial, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, GreaterThanOrEqualToOperator )
+{}

@@ -143,3 +143,114 @@ TEST( XS_Atomic_Trivial_Bitwise, Swap )
 /*******************************************************************************
  * Type specific
  ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Bitwise, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, GreaterThanOrEqualToOperator )
+{}

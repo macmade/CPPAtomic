@@ -156,4 +156,119 @@ TEST( XS_Atomic_Trivial_Struct, Swap )
     ASSERT_TRUE( IsP( a2, 42, 43 ) );
 }
 
+/*******************************************************************************
+ * Type specific
+ ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Struct, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, GreaterThanOrEqualToOperator )
+{}
+
 #endif

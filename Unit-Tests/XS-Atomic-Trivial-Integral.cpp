@@ -144,3 +144,113 @@ TEST( XS_Atomic_Trivial_Integral, Swap )
  * Type specific
  ******************************************************************************/
 
+TEST( XS_Atomic_Trivial_Integral, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Integral, GreaterThanOrEqualToOperator )
+{}

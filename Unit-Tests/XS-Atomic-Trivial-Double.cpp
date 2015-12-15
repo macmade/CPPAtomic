@@ -66,21 +66,21 @@ static bool DoubleIsEqual( double x, double y )
  * Common definitions
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_double, CTOR )
+TEST( XS_Atomic_Trivial_Double, CTOR )
 {
     XS::Atomic< double > a;
     
     ASSERT_TRUE( DoubleIsEqual( a, 0.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, CTOR_V )
+TEST( XS_Atomic_Trivial_Double, CTOR_V )
 {
     XS::Atomic< double > a{ 42.0 };
     
     ASSERT_TRUE( DoubleIsEqual( a, 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, CCTOR )
+TEST( XS_Atomic_Trivial_Double, CCTOR )
 {
     XS::Atomic< double > a1{ 42.0 };
     XS::Atomic< double > a2{ a1 };
@@ -89,7 +89,7 @@ TEST( XS_Atomic_Trivial_double, CCTOR )
     ASSERT_TRUE( DoubleIsEqual( a2, 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, OperatorAssign )
+TEST( XS_Atomic_Trivial_Double, OperatorAssign )
 {
     XS::Atomic< double > a1{ 42.0 };
     XS::Atomic< double > a2;
@@ -100,7 +100,7 @@ TEST( XS_Atomic_Trivial_double, OperatorAssign )
     ASSERT_TRUE( DoubleIsEqual( a2, 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, OperatorAssign_V )
+TEST( XS_Atomic_Trivial_Double, OperatorAssign_V )
 {
     XS::Atomic< double > a;
     
@@ -109,21 +109,21 @@ TEST( XS_Atomic_Trivial_double, OperatorAssign_V )
     ASSERT_TRUE( DoubleIsEqual( a, 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, OperatorCast )
+TEST( XS_Atomic_Trivial_Double, OperatorCast )
 {
     XS::Atomic< double > a{ 42.0 };
     
     ASSERT_TRUE( DoubleIsEqual( static_cast< double >( a ), 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, Load )
+TEST( XS_Atomic_Trivial_Double, Load )
 {
     XS::Atomic< double > a{ 42.0 };
     
     ASSERT_TRUE( DoubleIsEqual( a.Load(), 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, Store )
+TEST( XS_Atomic_Trivial_Double, Store )
 {
     XS::Atomic< double > a;
     
@@ -132,7 +132,7 @@ TEST( XS_Atomic_Trivial_double, Store )
     ASSERT_TRUE( DoubleIsEqual( a, 42.0 ) );
 }
 
-TEST( XS_Atomic_Trivial_double, Swap )
+TEST( XS_Atomic_Trivial_Double, Swap )
 {
     XS::Atomic< double > a1{ 42.0 };
     XS::Atomic< double > a2{ 43.0 };
@@ -149,3 +149,114 @@ TEST( XS_Atomic_Trivial_double, Swap )
 /*******************************************************************************
  * Type specific
  ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Double, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Double, GreaterThanOrEqualToOperator )
+{}

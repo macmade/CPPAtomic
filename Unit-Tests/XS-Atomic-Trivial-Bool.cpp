@@ -149,3 +149,114 @@ TEST( XS_Atomic_Trivial_Bool, Swap )
 /*******************************************************************************
  * Type specific
  ******************************************************************************/
+
+TEST( XS_Atomic_Trivial_Bool, SimpleAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, AdditionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, MultiplicationAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, ModuloAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseLeftShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, PreIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, PreDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, PostIncrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, PostDecrementOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, UnaryPlusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, UnaryMinusOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, AdditionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, MultiplicationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, ModuloOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseNOTOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseXOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseLeftShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, NegationOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, ANDOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, EqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, LessThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, LessThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bool, GreaterThanOrEqualToOperator )
+{}

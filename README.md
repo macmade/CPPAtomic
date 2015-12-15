@@ -56,16 +56,60 @@ Using `XS::Atomic` instead, everything will compile and be fine:
     XS::Atomic< B >           b;   /* OK */
     XA::Atomic< std::string > str; /* OK */
 
+### Operators
+
+`XS::Atomic` overloads all operators, but uses type traits to enable specific overloads, depending on the type.
+
+For instance, the following is valid, and atomic:
+
+    XS::Atomic< int >          i{ 42 };
+    XS::Atomic< unsigned int > u{ 42 };
+    
+    i++;
+    u &= 0xFF;
+
+The following is not (compilation error):
+
+    XS::Atomic< double > d{ 42 };
+    
+    d &= 0xFF;
+
+Bitwise operations make no sense with floating point value, so such overloads are disabled when using a floating point type.
+
+When using classes, usual operators are also detected using type traits, and available if they are implemented:
+
+    class Foo
+    {};
+    
+    class Bar
+    {
+        public:
+            
+            Bar & operator +=( const Bar & rhs );
+    };
+    
+    XS::Atomic< Foo > f;
+    XS::Atomic< Bar > b;
+    
+    f += Foo(); /* Compiler error - Foo has no such operator */
+    b += Bar(); /* Bar::operator+= will be used, atomically */
+
+### Initialisation
+
+All `XS::Atomic` objects initialise their values to a default one, using C++11 value initialisation (`{}`)..
+
+As an example, an `XS::Atomic< int >` will default to `0`.
+Structure types are zero-initialised as well.
+For classes, the default constructor will be used.
+
 ### Implementation details
 
-`XS::Atomic` uses two template specialisations.
-One for trivially-copyable types, the second for non trivially-copyable types.
-
-When used with a trivially-copyable type, `XS-Atomic` will simply use `std::atomic`, relying on the STL implementation, and allowing lock-free when possible.
-
-When used with a non trivially-copyable type, `XS-Atomic` will use locking to ensure synchronisation.
+`XS::Atomic` internally ensures locking for all types.
 It will use a `std::recursive_mutex`, along with `std::lock_guard` and `std::lock`.
 
+This is necessary in order to allow operations on non trivially-copyable types, as well as operations not implemented by `std::atomic` on primitive types (see section about operators).
+
+You might still prefer `std::atomic` for primitive types, if you're concerned about potential performance issues and if your implementation provides lock-free atomicity.
 
 License
 -------

@@ -163,31 +163,61 @@ TEST( XS_Atomic_Trivial_Struct, Swap )
 TEST( XS_Atomic_Trivial_Struct, AdditionAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, AdditionAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, SubtractionAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, MultiplicationAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, MultiplicationAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, DivisionAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, ModuloAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, ModuloAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseANDAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, BitwiseORAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, BitwiseORAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseXORAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseRightShiftAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, PreIncrementOperator )
@@ -211,34 +241,61 @@ TEST( XS_Atomic_Trivial_Struct, UnaryMinusOperator )
 TEST( XS_Atomic_Trivial_Struct, AdditionOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, AdditionOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, SubtractionOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, MultiplicationOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, MultiplicationOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, DivisionOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, ModuloOperator )
 {}
 
-TEST( XS_Atomic_Trivial_Struct, BitwiseNOTOperator )
+TEST( XS_Atomic_Trivial_Struct, ModuloOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, BitwiseANDOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, BitwiseANDOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseOROperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, BitwiseXOROperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, BitwiseXOROperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, BitwiseLightShiftOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, NegationOperator )
@@ -247,25 +304,49 @@ TEST( XS_Atomic_Trivial_Struct, NegationOperator )
 TEST( XS_Atomic_Trivial_Struct, ANDOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, ANDOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, InclusiveOROperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, EqualToOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, EqualToOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, NotEqualToOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, LessThanOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, LessThanOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, GreaterThanOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, LessThanOrEqualToOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, LessThanOrEqualToOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, GreaterThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Struct, GreaterThanOrEqualToOperator_V )
 {}
 
 #endif

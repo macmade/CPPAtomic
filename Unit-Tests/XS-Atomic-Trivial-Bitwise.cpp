@@ -147,31 +147,61 @@ TEST( XS_Atomic_Trivial_Bitwise, Swap )
 TEST( XS_Atomic_Trivial_Bitwise, AdditionAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, AdditionAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, SubtractionAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, MultiplicationAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, MultiplicationAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, DivisionAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, ModuloAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, ModuloAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseORAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseORAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseXORAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseRightShiftAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, PreIncrementOperator )
@@ -195,34 +225,61 @@ TEST( XS_Atomic_Trivial_Bitwise, UnaryMinusOperator )
 TEST( XS_Atomic_Trivial_Bitwise, AdditionOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, AdditionOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, SubtractionOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, MultiplicationOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, MultiplicationOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, DivisionOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, ModuloOperator )
 {}
 
-TEST( XS_Atomic_Trivial_Bitwise, BitwiseNOTOperator )
+TEST( XS_Atomic_Trivial_Bitwise, ModuloOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseOROperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseXOROperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseXOROperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseLightShiftOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, NegationOperator )
@@ -231,23 +288,47 @@ TEST( XS_Atomic_Trivial_Bitwise, NegationOperator )
 TEST( XS_Atomic_Trivial_Bitwise, ANDOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, ANDOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, InclusiveOROperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, EqualToOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, EqualToOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, NotEqualToOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, LessThanOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, LessThanOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, GreaterThanOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Bitwise, LessThanOrEqualToOperator )
 {}
 
+TEST( XS_Atomic_Trivial_Bitwise, LessThanOrEqualToOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_Bitwise, GreaterThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_Bitwise, GreaterThanOrEqualToOperator_V )
 {}

@@ -94,31 +94,61 @@ TEST( XS_Atomic_Trivial_NonTrivial, Swap )
 TEST( XS_Atomic_Trivial_NonTrivial, AdditionAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, AdditionAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, SubtractionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, SubtractionAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, MultiplicationAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, MultiplicationAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, DivisionAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, DivisionAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, ModuloAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, ModuloAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseANDAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseANDAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseORAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseORAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseXORAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseXORAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLeftShiftAssignmentOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLeftShiftAssignmentOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseRightShiftAssignmentOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseRightShiftAssignmentOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, PreIncrementOperator )
@@ -142,34 +172,61 @@ TEST( XS_Atomic_Trivial_NonTrivial, UnaryMinusOperator )
 TEST( XS_Atomic_Trivial_NonTrivial, AdditionOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, AdditionOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, SubtractionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, SubtractionOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, MultiplicationOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, MultiplicationOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, DivisionOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, DivisionOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, ModuloOperator )
 {}
 
-TEST( XS_Atomic_Trivial_NonTrivial, BitwiseNOTOperator )
+TEST( XS_Atomic_Trivial_NonTrivial, ModuloOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseANDOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseANDOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseOROperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseXOROperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseXOROperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLeftShiftOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLeftShiftOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLightShiftOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, BitwiseLightShiftOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, NegationOperator )
@@ -178,23 +235,47 @@ TEST( XS_Atomic_Trivial_NonTrivial, NegationOperator )
 TEST( XS_Atomic_Trivial_NonTrivial, ANDOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, ANDOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, InclusiveOROperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, InclusiveOROperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, EqualToOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, EqualToOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, NotEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, NotEqualToOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, LessThanOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, LessThanOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, GreaterThanOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, GreaterThanOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_NonTrivial, LessThanOrEqualToOperator )
 {}
 
+TEST( XS_Atomic_Trivial_NonTrivial, LessThanOrEqualToOperator_V )
+{}
+
 TEST( XS_Atomic_Trivial_NonTrivial, GreaterThanOrEqualToOperator )
+{}
+
+TEST( XS_Atomic_Trivial_NonTrivial, GreaterThanOrEqualToOperator_V )
 {}

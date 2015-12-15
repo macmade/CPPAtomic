@@ -195,7 +195,7 @@ namespace XS
              * Type specific
              ******************************************************************/
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator +=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -208,7 +208,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator +=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -218,7 +218,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator -=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -231,7 +231,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator -=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -241,7 +241,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator *=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -254,7 +254,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator *=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -264,7 +264,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator /=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -277,7 +277,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator /=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -287,7 +287,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator %=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -300,7 +300,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator %=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -310,7 +310,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator &=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -323,7 +323,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator &=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -333,7 +333,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseORAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseORAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator |=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -346,7 +346,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseORAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseORAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator |=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -356,7 +356,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXORAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXORAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator ^=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -369,7 +369,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXORAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXORAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator ^=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -379,7 +379,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator <<=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -392,7 +392,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator <<=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -402,7 +402,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseRightShiftAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseRightShiftAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator >>=( const Atomic< _T_ > & o )
             {
                 std::lock( this->_m, o._m );
@@ -415,7 +415,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseRightShiftAssignmentOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseRightShiftAssignmentOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator >>=( _T_ v )
             {
                 _L_ l( this->_m );
@@ -425,7 +425,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPreIncrementOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPreIncrementOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator ++( void )
             {
                 _L_ l( this->_m );
@@ -435,7 +435,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPreDecrementOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPreDecrementOperator< _U_ >::value >::type >
             Atomic< _T_ > & operator --( void )
             {
                 _L_ l( this->_m );
@@ -445,7 +445,7 @@ namespace XS
                 return *( this );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPostIncrementOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPostIncrementOperator< _U_ >::value >::type >
             Atomic< _T_ > operator ++( int )
             {
                 Atomic< _T_ > a( *( this ) );
@@ -456,7 +456,7 @@ namespace XS
                 return a;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPostDecrementOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasPostDecrementOperator< _U_ >::value >::type >
             Atomic< _T_ > operator --( int )
             {
                 Atomic< _T_ > a( *( this ) );
@@ -467,7 +467,7 @@ namespace XS
                 return a;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasUnaryPlusOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasUnaryPlusOperator< _U_ >::value >::type >
             Atomic< _T_ > operator +( void ) const
             {
                 Atomic< _T_ > a( *( this ) );
@@ -477,7 +477,7 @@ namespace XS
                 return a;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasUnaryMinusOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasUnaryMinusOperator< _U_ >::value >::type >
             Atomic< _T_ > operator -( void ) const
             {
                 Atomic< _T_ > a( *( this ) );
@@ -487,7 +487,7 @@ namespace XS
                 return a;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionOperator< _U_ >::value >::type >
             Atomic< _T_ > operator +( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -498,7 +498,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v + o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionOperator< _U_ >::value >::type >
             Atomic< _T_ > operator +( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -506,7 +506,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v + v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionOperator< _U_ >::value >::type >
             Atomic< _T_ > operator -( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -517,7 +517,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v - o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasSubtractionOperator< _U_ >::value >::type >
             Atomic< _T_ > operator -( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -525,7 +525,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v - v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationOperator< _U_ >::value >::type >
             Atomic< _T_ > operator *( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -536,7 +536,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v * o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasMultiplicationOperator< _U_ >::value >::type >
             Atomic< _T_ > operator *( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -544,7 +544,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v * v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionOperator< _U_ >::value >::type >
             Atomic< _T_ > operator /( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -555,7 +555,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v / o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasDivisionOperator< _U_ >::value >::type >
             Atomic< _T_ > operator /( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -563,7 +563,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v / v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloOperator< _U_ >::value >::type >
             Atomic< _T_ > operator %( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -574,7 +574,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v % o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasModuloOperator< _U_ >::value >::type >
             Atomic< _T_ > operator %( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -582,7 +582,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v % v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseNOTOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseNOTOperator< _U_ >::value >::type >
             Atomic< _T_ > operator ~( void ) const
             {
                 _L_ l( this->_m );
@@ -590,7 +590,7 @@ namespace XS
                 return Atomic< _T_ >( ~this->_v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDOperator< _U_ >::value >::type >
             Atomic< _T_ > operator &( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -601,7 +601,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v & o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseANDOperator< _U_ >::value >::type >
             Atomic< _T_ > operator &( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -609,7 +609,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v & v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseOROperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseOROperator< _U_ >::value >::type >
             Atomic< _T_ > operator |( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -620,7 +620,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v | o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseOROperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseOROperator< _U_ >::value >::type >
             Atomic< _T_ > operator |( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -628,7 +628,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v | v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXOROperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXOROperator< _U_ >::value >::type >
             Atomic< _T_ > operator ^( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -639,7 +639,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v ^ o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXOROperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseXOROperator< _U_ >::value >::type >
             Atomic< _T_ > operator ^( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -647,7 +647,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v ^ v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftOperator< _U_ >::value >::type >
             Atomic< _T_ > operator <<( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -658,7 +658,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v << o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLeftShiftOperator< _U_ >::value >::type >
             Atomic< _T_ > operator <<( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -666,7 +666,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v << v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLightShiftOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLightShiftOperator< _U_ >::value >::type >
             Atomic< _T_ > operator >>( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -677,7 +677,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v >> o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLightShiftOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLightShiftOperator< _U_ >::value >::type >
             Atomic< _T_ > operator >>( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -685,7 +685,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v >> v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasNegationOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasNegationOperator< _U_ >::value >::type >
             bool operator !( void ) const
             {
                 _L_ l( this->_m );
@@ -693,7 +693,7 @@ namespace XS
                 return !this->_v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasANDOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasANDOperator< _U_ >::value >::type >
             bool operator &&( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -704,7 +704,7 @@ namespace XS
                 return this->_v && o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasANDOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasANDOperator< _U_ >::value >::type >
             bool operator &&( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -712,7 +712,7 @@ namespace XS
                 return this->_v && v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasInclusiveOROperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasInclusiveOROperator< _U_ >::value >::type >
             bool operator ||( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -723,7 +723,7 @@ namespace XS
                 return this->_v || o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasInclusiveOROperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasInclusiveOROperator< _U_ >::value >::type >
             bool operator ||( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -731,7 +731,7 @@ namespace XS
                 return this->_v || v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasEqualToOperator< _U_ >::value >::type >
             bool operator ==( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -742,7 +742,7 @@ namespace XS
                 return this->_v == o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasEqualToOperator< _U_ >::value >::type >
             bool operator ==( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -750,7 +750,7 @@ namespace XS
                 return this->_v == v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasNotEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasNotEqualToOperator< _U_ >::value >::type >
             bool operator !=( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -761,7 +761,7 @@ namespace XS
                 return this->_v != o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasNotEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasNotEqualToOperator< _U_ >::value >::type >
             bool operator !=( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -769,7 +769,7 @@ namespace XS
                 return this->_v != v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOperator< _U_ >::value >::type >
             bool operator <( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -780,7 +780,7 @@ namespace XS
                 return this->_v < o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOperator< _U_ >::value >::type >
             bool operator <( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -788,7 +788,7 @@ namespace XS
                 return this->_v < v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOperator< _U_ >::value >::type >
             bool operator >( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -799,7 +799,7 @@ namespace XS
                 return this->_v > o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOperator< _U_ >::value >::type >
             bool operator >( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -807,7 +807,7 @@ namespace XS
                 return this->_v > v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOrEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOrEqualToOperator< _U_ >::value >::type >
             bool operator <=( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -817,7 +817,7 @@ namespace XS
                 
                 return this->_v <= o._v;}
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOrEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasLessThanOrEqualToOperator< _U_ >::value >::type >
             bool operator <=( _T_ v ) const
             {
                 _L_ l( this->_m );
@@ -825,7 +825,7 @@ namespace XS
                 return this->_v <= v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOrEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOrEqualToOperator< _U_ >::value >::type >
             bool operator >=( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -836,7 +836,7 @@ namespace XS
                 return this->_v >= o._v;
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOrEqualToOperator< _U_ >::value > >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasGreaterThanOrEqualToOperator< _U_ >::value >::type >
             bool operator >=( _T_ v ) const
             {
                 _L_ l( this->_m );

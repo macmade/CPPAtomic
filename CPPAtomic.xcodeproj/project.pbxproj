@@ -58,8 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		051F9C721C19C348005D471A /* Non-Trivial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "Non-Trivial.hpp"; sourceTree = "<group>"; };
-		051F9C731C19C348005D471A /* Trivial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Trivial.hpp; sourceTree = "<group>"; };
+		05110D041C1F121C00EE6851 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		05110D051C1F121C00EE6851 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Non-Trivial.cpp"; sourceTree = "<group>"; };
 		051F9C781C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Bool.cpp"; sourceTree = "<group>"; };
 		051F9C791C19C3EE005D471A /* XS-Atomic-Trivial-Double.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Trivial-Double.cpp"; sourceTree = "<group>"; };
@@ -73,6 +73,7 @@
 		053BEDE71B90ABB2007D82A4 /* travis-after.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
 		053BEDE81B90ABB2007D82A4 /* travis-before.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		053BEDF91B90B37E007D82A4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		056D31EF1C20304F000E1219 /* TypeTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeTraits.hpp; sourceTree = "<group>"; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,15 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		051F9C711C19C348005D471A /* Atomic */ = {
-			isa = PBXGroup;
-			children = (
-				051F9C721C19C348005D471A /* Non-Trivial.hpp */,
-				051F9C731C19C348005D471A /* Trivial.hpp */,
-			);
-			path = Atomic;
-			sourceTree = "<group>";
-		};
 		053BEDA51B8EFCB6007D82A4 /* Unit-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				05A6C6891C18AEDD002C6A44 /* Atomic.hpp */,
-				051F9C711C19C348005D471A /* Atomic */,
+				056D31EF1C20304F000E1219 /* TypeTraits.hpp */,
 			);
 			path = XS;
 			sourceTree = "<group>";
@@ -161,6 +153,8 @@
 		05BD89491A13FF4700A43CD8 = {
 			isa = PBXGroup;
 			children = (
+				05110D041C1F121C00EE6851 /* LICENSE */,
+				05110D051C1F121C00EE6851 /* README.md */,
 				053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */,
 				05A6C6801C18ADC1002C6A44 /* CPPAtomic */,
 				053BEDA51B8EFCB6007D82A4 /* Unit-Tests */,

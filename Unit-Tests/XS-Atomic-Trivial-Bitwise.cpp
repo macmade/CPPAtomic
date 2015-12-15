@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015, Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2015, Jean-David Gadina - www.xs-labs.com / www.digidna.net
  * Distributed under the Boost Software License, Version 1.0.
  * 
  * Boost Software License - Version 1.0 - August 17th, 2003
@@ -28,7 +28,7 @@
  ******************************************************************************/
 
 /*!
- * @copyright   (c) 2015 - Jean-David Gadina - www.xs-labs.com
+ * @copyright   (c) 2015 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
  * @brief       Test case XS::Atomic
  */
 
@@ -124,13 +124,6 @@ TEST( XS_Atomic_Trivial_Bitwise, Store )
     a.Store( 42 );
     
     ASSERT_TRUE( a == static_cast< unsigned int >( 42 ) );
-}
-
-TEST( XS_Atomic_Trivial_Bitwise, IsLockFree )
-{
-    XS::Atomic< unsigned int > a;
-    
-    ASSERT_TRUE( a.IsLockFree() );
 }
 
 TEST( XS_Atomic_Trivial_Bitwise, Swap )

@@ -263,6 +263,9 @@ TEST( XS_Atomic_Trivial_Struct, ModuloOperator )
 TEST( XS_Atomic_Trivial_Struct, ModuloOperator_V )
 {}
 
+TEST( XS_Atomic_Trivial_Struct, BitwiseNOTOperator )
+{}
+
 TEST( XS_Atomic_Trivial_Struct, BitwiseANDOperator )
 {}
 
@@ -287,10 +290,10 @@ TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftOperator )
 TEST( XS_Atomic_Trivial_Struct, BitwiseLeftShiftOperator_V )
 {}
 
-TEST( XS_Atomic_Trivial_Struct, BitwiseLightShiftOperator )
+TEST( XS_Atomic_Trivial_Struct, BitwiseRightShiftOperator )
 {}
 
-TEST( XS_Atomic_Trivial_Struct, BitwiseLightShiftOperator_V )
+TEST( XS_Atomic_Trivial_Struct, BitwiseRightShiftOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Struct, NegationOperator )

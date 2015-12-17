@@ -103,7 +103,7 @@ namespace XS
         XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasBitwiseOROperator,                   operator | );
         XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasBitwiseXOROperator,                  operator ^ );
         XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasBitwiseLeftShiftOperator,            operator << );
-        XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasBitwiseLightShiftOperator,           operator >> );
+        XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasBitwiseRightShiftOperator,           operator >> );
         
         XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasNegationOperator,                    operator ! );
         XS_TYPE_TRAITS_DEF_HAS_PUBLIC_CONST_METHOD( HasANDOperator,                         operator && );

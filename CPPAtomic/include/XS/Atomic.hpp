@@ -85,12 +85,12 @@ namespace XS
             template< class _U_ > struct HasMultiplicationOperator:                 public std::integral_constant< bool, ( TrivialValueIsArithmetic<         _U_ >::value || XS::TypeTraits::HasMultiplicationOperator<                _U_, _U_,   const _U_ & >::value ) > {};
             template< class _U_ > struct HasDivisionOperator:                       public std::integral_constant< bool, ( TrivialValueIsArithmetic<         _U_ >::value || XS::TypeTraits::HasDivisionOperator<                      _U_, _U_,   const _U_ & >::value ) > {};
             template< class _U_ > struct HasModuloOperator:                         public std::integral_constant< bool, ( TrivialValueIsArithmetic<         _U_ >::value || XS::TypeTraits::HasModuloOperator<                        _U_, _U_,   const _U_ & >::value ) && !std::is_floating_point< _U_ >::value > {};
-            template< class _U_ > struct HasBitwiseNOTOperator:                     public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseNOTOperator<                    _U_, _U_,   const _U_ & >::value ) > {};
+            template< class _U_ > struct HasBitwiseNOTOperator:                     public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseNOTOperator<                    _U_, _U_                >::value ) > {};
             template< class _U_ > struct HasBitwiseANDOperator:                     public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseANDOperator<                    _U_, _U_,   const _U_ & >::value ) > {};
             template< class _U_ > struct HasBitwiseOROperator:                      public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseOROperator<                     _U_, _U_,   const _U_ & >::value ) > {};
             template< class _U_ > struct HasBitwiseXOROperator:                     public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseXOROperator<                    _U_, _U_,   const _U_ & >::value ) > {};
             template< class _U_ > struct HasBitwiseLeftShiftOperator:               public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseLeftShiftOperator<              _U_, _U_,   const _U_ & >::value ) > {};
-            template< class _U_ > struct HasBitwiseLightShiftOperator:              public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseLightShiftOperator<             _U_, _U_,   const _U_ & >::value ) > {};
+            template< class _U_ > struct HasBitwiseRightShiftOperator:              public std::integral_constant< bool, ( TrivialValueIsBitwise<            _U_ >::value || XS::TypeTraits::HasBitwiseRightShiftOperator<             _U_, _U_,   const _U_ & >::value ) > {};
             template< class _U_ > struct HasNegationOperator:                       public std::integral_constant< bool, ( TrivialValueIsLogical<            _U_ >::value || XS::TypeTraits::HasNegationOperator<                      _U_, bool               >::value ) > {};
             template< class _U_ > struct HasANDOperator:                            public std::integral_constant< bool, ( TrivialValueIsLogical<            _U_ >::value || XS::TypeTraits::HasANDOperator<                           _U_, bool,  const _U_ & >::value ) > {};
             template< class _U_ > struct HasInclusiveOROperator:                    public std::integral_constant< bool, ( TrivialValueIsLogical<            _U_ >::value || XS::TypeTraits::HasInclusiveOROperator<                   _U_, bool,  const _U_ & >::value ) > {};
@@ -425,7 +425,7 @@ namespace XS
             {
                 _L_ l( this->_m );
                 
-                this->_v++;
+                ++this->_v;
                 
                 return *( this );
             }
@@ -435,7 +435,7 @@ namespace XS
             {
                 _L_ l( this->_m );
                 
-                this->_v--;
+                --this->_v;
                 
                 return *( this );
             }
@@ -446,7 +446,7 @@ namespace XS
                 Atomic< _T_ > a( *( this ) );
                 _L_           l( this->_m );
                 
-                ++this->_v;
+                this->_v++;
                 
                 return a;
             }
@@ -457,7 +457,7 @@ namespace XS
                 Atomic< _T_ > a( *( this ) );
                 _L_           l( this->_m );
                 
-                --this->_v;
+                this->_v--;
                 
                 return a;
             }
@@ -465,21 +465,17 @@ namespace XS
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasUnaryPlusOperator< _U_ >::value >::type >
             Atomic< _T_ > operator +( void ) const
             {
-                Atomic< _T_ > a( *( this ) );
+                _L_ l( this->_m );
                 
-                a._v = +( a._v );
-                
-                return a;
+                return Atomic< _T_ >( +( this->_v ) );
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasUnaryMinusOperator< _U_ >::value >::type >
             Atomic< _T_ > operator -( void ) const
             {
-                Atomic< _T_ > a( *( this ) );
+                _L_ l( this->_m );
                 
-                a._v = -( a._v );
-                
-                return a;
+                return Atomic< _T_ >( -( this->_v ) );
             }
             
             template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasAdditionOperator< _U_ >::value >::type >
@@ -661,7 +657,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v << v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLightShiftOperator< _U_ >::value >::type >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseRightShiftOperator< _U_ >::value >::type >
             Atomic< _T_ > operator >>( const Atomic< _T_ > & o ) const
             {
                 std::lock( this->_m, o._m );
@@ -672,7 +668,7 @@ namespace XS
                 return Atomic< _T_ >( this->_v >> o._v );
             }
             
-            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseLightShiftOperator< _U_ >::value >::type >
+            template< typename _U_ = _T_, typename = typename std::enable_if< std::is_same< _U_, _T_ >::value && HasBitwiseRightShiftOperator< _U_ >::value >::type >
             Atomic< _T_ > operator >>( _T_ v ) const
             {
                 _L_ l( this->_m );

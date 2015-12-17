@@ -509,6 +509,17 @@ TEST( XS_Atomic_Trivial_Bitwise, ModuloOperator_V )
     ASSERT_TRUE( a2 == static_cast< unsigned int >(  2 ) );
 }
 
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseNOTOperator )
+{
+    XS::Atomic< unsigned int > a1{ 0x05 };
+    XS::Atomic< unsigned int > a2;
+    
+    a2 = ~a1;
+    
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 0x05 ) );
+    ASSERT_TRUE( a2 == static_cast< unsigned int >( 0xFFFFFFFA ) );
+}
+
 TEST( XS_Atomic_Trivial_Bitwise, BitwiseANDOperator )
 {
     XS::Atomic< unsigned int > a1{ 0x05 };
@@ -605,7 +616,7 @@ TEST( XS_Atomic_Trivial_Bitwise, BitwiseLeftShiftOperator_V )
     ASSERT_TRUE( a2 == static_cast< unsigned int >( 0x14 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bitwise, BitwiseLightShiftOperator )
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseRightShiftOperator )
 {
     XS::Atomic< unsigned int > a1{ 0x05 };
     XS::Atomic< unsigned int > a2{ 0x02 };
@@ -618,7 +629,7 @@ TEST( XS_Atomic_Trivial_Bitwise, BitwiseLightShiftOperator )
     ASSERT_TRUE( a3 == static_cast< unsigned int >( 0x01 ) );
 }
 
-TEST( XS_Atomic_Trivial_Bitwise, BitwiseLightShiftOperator_V )
+TEST( XS_Atomic_Trivial_Bitwise, BitwiseRightShiftOperator_V )
 {
     XS::Atomic< unsigned int > a1{ 0x05 };
     XS::Atomic< unsigned int > a2;

@@ -247,6 +247,9 @@ TEST( XS_Atomic_Trivial_Pointer, ModuloOperator )
 TEST( XS_Atomic_Trivial_Pointer, ModuloOperator_V )
 {}
 
+TEST( XS_Atomic_Trivial_Pointer, BitwiseNOTOperator )
+{}
+
 TEST( XS_Atomic_Trivial_Pointer, BitwiseANDOperator )
 {}
 
@@ -271,10 +274,10 @@ TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftOperator )
 TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftOperator_V )
 {}
 
-TEST( XS_Atomic_Trivial_Pointer, BitwiseLightShiftOperator )
+TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftOperator )
 {}
 
-TEST( XS_Atomic_Trivial_Pointer, BitwiseLightShiftOperator_V )
+TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftOperator_V )
 {}
 
 TEST( XS_Atomic_Trivial_Pointer, NegationOperator )

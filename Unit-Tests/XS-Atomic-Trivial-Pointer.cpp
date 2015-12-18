@@ -237,10 +237,28 @@ TEST( XS_Atomic_Trivial_Pointer, ANDOperator_V )
 }
 
 TEST( XS_Atomic_Trivial_Pointer, InclusiveOROperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ "hello, universe" };
+    XS::Atomic< const char * > a3{ nullptr };
+    XS::Atomic< const char * > a4{ nullptr };
+    
+    ASSERT_TRUE(  a1 || a2 );
+    ASSERT_TRUE(  a1 || a3 );
+    ASSERT_TRUE(  a3 || a1 );
+    ASSERT_FALSE( a3 || a4 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, InclusiveOROperator_V )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ nullptr };
+    
+    ASSERT_TRUE(  a1 || "hello, universe" );
+    ASSERT_TRUE(  a1 || a2 );
+    ASSERT_TRUE(  a2 || a1 );
+    ASSERT_FALSE( a2 || nullptr );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, EqualToOperator )
 {}

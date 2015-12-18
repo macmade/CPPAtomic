@@ -139,155 +139,102 @@ TEST( XS_Atomic_Trivial_Pointer, Swap )
  * Type specific
  ******************************************************************************/
 
-TEST( XS_Atomic_Trivial_Pointer, AdditionAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, AdditionAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, SubtractionAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, SubtractionAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, MultiplicationAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, MultiplicationAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, DivisionAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, DivisionAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, ModuloAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, ModuloAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseANDAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseANDAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseORAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseORAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseXORAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseXORAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftAssignmentOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftAssignmentOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftAssignmentOperator_V )
-{}
-
 TEST( XS_Atomic_Trivial_Pointer, PreIncrementOperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    
+    a2 = ++a1;
+    
+    ASSERT_TRUE( strcmp( a1, "ello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "ello, world" ) == 0 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, PreDecrementOperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    
+    a2 = ++a1;
+    
+    ASSERT_TRUE( strcmp( a1, "ello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "ello, world" ) == 0 );
+    
+    a2 = --a1;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+
+}
 
 TEST( XS_Atomic_Trivial_Pointer, PostIncrementOperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    
+    a2 = a1++;
+    
+    ASSERT_TRUE( strcmp( a1, "ello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, PostDecrementOperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    
+    a2 = ++a1;
+    
+    ASSERT_TRUE( strcmp( a1, "ello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "ello, world" ) == 0 );
+    
+    a2 = a1--;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
+    ASSERT_TRUE( strcmp( a2, "ello, world" ) == 0 );
 
-TEST( XS_Atomic_Trivial_Pointer, UnaryPlusOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, UnaryMinusOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, AdditionOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, AdditionOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, SubtractionOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, SubtractionOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, MultiplicationOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, MultiplicationOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, DivisionOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, DivisionOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, ModuloOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, ModuloOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseNOTOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseANDOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseANDOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseOROperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseOROperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseXOROperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseXOROperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseLeftShiftOperator_V )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftOperator )
-{}
-
-TEST( XS_Atomic_Trivial_Pointer, BitwiseRightShiftOperator_V )
-{}
+}
 
 TEST( XS_Atomic_Trivial_Pointer, NegationOperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ nullptr };
+    
+    ASSERT_FALSE( !a1 );
+    ASSERT_TRUE(  !a2 ); 
+}
 
 TEST( XS_Atomic_Trivial_Pointer, ANDOperator )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ "hello, universe" };
+    XS::Atomic< const char * > a3{ nullptr };
+    XS::Atomic< const char * > a4{ nullptr };
+    
+    ASSERT_TRUE(  a1 && a2 );
+    ASSERT_FALSE( a1 && a3 );
+    ASSERT_FALSE( a3 && a1 );
+    ASSERT_FALSE( a3 && a4 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, ANDOperator_V )
-{}
+{
+    XS::Atomic< const char * > a1{ "hello, world" };
+    XS::Atomic< const char * > a2{ nullptr };
+    
+    ASSERT_TRUE(  a1 && "hello, universe" );
+    ASSERT_FALSE( a1 && a2 );
+    ASSERT_FALSE( a2 && a1 );
+    ASSERT_FALSE( a2 && nullptr );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, InclusiveOROperator )
 {}

@@ -261,37 +261,143 @@ TEST( XS_Atomic_Trivial_Pointer, InclusiveOROperator_V )
 }
 
 TEST( XS_Atomic_Trivial_Pointer, EqualToOperator )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ "hello, universe" };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p1 };
+    XS::Atomic< const char * > a3{ p2 };
+    
+    ASSERT_TRUE(  a1 == a2 );
+    ASSERT_FALSE( a1 == a3 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, EqualToOperator_V )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ "hello, universe" };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    
+    ASSERT_TRUE(  a1 == p1 );
+    ASSERT_FALSE( a1 == p2 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, NotEqualToOperator )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ "hello, universe" };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p1 };
+    XS::Atomic< const char * > a3{ p2 };
+    
+    ASSERT_FALSE( a1 != a2 );
+    ASSERT_TRUE(  a1 != a3 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, NotEqualToOperator_V )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ "hello, universe" };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    
+    ASSERT_FALSE( a1 != p1 );
+    ASSERT_TRUE(  a1 != p2 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, LessThanOperator )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p1 };
+    XS::Atomic< const char * > a3{ p2 };
+    
+    ASSERT_FALSE( a1 < a2 );
+    ASSERT_TRUE(  a1 < a3 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, LessThanOperator_V )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    
+    ASSERT_FALSE( a1 < p1 );
+    ASSERT_TRUE(  a1 < p2 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, GreaterThanOperator )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p1 };
+    XS::Atomic< const char * > a3{ p2 };
+    
+    ASSERT_FALSE( a1 > a2 );
+    ASSERT_TRUE(  a3 > a1 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, GreaterThanOperator_V )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    
+    ASSERT_FALSE( a1 > p2 );
+    ASSERT_TRUE(  a2 > p1 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, LessThanOrEqualToOperator )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p1 };
+    XS::Atomic< const char * > a3{ p2 };
+    
+    ASSERT_TRUE(  a1 <= a2 );
+    ASSERT_TRUE(  a1 <= a3 );
+    ASSERT_FALSE( a3 <= a1 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, LessThanOrEqualToOperator_V )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    
+    ASSERT_TRUE(  a1 <= p1 );
+    ASSERT_TRUE(  a1 <= p2 );
+    ASSERT_FALSE( a2 <= p1 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, GreaterThanOrEqualToOperator )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    XS::Atomic< const char * > a3{ p2 };
+    
+    ASSERT_FALSE( a1 >= a2 );
+    ASSERT_TRUE(  a2 >= a1 );
+    ASSERT_TRUE(  a2 >= a3 );
+}
 
 TEST( XS_Atomic_Trivial_Pointer, GreaterThanOrEqualToOperator_V )
-{}
+{
+    const char               * p1{ "hello, world" };
+    const char               * p2{ p1 + 1 };
+    XS::Atomic< const char * > a1{ p1 };
+    XS::Atomic< const char * > a2{ p2 };
+    
+    ASSERT_FALSE( a1 >= p2 );
+    ASSERT_TRUE(  a2 >= p1 );
+    ASSERT_TRUE(  a2 >= p2 );
+}

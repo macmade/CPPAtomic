@@ -55,6 +55,13 @@
 			remoteGlobalIDString = 05818F851A685AEA0072A469;
 			remoteInfo = GoogleMock;
 		};
+		055F181E1D99779E002B5491 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055F18191D99779D002B5491 /* CPPTraits.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 053BEDAC1B8EFDC1007D82A4;
+			remoteInfo = "CPPTraits-Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +80,7 @@
 		053BEDE71B90ABB2007D82A4 /* travis-after.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
 		053BEDE81B90ABB2007D82A4 /* travis-before.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		053BEDF91B90B37E007D82A4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		056D31EF1C20304F000E1219 /* TypeTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeTraits.hpp; sourceTree = "<group>"; };
+		055F18191D99779D002B5491 /* CPPTraits.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPPTraits.xcodeproj; path = Submodules/CPPTraits/CPPTraits.xcodeproj; sourceTree = "<group>"; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +132,14 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		055F181A1D99779D002B5491 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				055F181F1D99779E002B5491 /* CPPTraits-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		05A6C6801C18ADC1002C6A44 /* CPPAtomic */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				05A6C6891C18AEDD002C6A44 /* Atomic.hpp */,
-				056D31EF1C20304F000E1219 /* TypeTraits.hpp */,
 			);
 			path = XS;
 			sourceTree = "<group>";
@@ -156,6 +170,7 @@
 				05110D041C1F121C00EE6851 /* LICENSE */,
 				05110D051C1F121C00EE6851 /* README.md */,
 				053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */,
+				055F18191D99779D002B5491 /* CPPTraits.xcodeproj */,
 				05A6C6801C18ADC1002C6A44 /* CPPAtomic */,
 				053BEDA51B8EFCB6007D82A4 /* Unit-Tests */,
 				053BEDE51B90ABB2007D82A4 /* Scripts */,
@@ -219,6 +234,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 055F181A1D99779D002B5491 /* Products */;
+					ProjectRef = 055F18191D99779D002B5491 /* CPPTraits.xcodeproj */;
+				},
+				{
 					ProductGroup = 053BEDB61B8EFDE6007D82A4 /* Products */;
 					ProjectRef = 053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */;
 				},
@@ -257,6 +276,13 @@
 			fileType = wrapper.cfbundle;
 			path = GoogleMockTests.xctest;
 			remoteRef = 053BEDC21B8EFDE6007D82A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		055F181F1D99779E002B5491 /* CPPTraits-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CPPTraits-Tests.xctest";
+			remoteRef = 055F181E1D99779E002B5491 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -326,7 +352,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unit-Tests/Prefix.pch";
-				HEADER_SEARCH_PATHS = CPPAtomic/include/;
+				HEADER_SEARCH_PATHS = (
+					CPPAtomic/include/,
+					Submodules/CPPTraits/CPPTraits/include,
+				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CPPAtomic-Tests";
@@ -345,7 +374,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unit-Tests/Prefix.pch";
-				HEADER_SEARCH_PATHS = CPPAtomic/include/;
+				HEADER_SEARCH_PATHS = (
+					CPPAtomic/include/,
+					Submodules/CPPTraits/CPPTraits/include,
+				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CPPAtomic-Tests";

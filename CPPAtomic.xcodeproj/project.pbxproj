@@ -17,6 +17,8 @@
 		053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053BEDBD1B8EFDE6007D82A4 /* GoogleMock.framework */; };
 		053BEDEC1B90ABB2007D82A4 /* travis-after.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE71B90ABB2007D82A4 /* travis-after.sh */; };
 		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
+		057CD63A1E81F36600A80970 /* RWLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057CD6391E81F36600A80970 /* RWLock.cpp */; };
+		057CD6401E81F37100A80970 /* RWLock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 057CD63F1E81F37100A80970 /* RWLock.hpp */; };
 		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
 		05F58B201E81EB9D000D50A0 /* AtomicAdd32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */; };
 		05F58B211E81EB9D000D50A0 /* AtomicAdd64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */; };
@@ -101,6 +103,8 @@
 		053BEDE81B90ABB2007D82A4 /* travis-before.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		053BEDF91B90B37E007D82A4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		055F18191D99779D002B5491 /* CPPTraits.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPPTraits.xcodeproj; path = Submodules/CPPTraits/CPPTraits.xcodeproj; sourceTree = "<group>"; };
+		057CD6391E81F36600A80970 /* RWLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RWLock.cpp; sourceTree = "<group>"; };
+		057CD63F1E81F37100A80970 /* RWLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RWLock.hpp; sourceTree = "<group>"; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
 		05EC8A471E81E854007233F2 /* libCPPAtomic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCPPAtomic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Atomic-Functions.hpp"; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			children = (
 				05A6C6891C18AEDD002C6A44 /* Atomic.hpp */,
 				05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */,
+				057CD63F1E81F37100A80970 /* RWLock.hpp */,
 				05F58B2F1E81F15A000D50A0 /* Semaphore.hpp */,
 			);
 			path = XS;
@@ -238,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				05F58B151E81EB76000D50A0 /* Atomic-Functions */,
+				057CD6391E81F36600A80970 /* RWLock.cpp */,
 				05F58B341E81F1A4000D50A0 /* Semaphore.cpp */,
 			);
 			path = source;
@@ -267,6 +273,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057CD6401E81F37100A80970 /* RWLock.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +458,7 @@
 				05F58B201E81EB9D000D50A0 /* AtomicAdd32.cpp in Sources */,
 				05F58B211E81EB9D000D50A0 /* AtomicAdd64.cpp in Sources */,
 				05F58B251E81EB9D000D50A0 /* AtomicDecrement32.cpp in Sources */,
+				057CD63A1E81F36600A80970 /* RWLock.cpp in Sources */,
 				05F58B221E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp in Sources */,
 				05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */,
 			);

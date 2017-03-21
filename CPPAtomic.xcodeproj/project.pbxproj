@@ -29,6 +29,7 @@
 		05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */; };
 		05F58B291E81EB9D000D50A0 /* MemoryBarrier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */; };
 		05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */; };
+		05F58B351E81F1A4000D50A0 /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B341E81F1A4000D50A0 /* Semaphore.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicIncrement64.cpp; sourceTree = "<group>"; };
 		05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBarrier.cpp; sourceTree = "<group>"; };
 		05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Functions.cpp"; sourceTree = "<group>"; };
+		05F58B2F1E81F15A000D50A0 /* Semaphore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Semaphore.hpp; sourceTree = "<group>"; };
+		05F58B341E81F1A4000D50A0 /* Semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Semaphore.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,7 @@
 			children = (
 				05A6C6891C18AEDD002C6A44 /* Atomic.hpp */,
 				05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */,
+				05F58B2F1E81F15A000D50A0 /* Semaphore.hpp */,
 			);
 			path = XS;
 			sourceTree = "<group>";
@@ -234,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				05F58B151E81EB76000D50A0 /* Atomic-Functions */,
+				05F58B341E81F1A4000D50A0 /* Semaphore.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05F58B241E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp in Sources */,
+				05F58B351E81F1A4000D50A0 /* Semaphore.cpp in Sources */,
 				05F58B231E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp in Sources */,
 				05F58B271E81EB9D000D50A0 /* AtomicIncrement32.cpp in Sources */,
 				05F58B261E81EB9D000D50A0 /* AtomicDecrement64.cpp in Sources */,

@@ -7,3 +7,6 @@
 [submodule "Submodules/CPPTraits"]
 	path = Submodules/CPPTraits
 	url = https://github.com/macmade/CPPTraits.git
+[submodule "Submodules/PIMPL"]
+	path = Submodules/PIMPL
+	url = https://github.com/macmade/PIMPL.git

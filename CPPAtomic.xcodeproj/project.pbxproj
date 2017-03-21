@@ -613,6 +613,7 @@
 				HEADER_SEARCH_PATHS = (
 					CPPAtomic/include/,
 					Submodules/CPPTraits/CPPTraits/include,
+					Submodules/PIMPL/PIMPL/include,
 				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -726,6 +727,7 @@
 				HEADER_SEARCH_PATHS = (
 					CPPAtomic/include/,
 					Submodules/CPPTraits/CPPTraits/include,
+					Submodules/PIMPL/PIMPL/include,
 				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;

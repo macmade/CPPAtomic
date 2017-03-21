@@ -31,5 +31,30 @@
 
 namespace XS
 {
+    template<>
+    class XS::PIMPL::Object< Semaphore >::IMPL
+    {
+        public:
+            
+            IMPL( void );
+            IMPL( const IMPL & o );
+            ~IMPL( void );
+    };
+}
+
+#define XS_PIMPL_CLASS XS::Semaphore
+#include <XS/PIMPL/Object-IMPL.hpp>
+
+namespace XS
+{
+    PIMPL::Object< Semaphore >::IMPL::IMPL( void )
+    {}
     
+    PIMPL::Object< Semaphore >::IMPL::IMPL( const IMPL & o )
+    {
+        ( void )o;
+    }
+    
+    PIMPL::Object< Semaphore >::IMPL::~IMPL( void )
+    {}
 }

@@ -30,13 +30,15 @@
 #ifndef XS_SEMAPHORE_HPP
 #define XS_SEMAPHORE_HPP
 
+#include <XS/PIMPL/Object.hpp>
+
 namespace XS
 {
-    class Semaphore
+    class Semaphore: public XS::PIMPL::Object< Semaphore >
     {
         public:
             
-            
+            using XS::PIMPL::Object< Semaphore >::impl;
     };
 }
 

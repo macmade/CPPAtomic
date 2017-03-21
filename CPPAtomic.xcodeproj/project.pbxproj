@@ -17,6 +17,18 @@
 		053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053BEDBD1B8EFDE6007D82A4 /* GoogleMock.framework */; };
 		053BEDEC1B90ABB2007D82A4 /* travis-after.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE71B90ABB2007D82A4 /* travis-after.sh */; };
 		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
+		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
+		05F58B201E81EB9D000D50A0 /* AtomicAdd32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */; };
+		05F58B211E81EB9D000D50A0 /* AtomicAdd64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */; };
+		05F58B221E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B181E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp */; };
+		05F58B231E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B191E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp */; };
+		05F58B241E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1A1E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp */; };
+		05F58B251E81EB9D000D50A0 /* AtomicDecrement32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1B1E81EB9D000D50A0 /* AtomicDecrement32.cpp */; };
+		05F58B261E81EB9D000D50A0 /* AtomicDecrement64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1C1E81EB9D000D50A0 /* AtomicDecrement64.cpp */; };
+		05F58B271E81EB9D000D50A0 /* AtomicIncrement32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1D1E81EB9D000D50A0 /* AtomicIncrement32.cpp */; };
+		05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */; };
+		05F58B291E81EB9D000D50A0 /* MemoryBarrier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */; };
+		05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +74,13 @@
 			remoteGlobalIDString = 053BEDAC1B8EFDC1007D82A4;
 			remoteInfo = "CPPTraits-Tests";
 		};
+		05EC8A5A1E81E941007233F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05BD894A1A13FF4700A43CD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05EC8A461E81E854007233F2;
+			remoteInfo = CPPAtomic;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +101,19 @@
 		053BEDF91B90B37E007D82A4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		055F18191D99779D002B5491 /* CPPTraits.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPPTraits.xcodeproj; path = Submodules/CPPTraits/CPPTraits.xcodeproj; sourceTree = "<group>"; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
+		05EC8A471E81E854007233F2 /* libCPPAtomic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCPPAtomic.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Atomic-Functions.hpp"; sourceTree = "<group>"; };
+		05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicAdd32.cpp; sourceTree = "<group>"; };
+		05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicAdd64.cpp; sourceTree = "<group>"; };
+		05F58B181E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicCompareAndSwap32.cpp; sourceTree = "<group>"; };
+		05F58B191E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicCompareAndSwap64.cpp; sourceTree = "<group>"; };
+		05F58B1A1E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicCompareAndSwapPointer.cpp; sourceTree = "<group>"; };
+		05F58B1B1E81EB9D000D50A0 /* AtomicDecrement32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicDecrement32.cpp; sourceTree = "<group>"; };
+		05F58B1C1E81EB9D000D50A0 /* AtomicDecrement64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicDecrement64.cpp; sourceTree = "<group>"; };
+		05F58B1D1E81EB9D000D50A0 /* AtomicIncrement32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicIncrement32.cpp; sourceTree = "<group>"; };
+		05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicIncrement64.cpp; sourceTree = "<group>"; };
+		05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBarrier.cpp; sourceTree = "<group>"; };
+		05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Functions.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +121,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */,
 				053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EC8A441E81E854007233F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +146,7 @@
 				051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */,
 				051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */,
 				051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial-Struct.cpp */,
+				05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */,
 				053BEDC71B8EFE1E007D82A4 /* Info.plist */,
 				053BEDF91B90B37E007D82A4 /* Prefix.pch */,
 			);
@@ -144,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				05A6C6811C18ADC1002C6A44 /* include */,
+				05EC8A561E81E8A9007233F2 /* source */,
 			);
 			path = CPPAtomic;
 			sourceTree = "<group>";
@@ -160,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				05A6C6891C18AEDD002C6A44 /* Atomic.hpp */,
+				05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */,
 			);
 			path = XS;
 			sourceTree = "<group>";
@@ -182,11 +225,47 @@
 			isa = PBXGroup;
 			children = (
 				053BEDAC1B8EFDC1007D82A4 /* CPPAtomic-Tests.xctest */,
+				05EC8A471E81E854007233F2 /* libCPPAtomic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		05EC8A561E81E8A9007233F2 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				05F58B151E81EB76000D50A0 /* Atomic-Functions */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		05F58B151E81EB76000D50A0 /* Atomic-Functions */ = {
+			isa = PBXGroup;
+			children = (
+				05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */,
+				05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */,
+				05F58B181E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp */,
+				05F58B191E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp */,
+				05F58B1A1E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp */,
+				05F58B1B1E81EB9D000D50A0 /* AtomicDecrement32.cpp */,
+				05F58B1C1E81EB9D000D50A0 /* AtomicDecrement64.cpp */,
+				05F58B1D1E81EB9D000D50A0 /* AtomicIncrement32.cpp */,
+				05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */,
+				05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */,
+			);
+			path = "Atomic-Functions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		05EC8A451E81E854007233F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		053BEDAB1B8EFDC1007D82A4 /* CPPAtomic-Tests */ = {
@@ -201,12 +280,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				05EC8A5B1E81E941007233F2 /* PBXTargetDependency */,
 				053BEDC61B8EFDF9007D82A4 /* PBXTargetDependency */,
 			);
 			name = "CPPAtomic-Tests";
 			productName = "PIMPL-Tests";
 			productReference = 053BEDAC1B8EFDC1007D82A4 /* CPPAtomic-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05EC8A461E81E854007233F2 /* CPPAtomic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05EC8A551E81E854007233F2 /* Build configuration list for PBXNativeTarget "CPPAtomic" */;
+			buildPhases = (
+				05EC8A431E81E854007233F2 /* Sources */,
+				05EC8A441E81E854007233F2 /* Frameworks */,
+				05EC8A451E81E854007233F2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CPPAtomic;
+			productName = CPPAtomic;
+			productReference = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -219,6 +316,10 @@
 				TargetAttributes = {
 					053BEDAB1B8EFDC1007D82A4 = {
 						CreatedOnToolsVersion = 7.0;
+					};
+					05EC8A461E81E854007233F2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -244,6 +345,7 @@
 			);
 			projectRoot = "";
 			targets = (
+				05EC8A461E81E854007233F2 /* CPPAtomic */,
 				053BEDAB1B8EFDC1007D82A4 /* CPPAtomic-Tests */,
 			);
 		};
@@ -323,10 +425,28 @@
 				051F9C7D1C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp in Sources */,
 				051F9C7E1C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp in Sources */,
 				051F9C7F1C19C3EE005D471A /* XS-Atomic-Trivial-Double.cpp in Sources */,
+				05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */,
 				051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */,
 				051F9C801C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp in Sources */,
 				051F9C821C19C3EE005D471A /* XS-Atomic-Trivial-Struct.cpp in Sources */,
 				051F9C851C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EC8A431E81E854007233F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05F58B241E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp in Sources */,
+				05F58B231E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp in Sources */,
+				05F58B271E81EB9D000D50A0 /* AtomicIncrement32.cpp in Sources */,
+				05F58B261E81EB9D000D50A0 /* AtomicDecrement64.cpp in Sources */,
+				05F58B291E81EB9D000D50A0 /* MemoryBarrier.cpp in Sources */,
+				05F58B201E81EB9D000D50A0 /* AtomicAdd32.cpp in Sources */,
+				05F58B211E81EB9D000D50A0 /* AtomicAdd64.cpp in Sources */,
+				05F58B251E81EB9D000D50A0 /* AtomicDecrement32.cpp in Sources */,
+				05F58B221E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp in Sources */,
+				05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +458,11 @@
 			name = GoogleMock;
 			targetProxy = 053BEDC51B8EFDF9007D82A4 /* PBXContainerItemProxy */;
 		};
+		05EC8A5B1E81E941007233F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05EC8A461E81E854007233F2 /* CPPAtomic */;
+			targetProxy = 05EC8A5A1E81E941007233F2 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -346,16 +471,10 @@
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unit-Tests/Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					CPPAtomic/include/,
-					Submodules/CPPTraits/CPPTraits/include,
-				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CPPAtomic-Tests";
@@ -368,16 +487,10 @@
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unit-Tests/Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					CPPAtomic/include/,
-					Submodules/CPPTraits/CPPTraits/include,
-				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CPPAtomic-Tests";
@@ -444,10 +557,13 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -488,8 +604,12 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				HEADER_SEARCH_PATHS = (
+					CPPAtomic/include/,
+					Submodules/CPPTraits/CPPTraits/include,
+				);
+				LLVM_LTO = YES_THIN;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -560,6 +680,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -595,11 +717,35 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				HEADER_SEARCH_PATHS = (
+					CPPAtomic/include/,
+					Submodules/CPPTraits/CPPTraits/include,
+				);
+				LLVM_LTO = YES_THIN;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		05EC8A4F1E81E854007233F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		05EC8A501E81E854007233F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -620,6 +766,15 @@
 			buildConfigurations = (
 				05BD89571A13FF4700A43CD8 /* Debug */,
 				05BD89581A13FF4700A43CD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05EC8A551E81E854007233F2 /* Build configuration list for PBXNativeTarget "CPPAtomic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05EC8A4F1E81E854007233F2 /* Debug */,
+				05EC8A501E81E854007233F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -27,8 +27,8 @@
  * @brief       Replacement of std::atomic supporting non trivially-copyable types
  */
 
-#ifndef XS_ATOMIC_H
-#define XS_ATOMIC_H
+#ifndef XS_ATOMIC_HPP
+#define XS_ATOMIC_HPP
 
 #include <type_traits>
 #include <utility>
@@ -44,12 +44,6 @@
 
 namespace XS
 {
-    /*!
-     * @class           Atomic
-     * @abstract        ...
-     * @templatefield   _T_     ...
-     * @discussion      ...
-     */
     template< typename _T_ >
     class Atomic
     {
@@ -856,4 +850,4 @@ namespace XS
 #pragma clang diagnostic pop
 #endif
 
-#endif /* XS_ATOMIC_H */
+#endif /* XS_ATOMIC_HPP */

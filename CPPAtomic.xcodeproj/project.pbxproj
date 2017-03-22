@@ -33,6 +33,7 @@
 		05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */; };
 		05F58B291E81EB9D000D50A0 /* MemoryBarrier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */; };
 		05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */; };
+		05FCF6E71E83073800D98BFC /* XS-Atomic-Static.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FCF6E61E83073800D98BFC /* XS-Atomic-Static.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		05F58B1E1E81EB9D000D50A0 /* AtomicIncrement64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicIncrement64.cpp; sourceTree = "<group>"; };
 		05F58B1F1E81EB9D000D50A0 /* MemoryBarrier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBarrier.cpp; sourceTree = "<group>"; };
 		05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Functions.cpp"; sourceTree = "<group>"; };
+		05FCF6E61E83073800D98BFC /* XS-Atomic-Static.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Atomic-Static.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,17 +150,18 @@
 		053BEDA51B8EFCB6007D82A4 /* Unit-Tests */ = {
 			isa = PBXGroup;
 			children = (
+				053BEDC71B8EFE1E007D82A4 /* Info.plist */,
+				053BEDF91B90B37E007D82A4 /* Prefix.pch */,
+				05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */,
 				051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */,
+				05FCF6E61E83073800D98BFC /* XS-Atomic-Static.cpp */,
 				051F9C841C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp */,
 				051F9C781C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp */,
 				051F9C791C19C3EE005D471A /* XS-Atomic-Trivial-Double.cpp */,
 				051F9C7A1C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp */,
 				051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */,
 				051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial-Struct.cpp */,
-				05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */,
 				05CDB0381E81F85000DD9BB2 /* XS-Semaphore.cpp */,
-				053BEDC71B8EFE1E007D82A4 /* Info.plist */,
-				053BEDF91B90B37E007D82A4 /* Prefix.pch */,
 			);
 			path = "Unit-Tests";
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				051F9C7D1C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp in Sources */,
 				051F9C7E1C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp in Sources */,
 				05CDB0391E81F85000DD9BB2 /* XS-Semaphore.cpp in Sources */,
+				05FCF6E71E83073800D98BFC /* XS-Atomic-Static.cpp in Sources */,
 				051F9C7F1C19C3EE005D471A /* XS-Atomic-Trivial-Double.cpp in Sources */,
 				05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */,
 				051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */,

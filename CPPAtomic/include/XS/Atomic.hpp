@@ -41,6 +41,7 @@
 #endif
 
 #include <XS/TypeTraits.hpp>
+#include <XS/Atomic-Functions.hpp>
 
 namespace XS
 {
@@ -96,7 +97,65 @@ namespace XS
             template< class _U_ > struct HasGreaterThanOrEqualToOperator:           public std::integral_constant< bool, ( TrivialValueIsArithmetic<         _U_ >::value || XS::TypeTraits::HasGreaterThanOrEqualToOperator<          _U_, bool,  const _U_ & >::value ) > {};
         
         public:
-
+            
+            /*******************************************************************
+             * Static functions
+             ******************************************************************/
+            
+            template< typename _U_ = _T_ >
+            static _U_ Increment( volatile typename std::enable_if< sizeof( _U_ ) == 4, _U_ >::type * value )
+            {
+                return static_cast< _U_ >( AtomicIncrement32( reinterpret_cast< volatile int32_t * >( value ) ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static _U_ Increment( volatile typename std::enable_if< sizeof( _U_ ) == 8, _U_ >::type * value )
+            {
+                return static_cast< _U_ >( AtomicIncrement64( reinterpret_cast< volatile int64_t * >( value ) ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static _U_ Decrement( volatile typename std::enable_if< sizeof( _U_ ) == 4, _U_ >::type * value )
+            {
+                return static_cast< _U_ >( AtomicDecrement32( reinterpret_cast< volatile int32_t * >( value ) ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static _U_ Decrement( volatile typename std::enable_if< sizeof( _U_ ) == 8, _U_ >::type * value )
+            {
+                return static_cast< _U_ >( AtomicDecrement64( reinterpret_cast< volatile int64_t * >( value ) ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static _U_ Add( typename std::enable_if< sizeof( _U_ ) == 4, _U_ >::type amount, volatile _U_ * value )
+            {
+                return static_cast< _U_ >( AtomicAdd32( static_cast< int32_t >( amount ), reinterpret_cast< volatile int32_t * >( value ) ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static _U_ Add( typename std::enable_if< sizeof( _U_ ) == 8, _U_ >::type amount, volatile _U_ * value )
+            {
+                return static_cast< _U_ >( AtomicAdd64( static_cast< int64_t >( amount ), reinterpret_cast< volatile int64_t * >( value ) ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static bool CompareAndSwap( typename std::enable_if< ( sizeof( _U_ ) == 4 ) && !std::is_pointer< _U_ >::value, _U_ >::type oldValue, typename std::enable_if< ( sizeof( _U_ ) == 4 && !std::is_pointer< _U_ >::value ), _U_ >::type newValue, volatile _U_ * value )
+            {
+                return AtomicCompareAndSwap32( static_cast< int32_t >( oldValue ), static_cast< int32_t >( newValue ), reinterpret_cast< volatile int32_t * >( value ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static bool CompareAndSwap( typename std::enable_if< ( sizeof( _U_ ) == 8 ) && !std::is_pointer< _U_ >::value, _U_ >::type oldValue, typename std::enable_if< ( sizeof( _U_ ) == 8 && !std::is_pointer< _U_ >::value ), _U_ >::type newValue, volatile _U_ * value )
+            {
+                return AtomicCompareAndSwap64( static_cast< int64_t >( oldValue ), static_cast< int64_t >( newValue ), reinterpret_cast< volatile int64_t * >( value ) );
+            }
+            
+            template< typename _U_ = _T_ >
+            static bool CompareAndSwap( typename std::enable_if< std::is_pointer< _U_ >::value, _U_ >::type oldValue, typename std::enable_if< std::is_pointer< _U_ >::value, _U_ >::type newValue, _U_ volatile * value )
+            {
+                return AtomicCompareAndSwapPointer( reinterpret_cast< void * >( oldValue ), reinterpret_cast< void * >( newValue ), reinterpret_cast< void * volatile * >( value ) );
+            }
+            
             /*******************************************************************
              * Common definitions
              ******************************************************************/

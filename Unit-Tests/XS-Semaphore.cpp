@@ -47,13 +47,13 @@
 #pragma clang diagnostic pop
 #endif
 
-#include <XS/Semaphore.hpp>
+#include <XS/IPC/Semaphore.hpp>
 
 using namespace testing;
 
-TEST( XS_Semaphore, UnnamedBinaryTryWait )
+TEST( XS_IPC_Semaphore, UnnamedBinaryTryWait )
 {
-    XS::Semaphore sem;
+    XS::IPC::Semaphore sem;
     
     ASSERT_TRUE(  sem.TryWait() );
     ASSERT_FALSE( sem.TryWait() );
@@ -61,10 +61,10 @@ TEST( XS_Semaphore, UnnamedBinaryTryWait )
     sem.Signal();
 }
 
-TEST( XS_Semaphore, NamedBinaryTryWait )
+TEST( XS_IPC_Semaphore, NamedBinaryTryWait )
 {
-    XS::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
-    XS::Semaphore sem2( 1, "XS-Test-Semaphore-1" );
+    XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
+    XS::IPC::Semaphore sem2( 1, "XS-Test-Semaphore-1" );
     
     ASSERT_TRUE(  sem1.TryWait() );
     ASSERT_FALSE( sem1.TryWait() );
@@ -79,9 +79,9 @@ TEST( XS_Semaphore, NamedBinaryTryWait )
     sem2.Signal();
 }
 
-TEST( XS_Semaphore, UnnamedTryWait )
+TEST( XS_IPC_Semaphore, UnnamedTryWait )
 {
-    XS::Semaphore sem( 2 );
+    XS::IPC::Semaphore sem( 2 );
     
     ASSERT_TRUE(  sem.TryWait() );
     ASSERT_TRUE(  sem.TryWait() );
@@ -91,10 +91,10 @@ TEST( XS_Semaphore, UnnamedTryWait )
     sem.Signal();
 }
 
-TEST( XS_Semaphore, NamedTryWait )
+TEST( XS_IPC_Semaphore, NamedTryWait )
 {
-    XS::Semaphore sem1( 2, "XS-Test-Semaphore-2" );
-    XS::Semaphore sem2( 2, "XS-Test-Semaphore-2" );
+    XS::IPC::Semaphore sem1( 2, "XS-Test-Semaphore-2" );
+    XS::IPC::Semaphore sem2( 2, "XS-Test-Semaphore-2" );
     
     ASSERT_TRUE(  sem1.TryWait() );
     ASSERT_TRUE(  sem1.TryWait() );
@@ -110,9 +110,9 @@ TEST( XS_Semaphore, NamedTryWait )
     sem2.Signal();
 }
 
-TEST( XS_Semaphore, UnnamedWaitSignal )
+TEST( XS_IPC_Semaphore, UnnamedWaitSignal )
 {
-    XS::Semaphore sem( 1 );
+    XS::IPC::Semaphore sem( 1 );
     
     sem.Wait();
     
@@ -125,10 +125,10 @@ TEST( XS_Semaphore, UnnamedWaitSignal )
     sem.Signal();
 }
 
-TEST( XS_Semaphore, NamedWaitSignal )
+TEST( XS_IPC_Semaphore, NamedWaitSignal )
 {
-    XS::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
-    XS::Semaphore sem2( 1, "XS-Test-Semaphore-1" );
+    XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
+    XS::IPC::Semaphore sem2( 1, "XS-Test-Semaphore-1" );
     
     sem1.Wait();
     
@@ -143,29 +143,29 @@ TEST( XS_Semaphore, NamedWaitSignal )
     sem2.Signal();
 }
 
-TEST( XS_Semaphore, UnnamedThrowOnInvalidCount )
+TEST( XS_IPC_Semaphore, UnnamedThrowOnInvalidCount )
 {
-    ASSERT_THROW( XS::Semaphore( 0 ), std::runtime_error );
+    ASSERT_THROW( XS::IPC::Semaphore( 0 ), std::runtime_error );
 }
 
-TEST( XS_Semaphore, NamedThrowOnInvalidCount )
+TEST( XS_IPC_Semaphore, NamedThrowOnInvalidCount )
 {
-    ASSERT_THROW( XS::Semaphore( 0, "XS-Test-Semaphore-0" ), std::runtime_error );
+    ASSERT_THROW( XS::IPC::Semaphore( 0, "XS-Test-Semaphore-0" ), std::runtime_error );
 }
 
-TEST( XS_Semaphore, IsNamed )
+TEST( XS_IPC_Semaphore, IsNamed )
 {
-    XS::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
-    XS::Semaphore sem2;
+    XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
+    XS::IPC::Semaphore sem2;
     
     ASSERT_TRUE(  sem1.IsNamed() );
     ASSERT_FALSE( sem2.IsNamed() );
 }
 
-TEST( XS_Semaphore, GetName )
+TEST( XS_IPC_Semaphore, GetName )
 {
-    XS::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
-    XS::Semaphore sem2;
+    XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
+    XS::IPC::Semaphore sem2;
     
     ASSERT_EQ( sem1.GetName(), "/XS-Test-Semaphore-1" );
     ASSERT_EQ( sem2.GetName(), "" );

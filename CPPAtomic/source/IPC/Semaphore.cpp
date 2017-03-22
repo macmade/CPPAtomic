@@ -27,7 +27,7 @@
  * @brief       ...
  */
 
-#include <XS/Semaphore.hpp>
+#include <XS/IPC/Semaphore.hpp>
 
 #ifdef __APPLE__
 #include <sys/semaphore.h>
@@ -48,7 +48,7 @@
 namespace XS
 {
     template<>
-    class XS::PIMPL::Object< Semaphore >::IMPL
+    class XS::PIMPL::Object< IPC::Semaphore >::IMPL
     {
         public:
             
@@ -77,44 +77,123 @@ namespace XS
     };
 }
 
-#define XS_PIMPL_CLASS XS::Semaphore
+#define XS_PIMPL_CLASS XS::IPC::Semaphore
 #include <XS/PIMPL/Object-IMPL.hpp>
 
 namespace XS
 {
+    namespace IPC
+    {
+        /***************************************************************************
+         * Common
+         **************************************************************************/
+        
+        Semaphore::Semaphore( unsigned int count, std::string name ):
+            XS::PIMPL::Object< Semaphore >( count, name )
+        {}
+        
+        bool Semaphore::IsNamed( void ) const
+        {
+            return this->impl->_name.length() > 0;
+        }
+        
+        std::string Semaphore::GetName( void ) const
+        {
+            return this->impl->_name;
+        }
+        
+        /***************************************************************************
+         * Windows specific
+         **************************************************************************/
+        
+        #if defined( _WIN32 )
+        
+        bool Semaphore::TryWait( void )
+        {
+            return ( WaitForSingleObject( this->impl->_semaphore, 0 ) == WAIT_OBJECT_0 ) ? true : false;
+        }
+        
+        void Semaphore::Wait( void )
+        {
+            WaitForSingleObject( this->impl->_semaphore, INFINITE );
+        }
+        
+        void Semaphore::Signal( void )
+        {
+            ReleaseSemaphore( this->impl->_semaphore, 1, nullptr );
+        }
+        
+        /***************************************************************************
+         * Apple specific
+         **************************************************************************/
+        
+        #elif defined( __APPLE__ )
+        
+        bool Semaphore::TryWait( void )
+        {
+            if( this->IsNamed() )
+            {
+                return ( sem_trywait( this->impl->_semp ) == 0 ) ? true : false;
+            }
+            else
+            {
+                {
+                    mach_timespec_t ts;
+                    
+                    ts.tv_sec  = 0;
+                    ts.tv_nsec = 0;
+                    
+                    return ( semaphore_timedwait( this->impl->_semaphore, ts ) == KERN_SUCCESS ) ? true : false;
+                }
+            }
+        }
+        
+        void Semaphore::Wait( void )
+        {
+            if( this->IsNamed() )
+            {
+                sem_wait( this->impl->_semp );
+            }
+            else
+            {
+                semaphore_wait( this->impl->_semaphore );
+            }
+        }
+        
+        void Semaphore::Signal( void )
+        {
+            if( this->IsNamed() )
+            {
+                sem_post( this->impl->_semp );
+            }
+            else
+            {
+                semaphore_signal( this->impl->_semaphore );
+            }
+        }
+        
+        #endif
+    }
+    
     /***************************************************************************
      * Common
      **************************************************************************/
     
-    Semaphore::Semaphore( unsigned int count, std::string name ):
-        XS::PIMPL::Object< Semaphore >( count, name )
-    {}
-    
-    bool Semaphore::IsNamed( void ) const
-    {
-        return this->impl->_name.length() > 0;
-    }
-    
-    std::string Semaphore::GetName( void ) const
-    {
-        return this->impl->_name;
-    }
-    
-    PIMPL::Object< Semaphore >::IMPL::IMPL( unsigned int count, std::string name ):
+    PIMPL::Object< IPC::Semaphore >::IMPL::IMPL( unsigned int count, std::string name ):
         _count( count ),
         _name( name )
     {
         this->CreateSemaphore();
     }
 
-    PIMPL::Object< Semaphore >::IMPL::IMPL( const IMPL & o ):
+    PIMPL::Object< IPC::Semaphore >::IMPL::IMPL( const IMPL & o ):
         _count( o._count ),
         _name( o._name )
     {
         this->CreateSemaphore();
     }
 
-    PIMPL::Object< Semaphore >::IMPL::~IMPL( void )
+    PIMPL::Object< IPC::Semaphore >::IMPL::~IMPL( void )
     {
         this->DeleteSemaphore();
     }
@@ -123,24 +202,9 @@ namespace XS
      * Windows specific
      **************************************************************************/
     
-    #if defined( _WIN32 )
-    
-    bool Semaphore::TryWait( void )
-    {
-        return ( WaitForSingleObject( this->impl->_semaphore, 0 ) == WAIT_OBJECT_0 ) ? true : false;
-    }
-    
-    void Semaphore::Wait( void )
-    {
-        WaitForSingleObject( this->impl->_semaphore, INFINITE );
-    }
-    
-    void Semaphore::Signal( void )
-    {
-        ReleaseSemaphore( this->impl->_semaphore, 1, nullptr );
-    }
-    
-    void PIMPL::Object< Semaphore >::IMPL::CreateSemaphore( void )
+    #ifdef _WIN32
+      
+    void PIMPL::Object< IPC::Semaphore >::IMPL::CreateSemaphore( void )
     {
         if( this->_count == 0 )
         {
@@ -168,7 +232,7 @@ namespace XS
         }
     }
     
-    void PIMPL::Object< Semaphore >::IMPL::DeleteSemaphore( void )
+    void PIMPL::Object< IPC::Semaphore >::IMPL::DeleteSemaphore( void )
     {
         CloseHandle( this->_semaphore );
     }
@@ -178,51 +242,8 @@ namespace XS
      **************************************************************************/
     
     #elif defined( __APPLE__ )
-    
-    bool Semaphore::TryWait( void )
-    {
-        if( this->IsNamed() )
-        {
-            return ( sem_trywait( this->impl->_semp ) == 0 ) ? true : false;
-        }
-        else
-        {
-            {
-                mach_timespec_t ts;
-                
-                ts.tv_sec  = 0;
-                ts.tv_nsec = 0;
-                
-                return ( semaphore_timedwait( this->impl->_semaphore, ts ) == KERN_SUCCESS ) ? true : false;
-            }
-        }
-    }
-    
-    void Semaphore::Wait( void )
-    {
-        if( this->IsNamed() )
-        {
-            sem_wait( this->impl->_semp );
-        }
-        else
-        {
-            semaphore_wait( this->impl->_semaphore );
-        }
-    }
-    
-    void Semaphore::Signal( void )
-    {
-        if( this->IsNamed() )
-        {
-            sem_post( this->impl->_semp );
-        }
-        else
-        {
-            semaphore_signal( this->impl->_semaphore );
-        }
-    }
-    
-    void PIMPL::Object< Semaphore >::IMPL::CreateSemaphore( void )
+        
+    void PIMPL::Object< IPC::Semaphore >::IMPL::CreateSemaphore( void )
     {
         if( this->_name.length() > 0 && this->_name[ 0 ] != '/' )
         {
@@ -254,7 +275,7 @@ namespace XS
         }
     }
     
-    void PIMPL::Object< Semaphore >::IMPL::DeleteSemaphore( void )
+    void PIMPL::Object< IPC::Semaphore >::IMPL::DeleteSemaphore( void )
     {
         if( this->_name.length() > 0 )
         {

@@ -39,6 +39,19 @@ namespace XS
         public:
             
             using XS::PIMPL::Object< RWLock >::impl;
+            
+            RWLock( void );
+            
+            RWLock( const RWLock & o )      = delete;
+            RWLock( RWLock && o )           = delete;
+            RWLock & operator =( RWLock o ) = delete;
+            
+            void LockForReading( void );
+            void LockForWriting( void );
+            void UnlockForReading( void );
+            void UnlockForWriting( void );
+            bool TryLockForReading( void );
+            bool TryLockForWriting( void );
     };
 }
 

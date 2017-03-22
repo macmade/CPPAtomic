@@ -28,6 +28,7 @@
  */
 
 #include <XS/RWLock.hpp>
+#include <mutex>
 
 namespace XS
 {
@@ -39,6 +40,10 @@ namespace XS
             IMPL( void );
             IMPL( const IMPL & o );
             ~IMPL( void );
+            
+            std::recursive_mutex _rrmtx;
+            std::recursive_mutex _wrmtx;
+            int64_t              _r;
     };
 }
 
@@ -47,7 +52,77 @@ namespace XS
 
 namespace XS
 {
-    PIMPL::Object< RWLock >::IMPL::IMPL( void )
+    RWLock::RWLock( void ):
+        XS::PIMPL::Object< RWLock >()
+    {}
+    
+    void RWLock::LockForReading( void )
+    {
+        std::lock_guard< std::recursive_mutex > l( this->impl->_rrmtx );
+        
+        if( this->impl->_r == 0 )
+        {
+            this->impl->_wrmtx.lock();
+        }
+        
+        this->impl->_r++;
+    }
+    
+    void RWLock::LockForWriting( void )
+    {
+        this->impl->_wrmtx.lock();
+    }
+    
+    void RWLock::UnlockForReading( void )
+    {
+        std::lock_guard< std::recursive_mutex > l( this->impl->_rrmtx );
+        
+        this->impl->_r--;
+        
+        if( this->impl->_r == 0 )
+        {
+            this->impl->_wrmtx.lock();
+        }
+        else if( this->impl->_r < 0 )
+        {
+            throw std::runtime_error( "Invalid read unlock - Read lock was not acquired" );
+        }
+    }
+    
+    void RWLock::UnlockForWriting( void )
+    {
+        this->impl->_wrmtx.unlock();
+    }
+    
+    bool RWLock::TryLockForReading( void )
+    {
+        std::lock_guard< std::recursive_mutex > l( this->impl->_rrmtx );
+        bool                                    r;
+        
+        if( this->impl->_r == 0 )
+        {
+            r = this->impl->_wrmtx.try_lock();
+        }
+        else
+        {
+            r = true;
+        }
+        
+        if( r )
+        {
+            this->impl->_r++;
+        }
+        
+        return r;
+    }
+    
+    bool RWLock::TryLockForWriting( void )
+    {
+        return this->impl->_wrmtx.try_lock();;
+    }
+    
+    PIMPL::Object< RWLock >::IMPL::IMPL( void ):
+        _r( 0 )
     {}
     
     PIMPL::Object< RWLock >::IMPL::IMPL( const IMPL & o )

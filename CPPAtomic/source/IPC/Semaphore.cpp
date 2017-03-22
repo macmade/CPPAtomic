@@ -35,15 +35,25 @@
 #include <mach/mach_init.h>
 #include <mach/task.h>
 #include <mach/semaphore.h>
+#include <signal.h>
 #else
 #include <Windows.h>
 #include <locale>
 #include <codecvt>
 #endif
 
+#include <mutex>
+#include <vector>
+
 #ifndef SEM_NAME_MAX
 #define SEM_NAME_MAX    32
 #endif
+
+static void init( void );
+static void cleanup( void );
+
+static std::recursive_mutex                * rmtx       = nullptr;
+static std::vector< XS::IPC::Semaphore * > * semaphores = nullptr;
 
 namespace XS
 {
@@ -131,9 +141,11 @@ namespace XS
         
         bool Semaphore::TryWait( void )
         {
+            bool ret;
+            
             if( this->IsNamed() )
             {
-                return ( sem_trywait( this->impl->_semp ) == 0 ) ? true : false;
+                ret = ( sem_trywait( this->impl->_semp ) == 0 ) ? true : false;
             }
             else
             {
@@ -143,9 +155,18 @@ namespace XS
                     ts.tv_sec  = 0;
                     ts.tv_nsec = 0;
                     
-                    return ( semaphore_timedwait( this->impl->_semaphore, ts ) == KERN_SUCCESS ) ? true : false;
+                    ret = ( semaphore_timedwait( this->impl->_semaphore, ts ) == KERN_SUCCESS ) ? true : false;
                 }
             }
+            
+            if( ret )
+            {
+                rmtx->lock();
+                semaphores->push_back( this );
+                rmtx->unlock();
+            }
+            
+            return ret;
         }
         
         void Semaphore::Wait( void )
@@ -158,6 +179,10 @@ namespace XS
             {
                 semaphore_wait( this->impl->_semaphore );
             }
+            
+            rmtx->lock();
+            semaphores->push_back( this );
+            rmtx->unlock();
         }
         
         void Semaphore::Signal( void )
@@ -170,6 +195,10 @@ namespace XS
             {
                 semaphore_signal( this->impl->_semaphore );
             }
+            
+            rmtx->lock();
+            semaphores->erase( std::find( semaphores->begin(), semaphores->end(), this ) );
+            rmtx->unlock();
         }
         
         #endif
@@ -183,6 +212,10 @@ namespace XS
         _count( count ),
         _name( name )
     {
+        std::once_flag once;
+        
+        std::call_once( once, init );
+        
         this->CreateSemaphore();
     }
 
@@ -288,4 +321,93 @@ namespace XS
     }
     
     #endif
+}
+
+#ifdef _WIN32
+
+static void init( void )
+{
+    rmtx       = new std::recursive_mutex();
+    semaphores = new std::vector< XS::IPC::Semaphore * >();
+}
+
+#elif defined( __APPLE__ )
+
+#include <iostream>
+
+static void sig( int signo );
+
+static struct sigaction sigaction_sigabrt      = {};
+static struct sigaction sigaction_sigsegv      = {};
+static struct sigaction sigaction_sigbus       = {};
+static struct sigaction sigaction_sigill       = {};
+static struct sigaction sigaction_sigfpe       = {};
+static struct sigaction sigaction_sigpipe      = {};
+static struct sigaction sigaction_prev_sigabrt = {};
+static struct sigaction sigaction_prev_sigsegv = {};
+static struct sigaction sigaction_prev_sigbus  = {};
+static struct sigaction sigaction_prev_sigill  = {};
+static struct sigaction sigaction_prev_sigfpe  = {};
+static struct sigaction sigaction_prev_sigpipe = {};
+
+static void init( void )
+{
+    rmtx       = new std::recursive_mutex();
+    semaphores = new std::vector< XS::IPC::Semaphore * >();
+    
+    memset( &sigaction_sigabrt, 0, sizeof( struct sigaction ) );
+    memset( &sigaction_sigsegv, 0, sizeof( struct sigaction ) );
+    memset( &sigaction_sigbus,  0, sizeof( struct sigaction ) );
+    memset( &sigaction_sigill,  0, sizeof( struct sigaction ) );
+    memset( &sigaction_sigfpe,  0, sizeof( struct sigaction ) );
+    memset( &sigaction_sigpipe, 0, sizeof( struct sigaction ) );
+    
+    memset( &sigaction_prev_sigabrt, 0, sizeof( struct sigaction ) );
+    memset( &sigaction_prev_sigsegv, 0, sizeof( struct sigaction ) );
+    memset( &sigaction_prev_sigbus,  0, sizeof( struct sigaction ) );
+    memset( &sigaction_prev_sigill,  0, sizeof( struct sigaction ) );
+    memset( &sigaction_prev_sigfpe,  0, sizeof( struct sigaction ) );
+    memset( &sigaction_prev_sigpipe, 0, sizeof( struct sigaction ) );
+    
+    sigaction_sigabrt.sa_handler = sig;
+    sigaction_sigsegv.sa_handler = sig;
+    sigaction_sigbus.sa_handler  = sig;
+    sigaction_sigill.sa_handler  = sig;
+    sigaction_sigfpe.sa_handler  = sig;
+    sigaction_sigpipe.sa_handler = sig;
+    
+    sigaction( SIGABRT, &sigaction_sigabrt, &sigaction_prev_sigabrt );
+    sigaction( SIGSEGV, &sigaction_sigsegv, &sigaction_prev_sigsegv );
+    sigaction( SIGBUS,  &sigaction_sigbus,  &sigaction_prev_sigbus );
+    sigaction( SIGILL,  &sigaction_sigill,  &sigaction_prev_sigill );
+    sigaction( SIGFPE,  &sigaction_sigfpe,  &sigaction_prev_sigfpe );
+    sigaction( SIGPIPE, &sigaction_sigpipe, &sigaction_prev_sigpipe );
+}
+
+static void sig( int signo )
+{
+    cleanup();
+    
+    switch( signo )
+    {
+        case SIGABRT: sigaction( SIGABRT, &sigaction_prev_sigabrt, nullptr ); break;
+        case SIGSEGV: sigaction( SIGSEGV, &sigaction_prev_sigsegv, nullptr ); break;
+        case SIGBUS:  sigaction( SIGBUS,  &sigaction_prev_sigbus,  nullptr ); break;
+        case SIGILL:  sigaction( SIGILL,  &sigaction_prev_sigill,  nullptr ); break;
+        case SIGFPE:  sigaction( SIGFPE,  &sigaction_prev_sigfpe,  nullptr ); break;
+        case SIGPIPE: sigaction( SIGPIPE, &sigaction_prev_sigpipe, nullptr ); break;
+        default:                                                              break;
+    }
+}
+
+#endif
+
+static void cleanup( void )
+{
+    for( auto s: *( semaphores ) )
+    {
+        s->Signal();
+    }
+    
+    semaphores->clear();
 }

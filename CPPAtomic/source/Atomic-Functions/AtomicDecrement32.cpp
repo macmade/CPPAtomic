@@ -46,12 +46,12 @@ namespace XS
     {
         #if defined( _WIN32 )
         
-        return static_cast< int32_t >( InterlockedDecrement( static_cast< volatile LONG * >( value ) ) );
-        
+        return InterlockedDecrement( reinterpret_cast< volatile LONG * >( value ) );
+
         #elif defined( __APPLE__ )
         
-        return static_cast< int32_t >( OSAtomicDecrement32( static_cast< volatile int32_t * >( value ) ) );
-        
+        return OSAtomicDecrement32( value );
+
         #elif __has_builtin( __sync_add_and_fetch )
         
         return __sync_add_and_fetch( value, -1 );

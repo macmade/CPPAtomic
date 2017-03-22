@@ -29,6 +29,7 @@
 
 #include <XS/RWLock.hpp>
 #include <mutex>
+#include <stdexcept>
 
 namespace XS
 {

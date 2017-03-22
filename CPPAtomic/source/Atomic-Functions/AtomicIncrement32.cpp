@@ -46,19 +46,19 @@ namespace XS
     {
         #if defined( _WIN32 )
         
-        return static_cast< int32_t >( InterlockedIncrement( static_cast< volatile LONG * >( value ) ) );
-        
+        return InterlockedIncrement( reinterpret_cast< volatile LONG * >( value ) );
+
         #elif defined( __APPLE__ )
         
-        return static_cast< int32_t >( OSAtomicIncrement32( static_cast< volatile int32_t * >( value ) ) );
-        
+        return OSAtomicIncrement32( value );
+
         #elif __has_builtin( __sync_add_and_fetch )
         
         return __sync_add_and_fetch( value, 1 );
         
         #else
         
-        #error "XS::Atomic::Increment32 is not implemented for the current platform"
+        #error "XS::AtomicIncrement32 is not implemented for the current platform"
         
         #endif
     }

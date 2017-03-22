@@ -47,11 +47,11 @@ namespace XS
         #if defined( _WIN32 )
         
         return ( InterlockedCompareExchangePointer( value, newValue, oldValue ) == oldValue ) ? true : false;
-        
+
         #elif defined( __APPLE__ )
         
         return ( OSAtomicCompareAndSwapPtr( oldValue, newValue, value ) ) ? true : false;
-        
+
         #elif __has_builtin( __sync_bool_compare_and_swap )
         
         return __sync_bool_compare_and_swap( value, oldValue, newValue );

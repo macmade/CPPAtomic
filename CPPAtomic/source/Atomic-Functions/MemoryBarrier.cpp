@@ -29,12 +29,28 @@
 
 #include <XS/Atomic-Functions.hpp>
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 namespace XS
 {
     void MemoryBarrier( void )
     {
-        #if defined( __ARM_ARCH )
+        #if defined( _WIN64 ) && defined( _M_AMD64 )
+
+        ::__faststorefence();
         
+        #elif defined( _WIN32 ) && defined( _M_IX86 )
+        
+        __asm mfence;
+
+        #elif defined( _WIN32 ) && defined( _M_ARM )
+
+        __asm dmb sy;
+
+        #elif defined( __ARM_ARCH )
+
         __asm__ __volatile__
         (
             "dmb sy"
@@ -42,18 +58,10 @@ namespace XS
         
         #elif defined( __i386__ ) || defined( __x86_64__ )
         
-            #if defined( _WIN32 )
-            
-            __asm mfence;
-            
-            #else
-            
             __asm__ __volatile__
             (
                 "mfence"
             );
-            
-            #endif
             
         #else
         

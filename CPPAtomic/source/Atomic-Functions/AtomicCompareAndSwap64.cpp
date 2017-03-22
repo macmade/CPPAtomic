@@ -46,12 +46,12 @@ namespace XS
     {
         #if defined( _WIN32 )
         
-        return ( InterlockedCompareExchange64( static_cast< volatile LONGLONG * >( value ), newValue, oldValue ) == oldValue ) ? true : false;
-        
+        return ( InterlockedCompareExchange64( reinterpret_cast< volatile LONGLONG * >( value ), newValue, oldValue ) == oldValue ) ? true : false;
+
         #elif defined( __APPLE__ )
         
-        return ( OSAtomicCompareAndSwap64( static_cast< int64_t >( oldValue ), static_cast< int64_t >( newValue ), static_cast< volatile int64_t * >( value ) ) ) ? true : false;
-        
+        return ( OSAtomicCompareAndSwap64( oldValue, newValue, value ) ) ? true : false;
+
         #elif __has_builtin( __sync_bool_compare_and_swap )
         
         return __sync_bool_compare_and_swap( value, oldValue, newValue );

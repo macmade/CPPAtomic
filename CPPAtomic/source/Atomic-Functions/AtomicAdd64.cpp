@@ -46,11 +46,11 @@ namespace XS
     {
         #if defined( _WIN32 )
         
-        return static_cast< int64_t >( InterlockedExchangeAdd( static_cast< LONGLONG volatile * >( value ), static_cast< LONGLONG >( amount ) ) ) + amount;
+        return InterlockedExchangeAdd64( reinterpret_cast< volatile LONGLONG * >( value ), amount ) + amount;
         
         #elif defined( __APPLE__ )
         
-        return static_cast< int64_t >( OSAtomicAdd64( static_cast< int64_t >( amount ), static_cast< volatile int64_t * >( value ) ) );
+        return OSAtomicAdd64( amount, value );
         
         #elif __has_builtin( __sync_add_and_fetch )
         

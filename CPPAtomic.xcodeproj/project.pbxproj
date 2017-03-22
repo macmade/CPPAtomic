@@ -22,6 +22,7 @@
 		05CDB0391E81F85000DD9BB2 /* XS-Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CDB0381E81F85000DD9BB2 /* XS-Semaphore.cpp */; };
 		05D17E7D1E8294F20009AF6E /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05D17E7C1E8294F20009AF6E /* Semaphore.cpp */; };
 		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
+		05EF37AB1E83226D00684946 /* SharedMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05EF37AA1E83226D00684946 /* SharedMemory.cpp */; };
 		05F58B201E81EB9D000D50A0 /* AtomicAdd32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */; };
 		05F58B211E81EB9D000D50A0 /* AtomicAdd64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */; };
 		05F58B221E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B181E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp */; };
@@ -113,6 +114,8 @@
 		05D17E7F1E8295000009AF6E /* Semaphore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Semaphore.hpp; sourceTree = "<group>"; };
 		05EC8A471E81E854007233F2 /* libCPPAtomic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCPPAtomic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Atomic-Functions.hpp"; sourceTree = "<group>"; };
+		05EF37A91E83221E00684946 /* SharedMemory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SharedMemory.hpp; sourceTree = "<group>"; };
+		05EF37AA1E83226D00684946 /* SharedMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SharedMemory.cpp; sourceTree = "<group>"; };
 		05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicAdd32.cpp; sourceTree = "<group>"; };
 		05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicAdd64.cpp; sourceTree = "<group>"; };
 		05F58B181E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicCompareAndSwap32.cpp; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				05D17E7C1E8294F20009AF6E /* Semaphore.cpp */,
+				05EF37AA1E83226D00684946 /* SharedMemory.cpp */,
 			);
 			path = IPC;
 			sourceTree = "<group>";
@@ -257,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				05D17E7F1E8295000009AF6E /* Semaphore.hpp */,
+				05EF37A91E83221E00684946 /* SharedMemory.hpp */,
 			);
 			path = IPC;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05F58B241E81EB9D000D50A0 /* AtomicCompareAndSwapPointer.cpp in Sources */,
+				05EF37AB1E83226D00684946 /* SharedMemory.cpp in Sources */,
 				05F58B231E81EB9D000D50A0 /* AtomicCompareAndSwap64.cpp in Sources */,
 				05F58B271E81EB9D000D50A0 /* AtomicIncrement32.cpp in Sources */,
 				05F58B261E81EB9D000D50A0 /* AtomicDecrement64.cpp in Sources */,

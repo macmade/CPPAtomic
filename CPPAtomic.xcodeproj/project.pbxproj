@@ -19,6 +19,7 @@
 		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
 		057CD63A1E81F36600A80970 /* RWLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057CD6391E81F36600A80970 /* RWLock.cpp */; };
 		057CD6401E81F37100A80970 /* RWLock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 057CD63F1E81F37100A80970 /* RWLock.hpp */; };
+		05CDB0391E81F85000DD9BB2 /* XS-Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CDB0381E81F85000DD9BB2 /* XS-Semaphore.cpp */; };
 		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
 		05F58B201E81EB9D000D50A0 /* AtomicAdd32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */; };
 		05F58B211E81EB9D000D50A0 /* AtomicAdd64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F58B171E81EB9D000D50A0 /* AtomicAdd64.cpp */; };
@@ -106,6 +107,7 @@
 		057CD6391E81F36600A80970 /* RWLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RWLock.cpp; sourceTree = "<group>"; };
 		057CD63F1E81F37100A80970 /* RWLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RWLock.hpp; sourceTree = "<group>"; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
+		05CDB0381E81F85000DD9BB2 /* XS-Semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-Semaphore.cpp"; sourceTree = "<group>"; };
 		05EC8A471E81E854007233F2 /* libCPPAtomic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCPPAtomic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EC8A591E81E8DD007233F2 /* Atomic-Functions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Atomic-Functions.hpp"; sourceTree = "<group>"; };
 		05F58B161E81EB9D000D50A0 /* AtomicAdd32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtomicAdd32.cpp; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				051F9C7B1C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp */,
 				051F9C7C1C19C3EE005D471A /* XS-Atomic-Trivial-Struct.cpp */,
 				05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */,
+				05CDB0381E81F85000DD9BB2 /* XS-Semaphore.cpp */,
 				053BEDC71B8EFE1E007D82A4 /* Info.plist */,
 				053BEDF91B90B37E007D82A4 /* Prefix.pch */,
 			);
@@ -436,6 +439,7 @@
 			files = (
 				051F9C7D1C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp in Sources */,
 				051F9C7E1C19C3EE005D471A /* XS-Atomic-Trivial-Bool.cpp in Sources */,
+				05CDB0391E81F85000DD9BB2 /* XS-Semaphore.cpp in Sources */,
 				051F9C7F1C19C3EE005D471A /* XS-Atomic-Trivial-Double.cpp in Sources */,
 				05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */,
 				051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */,

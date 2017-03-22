@@ -31,6 +31,7 @@
 #define XS_SEMAPHORE_HPP
 
 #include <XS/PIMPL/Object.hpp>
+#include <string>
 
 namespace XS
 {
@@ -39,6 +40,19 @@ namespace XS
         public:
             
             using XS::PIMPL::Object< Semaphore >::impl;
+            
+            Semaphore( unsigned int count = 1, std::string name = "" );
+            
+            Semaphore( const Semaphore & o )      = delete;
+            Semaphore( Semaphore && o )           = delete;
+            Semaphore & operator =( Semaphore o ) = delete;
+            
+            bool TryWait( void );
+            void Wait( void );
+            void Signal( void );
+            
+            bool        IsNamed( void ) const;
+            std::string GetName( void ) const;
     };
 }
 

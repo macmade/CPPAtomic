@@ -44,11 +44,17 @@ namespace XS
                 using XS::PIMPL::Object< SharedMemory >::impl;
                 
                 SharedMemory( void );
+                SharedMemory( int32_t key, size_t size );
                 
-                void * Get( void ) const;
+                bool operator ==( const SharedMemory & o ) const;
+                bool operator !=( const SharedMemory & o ) const;
+                
+                void * Get( void )     const;
+                size_t GetSize( void ) const;
+                bool   IsValid( void ) const;
                 
                 template< typename _T_ >
-                _T_ * Get( void ) const
+                _T_ Get( void ) const
                 {
                     return reinterpret_cast< _T_ >( this->Get() );
                 }

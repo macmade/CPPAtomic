@@ -24,6 +24,8 @@
 		057E726B1E847DB4006B9999 /* Test-Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057E72611E847D62006B9999 /* Test-Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		057E726E1E847F1B006B9999 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057E726D1E847F1B006B9999 /* CoreFoundation.framework */; };
 		057E726F1E8538C9006B9999 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
+		05A76A1A1E85A5040086C883 /* XS-IPC-TestBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A76A181E85A5040086C883 /* XS-IPC-TestBase.cpp */; };
+		05A76A1B1E85A5040086C883 /* XS-IPC-TestBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05A76A191E85A5040086C883 /* XS-IPC-TestBase.hpp */; };
 		05CDB0391E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CDB0381E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp */; };
 		05D17E7D1E8294F20009AF6E /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05D17E7C1E8294F20009AF6E /* Semaphore.cpp */; };
 		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
@@ -169,6 +171,8 @@
 		057E72631E847D62006B9999 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		057E726D1E847F1B006B9999 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
+		05A76A181E85A5040086C883 /* XS-IPC-TestBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-IPC-TestBase.cpp"; sourceTree = "<group>"; };
+		05A76A191E85A5040086C883 /* XS-IPC-TestBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "XS-IPC-TestBase.hpp"; sourceTree = "<group>"; };
 		05CDB0381E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-IPC-Semaphore.cpp"; sourceTree = "<group>"; };
 		05D17E7C1E8294F20009AF6E /* Semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Semaphore.cpp; sourceTree = "<group>"; };
 		05D17E7F1E8295000009AF6E /* Semaphore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Semaphore.hpp; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 			children = (
 				053BEDC71B8EFE1E007D82A4 /* Info.plist */,
 				053BEDF91B90B37E007D82A4 /* Prefix.pch */,
+				05A76A181E85A5040086C883 /* XS-IPC-TestBase.cpp */,
+				05A76A191E85A5040086C883 /* XS-IPC-TestBase.hpp */,
 				05F58B2A1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp */,
 				051F9C771C19C3EE005D471A /* XS-Atomic-Non-Trivial.cpp */,
 				05FCF6E61E83073800D98BFC /* XS-Atomic-Static.cpp */,
@@ -400,6 +406,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A76A1B1E85A5040086C883 /* XS-IPC-TestBase.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +662,7 @@
 				05F58B251E81EB9D000D50A0 /* AtomicDecrement32.cpp in Sources */,
 				057CD63A1E81F36600A80970 /* RWLock.cpp in Sources */,
 				05F58B221E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp in Sources */,
+				05A76A1A1E85A5040086C883 /* XS-IPC-TestBase.cpp in Sources */,
 				05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

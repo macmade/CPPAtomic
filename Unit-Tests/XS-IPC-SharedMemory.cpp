@@ -27,31 +27,19 @@
  * @brief       ...
  */
 
-/* Disabled warnings for GoogleMock */
-#ifdef __clang__
-#pragma clang diagnostic ignored "-Wglobal-constructors"
-#pragma clang diagnostic ignored "-Wpadded"
-#pragma clang diagnostic push
-#if __clang_major__ >= 7
-#pragma clang diagnostic ignored "-Wreserved-id-macro"
-#endif
-#pragma clang diagnostic ignored "-Wmissing-noreturn"
-#pragma clang diagnostic ignored "-Wpadded"
-#pragma clang diagnostic ignored "-Wused-but-marked-unused"
-#pragma clang diagnostic ignored "-Wdeprecated"
-#endif
-
-#include <GoogleMock/GoogleMock.h>
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-
+#include "XS-IPC-TestBase.hpp"
 #include <XS/IPC/SharedMemory.hpp>
 
 using namespace testing;
 
-TEST( XS_IPC_SharedMemory, CTOR )
+class XS_IPC_SharedMemory: public XS_IPC_TestBase
+{
+    public:
+        
+        virtual ~XS_IPC_SharedMemory( void ) = default;
+};
+
+TEST_F( XS_IPC_SharedMemory, CTOR )
 {
     XS::IPC::SharedMemory mem1;
     
@@ -60,7 +48,7 @@ TEST( XS_IPC_SharedMemory, CTOR )
     ASSERT_EQ( mem1.Get(), nullptr );
 }
 
-TEST( XS_IPC_SharedMemory, CCTOR )
+TEST_F( XS_IPC_SharedMemory, CCTOR )
 {
     XS::IPC::SharedMemory mem1( 666, 1024 );
     XS::IPC::SharedMemory mem2( mem1 );
@@ -71,7 +59,7 @@ TEST( XS_IPC_SharedMemory, CCTOR )
     ASSERT_NE( mem1.Get(), mem2.Get() );
 }
 
-TEST( XS_IPC_SharedMemory, OperatorEqual )
+TEST_F( XS_IPC_SharedMemory, OperatorEqual )
 {
     XS::IPC::SharedMemory mem1;
     XS::IPC::SharedMemory mem2;
@@ -87,7 +75,7 @@ TEST( XS_IPC_SharedMemory, OperatorEqual )
     ASSERT_FALSE( mem4 == mem6 );
 }
 
-TEST( XS_IPC_SharedMemory, OperatorNotEqual )
+TEST_F( XS_IPC_SharedMemory, OperatorNotEqual )
 {
     XS::IPC::SharedMemory mem1;
     XS::IPC::SharedMemory mem2;
@@ -99,7 +87,7 @@ TEST( XS_IPC_SharedMemory, OperatorNotEqual )
     ASSERT_FALSE( mem3 != mem4 );
 }
 
-TEST( XS_IPC_SharedMemory, Get )
+TEST_F( XS_IPC_SharedMemory, Get )
 {
     void                * p;
     XS::IPC::SharedMemory mem( 666, 1024 );
@@ -110,16 +98,27 @@ TEST( XS_IPC_SharedMemory, Get )
     ASSERT_EQ( p, mem.Get< char * >() );
 }
 
-TEST( XS_IPC_SharedMemory, GetSize )
+TEST_F( XS_IPC_SharedMemory, GetSize )
 {
     XS::IPC::SharedMemory mem( 666, 1024 );
     
     ASSERT_TRUE( mem.GetSize() == 1024 );
 }
 
-TEST( XS_IPC_SharedMemory, IsValid )
+TEST_F( XS_IPC_SharedMemory, IsValid )
 {
     XS::IPC::SharedMemory mem( 666, 1024 );
     
     ASSERT_TRUE( mem.IsValid() );
+}
+
+TEST_F( XS_IPC_SharedMemory, CrossProcess )
+{
+    XS::IPC::SharedMemory mem( 666, 1024 );
+    
+    ASSERT_TRUE( mem.IsValid() );
+    
+    memset( mem.Get(), 0, mem.GetSize() );
+    
+    ASSERT_TRUE( strlen( mem.Get< char * >() ) == 0 );
 }

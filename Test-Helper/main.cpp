@@ -31,6 +31,7 @@
 #include <string>
 #include <unistd.h>
 #include <XS/IPC/Semaphore.hpp>
+#include <XS/IPC/SharedMemory.hpp>
 
 int main( int argc, const char * argv[] )
 {
@@ -104,6 +105,34 @@ int main( int argc, const char * argv[] )
                 std::cout << "Test-Helper: crashing..." << std::endl;
                 
                 *( p ) = 0;
+            }
+        }
+        else if( arg == "mem-write" )
+        {
+            {
+                int          id;
+                unsigned int size;
+                std::string  str;
+                
+                if( i >= argc - 3 )
+                {
+                    std::cout << "Test-Helper: not enough arguments provided for " << arg << std::endl;
+                    
+                    return -1;
+                }
+                
+                id   = std::stoi( argv[ ++i ] );
+                size = static_cast< unsigned int >( std::stoi( argv[ ++i ] ) );
+                str  = argv[ ++i ];
+                
+                {
+                    XS::IPC::SharedMemory mem( id, size );
+                    
+                    if( mem.IsValid() )
+                    {
+                        strcat( mem.Get< char * >(), str.c_str() );
+                    }
+                }
             }
         }
     }

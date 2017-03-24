@@ -27,122 +27,19 @@
  * @brief       ...
  */
 
-/* Disabled warnings for GoogleMock */
-#ifdef __clang__
-#pragma clang diagnostic ignored "-Wglobal-constructors"
-#pragma clang diagnostic ignored "-Wpadded"
-#pragma clang diagnostic push
-#if __clang_major__ >= 7
-#pragma clang diagnostic ignored "-Wreserved-id-macro"
-#endif
-#pragma clang diagnostic ignored "-Wmissing-noreturn"
-#pragma clang diagnostic ignored "-Wpadded"
-#pragma clang diagnostic ignored "-Wused-but-marked-unused"
-#pragma clang diagnostic ignored "-Wdeprecated"
-#endif
-
-#include <GoogleMock/GoogleMock.h>
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-
-#ifdef __clang__
-#pragma clang diagnostic ignored "-Wc++98-compat-local-type-template-args"
-#endif
-
-#include <XS/Atomic-Functions.hpp>
+#include "XS-IPC-TestBase.hpp"
 #include <XS/IPC/Semaphore.hpp>
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
 #include <thread>
+#include <atomic>
 #include <unistd.h>
 
 using namespace testing;
 
-class XS_IPC_Semaphore: public Test
+class XS_IPC_Semaphore: public XS_IPC_TestBase
 {
-    private:
-        
-        std::string _helperPath;
-        
     public:
         
         virtual ~XS_IPC_Semaphore( void ) = default;
-        
-        virtual void SetUp( void )
-        {
-            CFBundleRef  bundle;
-            CFURLRef     url;
-            CFStringRef  str;
-            const char * s;
-            std::string  path;
-            
-            bundle = CFBundleGetBundleWithIdentifier( CFSTR( "com.xs-labs.CPPAtomic-Tests" ) );
-            
-            if( bundle == nullptr )
-            {
-                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
-            }
-            
-            url = CFBundleCopyBundleURL( bundle );
-            
-            if( url == nullptr )
-            {
-                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
-            }
-            
-            str = CFURLCopyFileSystemPath( url, kCFURLPOSIXPathStyle );
-            
-            if( str == nullptr )
-            {
-                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
-            }
-            
-            s = CFStringGetCStringPtr( str, kCFStringEncodingUTF8 );
-            
-            if( s == nullptr )
-            {
-                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
-            }
-            
-            path  = s;
-            path += "/Contents/MacOS/Test-Helper";
-            
-            CFRelease( str );
-            CFRelease( url );
-            
-            this->_helperPath = path;
-        }
-        
-        virtual void TearDown( void )
-        {}
-        
-        void RunHelper( const std::string & command, const std::vector< std::string > & args ) const
-        {
-            this->RunHelper( { { command, args } } );
-        }
-        
-        void RunHelper( const std::map< std::string, std::vector< std::string > > & commands ) const
-        {
-            std::string invoke;
-            
-            invoke  = this->_helperPath;
-            
-            for( const auto & p: commands )
-            {
-                invoke += " ";
-                invoke += p.first;
-                
-                for( const auto & a: p.second )
-                {
-                    invoke += " ";
-                    invoke += a;
-                }
-            }
-            
-            system( invoke.c_str() );
-        }
 };
 
 TEST_F( XS_IPC_Semaphore, UnnamedBinaryTryWait )

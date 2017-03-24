@@ -103,6 +103,10 @@ TEST( XS_Atomic_Trivial_Struct, OperatorAssign )
     
     ASSERT_TRUE( IsP( a1, 42, 43 ) );
     ASSERT_TRUE( IsP( a2, 42, 43 ) );
+    
+    a1 = a1;
+    
+    ASSERT_TRUE( IsP( a1, 42, 43 ) );
 }
 
 TEST( XS_Atomic_Trivial_Struct, OperatorAssign_V )

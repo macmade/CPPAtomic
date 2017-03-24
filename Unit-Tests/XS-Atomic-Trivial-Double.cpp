@@ -93,6 +93,10 @@ TEST( XS_Atomic_Trivial_Double, OperatorAssign )
     
     ASSERT_TRUE( DoubleIsEqual( a1, 42.0 ) );
     ASSERT_TRUE( DoubleIsEqual( a2, 42.0 ) );
+    
+    a1 = a1;
+    
+    ASSERT_TRUE( DoubleIsEqual( a1, 42.0 ) );
 }
 
 TEST( XS_Atomic_Trivial_Double, OperatorAssign_V )

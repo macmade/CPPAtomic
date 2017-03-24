@@ -554,13 +554,24 @@ TEST( XS_Atomic_Trivial_NonTrivial, CCTOR )
 
 TEST( XS_Atomic_Trivial_NonTrivial, OperatorAssign )
 {
-    XS::Atomic< Foo > a1;
-    XS::Atomic< Foo > a2;
+    {
+        XS::Atomic< Foo > a1;
+        XS::Atomic< Foo > a2;
+        
+        a1 = a2;
+        
+        ASSERT_TRUE( a1.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_TRUE( a1.Load().NumberOfCalls() == 1 );
+    }
     
-    a1 = a2;
-    
-    ASSERT_TRUE( a1.Load().SimpleAssignmentOperatorCalled );
-    ASSERT_TRUE( a1.Load().NumberOfCalls() == 1 );
+    {
+        XS::Atomic< Foo > a1;
+        
+        a1 = a1;
+        
+        ASSERT_TRUE( a1.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_TRUE( a1.Load().NumberOfCalls() == 1 );
+    }
 }
 
 TEST( XS_Atomic_Trivial_NonTrivial, OperatorAssign_V )

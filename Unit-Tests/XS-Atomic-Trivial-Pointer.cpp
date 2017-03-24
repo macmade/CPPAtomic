@@ -87,6 +87,10 @@ TEST( XS_Atomic_Trivial_Pointer, OperatorAssign )
     
     ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
     ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+    
+    a1 = a1;
+    
+    ASSERT_TRUE( strcmp( a1, "hello, world" ) == 0 );
 }
 
 TEST( XS_Atomic_Trivial_Pointer, OperatorAssign_V )

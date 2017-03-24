@@ -87,6 +87,10 @@ TEST( XS_Atomic_Trivial_Bitwise, OperatorAssign )
     
     ASSERT_TRUE( a1 == static_cast< unsigned int >( 42 ) );
     ASSERT_TRUE( a2 == static_cast< unsigned int >( 42 ) );
+    
+    a1 = a1;
+    
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 42 ) );
 }
 
 TEST( XS_Atomic_Trivial_Bitwise, OperatorAssign_V )

@@ -87,6 +87,10 @@ TEST( XS_Atomic_Trivial_Integral, OperatorAssign )
     
     ASSERT_TRUE( a1 == 42 );
     ASSERT_TRUE( a2 == 42 );
+    
+    a1 = a1;
+    
+    ASSERT_TRUE( a1 == 42 );
 }
 
 TEST( XS_Atomic_Trivial_Integral, OperatorAssign_V )

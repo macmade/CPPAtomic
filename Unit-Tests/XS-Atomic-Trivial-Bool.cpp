@@ -89,6 +89,10 @@ TEST( XS_Atomic_Trivial_Bool, OperatorAssign )
     
     ASSERT_TRUE( a1 == true );
     ASSERT_TRUE( a2 == true );
+    
+    a1 = a1;
+    
+    ASSERT_TRUE( a1 == true );
 }
 
 TEST( XS_Atomic_Trivial_Bool, OperatorAssign_V )

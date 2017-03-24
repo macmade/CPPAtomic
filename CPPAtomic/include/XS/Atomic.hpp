@@ -169,13 +169,13 @@ namespace XS
             Atomic( const Atomic< _T_ > & o ): Atomic< _T_ >( o, _L_( o._m ) )
             {}
             
-            Atomic( const Atomic< _T_ > && o ): Atomic< _T_ >( o, _L_( o._m ) )
+            Atomic( Atomic< _T_ > && o ): Atomic< _T_ >( o, _L_( o._m ) )
             {}
             
             ~Atomic( void )
             {}
             
-            Atomic< _T_ > & operator =( Atomic< _T_ > o )
+            Atomic< _T_ > & operator =( const Atomic< _T_ > & o )
             {
                 if( this == &o )
                 {

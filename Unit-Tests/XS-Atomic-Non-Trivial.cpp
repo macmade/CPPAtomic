@@ -569,8 +569,8 @@ TEST( XS_Atomic_Trivial_NonTrivial, OperatorAssign )
         
         a1 = a1;
         
-        ASSERT_TRUE( a1.Load().SimpleAssignmentOperatorCalled );
-        ASSERT_TRUE( a1.Load().NumberOfCalls() == 1 );
+        ASSERT_FALSE( a1.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_TRUE(  a1.Load().NumberOfCalls() == 0 );
     }
 }
 

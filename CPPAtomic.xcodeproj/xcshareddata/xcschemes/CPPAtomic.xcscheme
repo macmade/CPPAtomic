@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "053BEDAB1B8EFDC1007D82A4"
+               BuildableName = "CPPAtomic-Tests.xctest"
+               BlueprintName = "CPPAtomic-Tests"
+               ReferencedContainer = "container:CPPAtomic.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "05EC8A461E81E854007233F2"
+            BuildableName = "libCPPAtomic.a"
+            BlueprintName = "CPPAtomic"
+            ReferencedContainer = "container:CPPAtomic.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

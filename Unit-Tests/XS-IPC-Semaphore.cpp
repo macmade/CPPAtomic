@@ -247,6 +247,19 @@ TEST_F( XS_IPC_Semaphore, NamedThrowOnInvalidCount )
     ASSERT_THROW( XS::IPC::Semaphore( 0, "XS-Test-Semaphore-0" ), std::runtime_error );
 }
 
+TEST_F( XS_IPC_Semaphore, NamedThrowOnInvalidName )
+{
+    std::string name( "XS-Test-Semaphore-" );
+    int         i;
+    
+    for( i = 0; i < 256; i++ )
+    {
+        name += "X";
+    }
+    
+    ASSERT_THROW( XS::IPC::Semaphore( 1, name ), std::runtime_error );
+}
+
 TEST_F( XS_IPC_Semaphore, IsNamed )
 {
     XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );

@@ -137,6 +137,10 @@ TEST( XS_Atomic_Trivial_Pointer, Swap )
     
     ASSERT_TRUE( strcmp( a1, "hello, universe" ) == 0 );
     ASSERT_TRUE( strcmp( a2, "hello, world" ) == 0 );
+    
+    swap( a1, a1 );
+    
+    ASSERT_TRUE( strcmp( a1, "hello, universe" ) == 0 );
 }
 
 /*******************************************************************************

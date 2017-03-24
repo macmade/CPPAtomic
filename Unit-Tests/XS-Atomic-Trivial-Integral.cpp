@@ -137,6 +137,10 @@ TEST( XS_Atomic_Trivial_Integral, Swap )
     
     ASSERT_TRUE( a1 == 43 );
     ASSERT_TRUE( a2 == 42 );
+    
+    swap( a1, a1 );
+    
+    ASSERT_TRUE( a1 == 43 );
 }
 
 /*******************************************************************************

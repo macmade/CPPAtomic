@@ -618,20 +618,34 @@ TEST( XS_Atomic_Trivial_NonTrivial, Store )
 
 TEST( XS_Atomic_Trivial_NonTrivial, Swap )
 {
-    Foo                 f1;
-    Foo                 f2;
-    XS::Atomic< Foo & > a1{ f1 };
-    XS::Atomic< Foo & > a2{ f2 };
+    {
+        Foo                 f1;
+        Foo                 f2;
+        XS::Atomic< Foo & > a1{ f1 };
+        XS::Atomic< Foo & > a2{ f2 };
+        
+        ASSERT_FALSE( a1.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_FALSE( a2.Load().SimpleAssignmentOperatorCalled );
+        
+        swap( a1, a2 );
+        
+        ASSERT_TRUE( a1.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_TRUE( a2.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_TRUE( a1.Load().NumberOfCalls() == 1 );
+        ASSERT_TRUE( a2.Load().NumberOfCalls() == 1 );
+    }
     
-    ASSERT_FALSE( a1.Load().SimpleAssignmentOperatorCalled );
-    ASSERT_FALSE( a2.Load().SimpleAssignmentOperatorCalled );
-    
-    swap( a1, a2 );
-    
-    ASSERT_TRUE( a1.Load().SimpleAssignmentOperatorCalled );
-    ASSERT_TRUE( a2.Load().SimpleAssignmentOperatorCalled );
-    ASSERT_TRUE( a1.Load().NumberOfCalls() == 1 );
-    ASSERT_TRUE( a2.Load().NumberOfCalls() == 1 );
+    {
+        Foo                 f1;
+        XS::Atomic< Foo & > a1{ f1 };
+        
+        ASSERT_FALSE( a1.Load().SimpleAssignmentOperatorCalled );
+        
+        swap( a1, a1 );
+        
+        ASSERT_FALSE( a1.Load().SimpleAssignmentOperatorCalled );
+        ASSERT_TRUE( a1.Load().NumberOfCalls() == 0 );
+    }
 }
 
 /*******************************************************************************

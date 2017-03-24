@@ -153,6 +153,10 @@ TEST( XS_Atomic_Trivial_Struct, Swap )
     
     ASSERT_TRUE( IsP( a1, 44, 45 ) );
     ASSERT_TRUE( IsP( a2, 42, 43 ) );
+    
+    swap( a1, a1 );
+    
+    ASSERT_TRUE( IsP( a1, 44, 45 ) );
 }
 
 #endif

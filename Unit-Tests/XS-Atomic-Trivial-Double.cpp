@@ -143,6 +143,10 @@ TEST( XS_Atomic_Trivial_Double, Swap )
     
     ASSERT_TRUE( DoubleIsEqual( a1, 43.0 ) );
     ASSERT_TRUE( DoubleIsEqual( a2, 42.0 ) );
+    
+    swap( a1, a1 );
+    
+    ASSERT_TRUE( DoubleIsEqual( a1, 43.0 ) );
 }
 
 /*******************************************************************************

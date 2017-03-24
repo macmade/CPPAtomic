@@ -143,6 +143,10 @@ TEST( XS_Atomic_Trivial_Bool, Swap )
     
     ASSERT_TRUE( a1 == false );
     ASSERT_TRUE( a2 == true );
+    
+    swap( a1, a1 );
+    
+    ASSERT_TRUE( a1 == false );
 }
 
 /*******************************************************************************

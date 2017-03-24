@@ -137,6 +137,10 @@ TEST( XS_Atomic_Trivial_Bitwise, Swap )
     
     ASSERT_TRUE( a1 == static_cast< unsigned int >( 43 ) );
     ASSERT_TRUE( a2 == static_cast< unsigned int >( 42 ) );
+    
+    swap( a1, a1 );
+    
+    ASSERT_TRUE( a1 == static_cast< unsigned int >( 43 ) );
 }
 
 /*******************************************************************************

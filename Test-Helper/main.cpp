@@ -130,6 +130,8 @@ int main( int argc, const char * argv[] )
                     
                     if( mem.IsValid() )
                     {
+                        std::cout << "Test-Helper: writing \"" << str << "\" in shared memory " << id << "(" << size << ")" << std::endl;
+                        
                         strcat( mem.Get< char * >(), str.c_str() );
                     }
                 }

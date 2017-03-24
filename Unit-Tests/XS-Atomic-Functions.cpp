@@ -125,3 +125,8 @@ TEST( XS_Atomic_Functions, AtomicCompareAndSwapPointer )
     ASSERT_TRUE(  XS::AtomicCompareAndSwapPointer( reinterpret_cast< void * >( 0 ), reinterpret_cast< void * >( 2 ), reinterpret_cast< void * volatile * >( &p ) ) );
     ASSERT_EQ( p, reinterpret_cast< void * >( 2 ) );
 }
+
+TEST( XS_Atomic_Functions, MemoryBarrier )
+{
+    XS::MemoryBarrier();
+}

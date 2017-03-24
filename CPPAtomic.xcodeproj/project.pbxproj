@@ -19,7 +19,11 @@
 		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
 		055ABC201E833D0B00CBE8A3 /* XS-IPC-SharedMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 055ABC1E1E833D0600CBE8A3 /* XS-IPC-SharedMemory.cpp */; };
 		057CD63A1E81F36600A80970 /* RWLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057CD6391E81F36600A80970 /* RWLock.cpp */; };
-		057CD6401E81F37100A80970 /* RWLock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 057CD63F1E81F37100A80970 /* RWLock.hpp */; };
+		057E725C1E843960006B9999 /* libCrashGuard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 057E72541E843949006B9999 /* libCrashGuard.a */; };
+		057E72641E847D62006B9999 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057E72631E847D62006B9999 /* main.cpp */; };
+		057E726B1E847DB4006B9999 /* Test-Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057E72611E847D62006B9999 /* Test-Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		057E726E1E847F1B006B9999 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057E726D1E847F1B006B9999 /* CoreFoundation.framework */; };
+		057E726F1E8538C9006B9999 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
 		05CDB0391E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CDB0381E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp */; };
 		05D17E7D1E8294F20009AF6E /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05D17E7C1E8294F20009AF6E /* Semaphore.cpp */; };
 		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
@@ -81,6 +85,34 @@
 			remoteGlobalIDString = 053BEDAC1B8EFDC1007D82A4;
 			remoteInfo = "CPPTraits-Tests";
 		};
+		057E72531E843949006B9999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057E724D1E843949006B9999 /* CrashGuard.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05EC8A471E81E854007233F2;
+			remoteInfo = CrashGuard;
+		};
+		057E72551E843949006B9999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057E724D1E843949006B9999 /* CrashGuard.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 055FBCB41E83D9D7001301A9;
+			remoteInfo = Test;
+		};
+		057E725A1E84395B006B9999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057E724D1E843949006B9999 /* CrashGuard.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05EC8A461E81E854007233F2;
+			remoteInfo = CrashGuard;
+		};
+		057E72681E847DA1006B9999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05BD894A1A13FF4700A43CD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 057E72601E847D62006B9999;
+			remoteInfo = "Test-Helper";
+		};
 		05EC8A5A1E81E941007233F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 05BD894A1A13FF4700A43CD8 /* Project object */;
@@ -89,6 +121,28 @@
 			remoteInfo = CPPAtomic;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		057E725F1E847D62006B9999 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		057E726A1E847DA6006B9999 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				057E726B1E847DB4006B9999 /* Test-Helper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05110D041C1F121C00EE6851 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -110,6 +164,10 @@
 		055F18191D99779D002B5491 /* CPPTraits.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPPTraits.xcodeproj; path = Submodules/CPPTraits/CPPTraits.xcodeproj; sourceTree = "<group>"; };
 		057CD6391E81F36600A80970 /* RWLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RWLock.cpp; sourceTree = "<group>"; };
 		057CD63F1E81F37100A80970 /* RWLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RWLock.hpp; sourceTree = "<group>"; };
+		057E724D1E843949006B9999 /* CrashGuard.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CrashGuard.xcodeproj; path = Submodules/CrashGuard/CrashGuard.xcodeproj; sourceTree = "<group>"; };
+		057E72611E847D62006B9999 /* Test-Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Test-Helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		057E72631E847D62006B9999 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		057E726D1E847F1B006B9999 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		05A6C6891C18AEDD002C6A44 /* Atomic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Atomic.hpp; sourceTree = "<group>"; };
 		05CDB0381E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-IPC-Semaphore.cpp"; sourceTree = "<group>"; };
 		05D17E7C1E8294F20009AF6E /* Semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Semaphore.cpp; sourceTree = "<group>"; };
@@ -137,8 +195,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057E726E1E847F1B006B9999 /* CoreFoundation.framework in Frameworks */,
 				05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */,
 				053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		057E725E1E847D62006B9999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057E726F1E8538C9006B9999 /* libCPPAtomic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057E725C1E843960006B9999 /* libCrashGuard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +268,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		057E724E1E843949006B9999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				057E72541E843949006B9999 /* libCrashGuard.a */,
+				057E72561E843949006B9999 /* Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		057E72621E847D62006B9999 /* Test-Helper */ = {
+			isa = PBXGroup;
+			children = (
+				057E72631E847D62006B9999 /* main.cpp */,
+			);
+			path = "Test-Helper";
+			sourceTree = "<group>";
+		};
+		057E726C1E847F1B006B9999 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				057E726D1E847F1B006B9999 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		05A6C6801C18ADC1002C6A44 /* CPPAtomic */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,10 +328,13 @@
 				05110D051C1F121C00EE6851 /* README.md */,
 				053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */,
 				055F18191D99779D002B5491 /* CPPTraits.xcodeproj */,
+				057E724D1E843949006B9999 /* CrashGuard.xcodeproj */,
 				05A6C6801C18ADC1002C6A44 /* CPPAtomic */,
 				053BEDA51B8EFCB6007D82A4 /* Unit-Tests */,
 				053BEDE51B90ABB2007D82A4 /* Scripts */,
+				057E72621E847D62006B9999 /* Test-Helper */,
 				05BD89531A13FF4700A43CD8 /* Products */,
+				057E726C1E847F1B006B9999 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +343,7 @@
 			children = (
 				053BEDAC1B8EFDC1007D82A4 /* CPPAtomic-Tests.xctest */,
 				05EC8A471E81E854007233F2 /* libCPPAtomic.a */,
+				057E72611E847D62006B9999 /* Test-Helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,7 +400,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				057CD6401E81F37100A80970 /* RWLock.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,12 +412,14 @@
 			buildPhases = (
 				053BEDA81B8EFDC1007D82A4 /* Sources */,
 				053BEDA91B8EFDC1007D82A4 /* Frameworks */,
+				057E726A1E847DA6006B9999 /* CopyFiles */,
 				053BEDAA1B8EFDC1007D82A4 /* Resources */,
 				053BEDF51B90AC06007D82A4 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				057E72691E847DA1006B9999 /* PBXTargetDependency */,
 				05EC8A5B1E81E941007233F2 /* PBXTargetDependency */,
 				053BEDC61B8EFDF9007D82A4 /* PBXTargetDependency */,
 			);
@@ -329,6 +427,23 @@
 			productName = "PIMPL-Tests";
 			productReference = 053BEDAC1B8EFDC1007D82A4 /* CPPAtomic-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		057E72601E847D62006B9999 /* Test-Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 057E72651E847D62006B9999 /* Build configuration list for PBXNativeTarget "Test-Helper" */;
+			buildPhases = (
+				057E725D1E847D62006B9999 /* Sources */,
+				057E725E1E847D62006B9999 /* Frameworks */,
+				057E725F1E847D62006B9999 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Test-Helper";
+			productName = "Test-Helper";
+			productReference = 057E72611E847D62006B9999 /* Test-Helper */;
+			productType = "com.apple.product-type.tool";
 		};
 		05EC8A461E81E854007233F2 /* CPPAtomic */ = {
 			isa = PBXNativeTarget;
@@ -341,6 +456,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				057E725B1E84395B006B9999 /* PBXTargetDependency */,
 			);
 			name = CPPAtomic;
 			productName = CPPAtomic;
@@ -358,6 +474,10 @@
 				TargetAttributes = {
 					053BEDAB1B8EFDC1007D82A4 = {
 						CreatedOnToolsVersion = 7.0;
+					};
+					057E72601E847D62006B9999 = {
+						CreatedOnToolsVersion = 8.3;
+						ProvisioningStyle = Automatic;
 					};
 					05EC8A461E81E854007233F2 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -381,6 +501,10 @@
 					ProjectRef = 055F18191D99779D002B5491 /* CPPTraits.xcodeproj */;
 				},
 				{
+					ProductGroup = 057E724E1E843949006B9999 /* Products */;
+					ProjectRef = 057E724D1E843949006B9999 /* CrashGuard.xcodeproj */;
+				},
+				{
 					ProductGroup = 053BEDB61B8EFDE6007D82A4 /* Products */;
 					ProjectRef = 053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */;
 				},
@@ -389,6 +513,7 @@
 			targets = (
 				05EC8A461E81E854007233F2 /* CPPAtomic */,
 				053BEDAB1B8EFDC1007D82A4 /* CPPAtomic-Tests */,
+				057E72601E847D62006B9999 /* Test-Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -427,6 +552,20 @@
 			fileType = wrapper.cfbundle;
 			path = "CPPTraits-Tests.xctest";
 			remoteRef = 055F181E1D99779E002B5491 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057E72541E843949006B9999 /* libCrashGuard.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCrashGuard.a;
+			remoteRef = 057E72531E843949006B9999 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057E72561E843949006B9999 /* Test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Test;
+			remoteRef = 057E72551E843949006B9999 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -478,6 +617,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		057E725D1E847D62006B9999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057E72641E847D62006B9999 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05EC8A431E81E854007233F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,6 +652,16 @@
 			isa = PBXTargetDependency;
 			name = GoogleMock;
 			targetProxy = 053BEDC51B8EFDF9007D82A4 /* PBXContainerItemProxy */;
+		};
+		057E725B1E84395B006B9999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CrashGuard;
+			targetProxy = 057E725A1E84395B006B9999 /* PBXContainerItemProxy */;
+		};
+		057E72691E847DA1006B9999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 057E72601E847D62006B9999 /* Test-Helper */;
+			targetProxy = 057E72681E847DA1006B9999 /* PBXContainerItemProxy */;
 		};
 		05EC8A5B1E81E941007233F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -546,6 +703,31 @@
 			};
 			name = Release;
 		};
+		057E72661E847D62006B9999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CODE_SIGN_IDENTITY = "-";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Debug;
+		};
+		057E72671E847D62006B9999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Release;
+		};
 		05BD89571A13FF4700A43CD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -556,6 +738,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ANALYZER_OBJC_ATSYNC = YES;
 				CLANG_ANALYZER_OBJC_COLLECTIONS = YES;
 				CLANG_ANALYZER_OBJC_DEALLOC = YES;
@@ -656,6 +839,7 @@
 					CPPAtomic/include/,
 					Submodules/CPPTraits/CPPTraits/include,
 					Submodules/PIMPL/PIMPL/include,
+					Submodules/CrashGuard/CrashGuard/include,
 				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -676,6 +860,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ANALYZER_OBJC_ATSYNC = YES;
 				CLANG_ANALYZER_OBJC_COLLECTIONS = YES;
 				CLANG_ANALYZER_OBJC_DEALLOC = YES;
@@ -770,6 +955,7 @@
 					CPPAtomic/include/,
 					Submodules/CPPTraits/CPPTraits/include,
 					Submodules/PIMPL/PIMPL/include,
+					Submodules/CrashGuard/CrashGuard/include,
 				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -807,6 +993,15 @@
 			buildConfigurations = (
 				053BEDB21B8EFDC1007D82A4 /* Debug */,
 				053BEDB31B8EFDC1007D82A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		057E72651E847D62006B9999 /* Build configuration list for PBXNativeTarget "Test-Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				057E72661E847D62006B9999 /* Debug */,
+				057E72671E847D62006B9999 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

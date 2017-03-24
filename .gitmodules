@@ -10,3 +10,6 @@
 [submodule "Submodules/PIMPL"]
 	path = Submodules/PIMPL
 	url = https://github.com/macmade/PIMPL.git
+[submodule "Submodules/CrashGuard"]
+	path = Submodules/CrashGuard
+	url = https://github.com/macmade/CrashGuard.git

@@ -47,11 +47,101 @@
 #pragma clang diagnostic pop
 #endif
 
+#include <XS/Atomic-Functions.hpp>
 #include <XS/IPC/Semaphore.hpp>
+#include <CoreFoundation/CoreFoundation.h>
+#include <string>
+#include <thread>
+#include <unistd.h>
 
 using namespace testing;
 
-TEST( XS_IPC_Semaphore, UnnamedBinaryTryWait )
+class XS_IPC_Semaphore: public Test
+{
+    private:
+        
+        std::string _helperPath;
+        
+    public:
+        
+        virtual ~XS_IPC_Semaphore( void ) = default;
+        
+        virtual void SetUp( void )
+        {
+            CFBundleRef  bundle;
+            CFURLRef     url;
+            CFStringRef  str;
+            const char * s;
+            std::string  path;
+            
+            bundle = CFBundleGetBundleWithIdentifier( CFSTR( "com.xs-labs.CPPAtomic-Tests" ) );
+            
+            if( bundle == nullptr )
+            {
+                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
+            }
+            
+            url = CFBundleCopyBundleURL( bundle );
+            
+            if( url == nullptr )
+            {
+                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
+            }
+            
+            str = CFURLCopyFileSystemPath( url, kCFURLPOSIXPathStyle );
+            
+            if( str == nullptr )
+            {
+                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
+            }
+            
+            s = CFStringGetCStringPtr( str, kCFStringEncodingUTF8 );
+            
+            if( s == nullptr )
+            {
+                throw std::runtime_error( "Error getting Test-Helper path in bundle" );
+            }
+            
+            path  = s;
+            path += "/Contents/MacOS/Test-Helper";
+            
+            CFRelease( str );
+            CFRelease( url );
+            
+            this->_helperPath = path;
+        }
+        
+        virtual void TearDown( void )
+        {}
+        
+        void RunHelper( const std::string & command, const std::vector< std::string > & args ) const
+        {
+            this->RunHelper( { { command, args } } );
+        }
+        
+        void RunHelper( const std::map< std::string, std::vector< std::string > > & commands ) const
+        {
+            std::string invoke;
+            
+            invoke  = this->_helperPath;
+            
+            for( const auto & p: commands )
+            {
+                invoke += " ";
+                invoke += p.first;
+                
+                for( const auto & a: p.second )
+                {
+                    invoke += " ";
+                    invoke += a;
+                }
+            }
+            
+            system( invoke.c_str() );
+        }
+};
+
+TEST_F( XS_IPC_Semaphore, UnnamedBinaryTryWait )
 {
     XS::IPC::Semaphore sem;
     
@@ -61,7 +151,7 @@ TEST( XS_IPC_Semaphore, UnnamedBinaryTryWait )
     sem.Signal();
 }
 
-TEST( XS_IPC_Semaphore, NamedBinaryTryWait )
+TEST_F( XS_IPC_Semaphore, NamedBinaryTryWait )
 {
     XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
     XS::IPC::Semaphore sem2( 1, "XS-Test-Semaphore-1" );
@@ -79,7 +169,7 @@ TEST( XS_IPC_Semaphore, NamedBinaryTryWait )
     sem2.Signal();
 }
 
-TEST( XS_IPC_Semaphore, UnnamedTryWait )
+TEST_F( XS_IPC_Semaphore, UnnamedTryWait )
 {
     XS::IPC::Semaphore sem( 2 );
     
@@ -91,7 +181,7 @@ TEST( XS_IPC_Semaphore, UnnamedTryWait )
     sem.Signal();
 }
 
-TEST( XS_IPC_Semaphore, NamedTryWait )
+TEST_F( XS_IPC_Semaphore, NamedTryWait )
 {
     XS::IPC::Semaphore sem1( 2, "XS-Test-Semaphore-2" );
     XS::IPC::Semaphore sem2( 2, "XS-Test-Semaphore-2" );
@@ -110,7 +200,7 @@ TEST( XS_IPC_Semaphore, NamedTryWait )
     sem2.Signal();
 }
 
-TEST( XS_IPC_Semaphore, UnnamedWaitSignal )
+TEST_F( XS_IPC_Semaphore, UnnamedWaitSignal )
 {
     XS::IPC::Semaphore sem( 1 );
     
@@ -125,7 +215,7 @@ TEST( XS_IPC_Semaphore, UnnamedWaitSignal )
     sem.Signal();
 }
 
-TEST( XS_IPC_Semaphore, NamedWaitSignal )
+TEST_F( XS_IPC_Semaphore, NamedWaitSignal )
 {
     XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
     XS::IPC::Semaphore sem2( 1, "XS-Test-Semaphore-1" );
@@ -143,17 +233,17 @@ TEST( XS_IPC_Semaphore, NamedWaitSignal )
     sem2.Signal();
 }
 
-TEST( XS_IPC_Semaphore, UnnamedThrowOnInvalidCount )
+TEST_F( XS_IPC_Semaphore, UnnamedThrowOnInvalidCount )
 {
     ASSERT_THROW( XS::IPC::Semaphore( 0 ), std::runtime_error );
 }
 
-TEST( XS_IPC_Semaphore, NamedThrowOnInvalidCount )
+TEST_F( XS_IPC_Semaphore, NamedThrowOnInvalidCount )
 {
     ASSERT_THROW( XS::IPC::Semaphore( 0, "XS-Test-Semaphore-0" ), std::runtime_error );
 }
 
-TEST( XS_IPC_Semaphore, IsNamed )
+TEST_F( XS_IPC_Semaphore, IsNamed )
 {
     XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
     XS::IPC::Semaphore sem2;
@@ -162,11 +252,52 @@ TEST( XS_IPC_Semaphore, IsNamed )
     ASSERT_FALSE( sem2.IsNamed() );
 }
 
-TEST( XS_IPC_Semaphore, GetName )
+TEST_F( XS_IPC_Semaphore, GetName )
 {
     XS::IPC::Semaphore sem1( 1, "XS-Test-Semaphore-1" );
     XS::IPC::Semaphore sem2;
     
     ASSERT_EQ( sem1.GetName(), "/XS-Test-Semaphore-1" );
     ASSERT_EQ( sem2.GetName(), "" );
+}
+
+TEST_F( XS_IPC_Semaphore, CrossProcess )
+{
+    XS::IPC::Semaphore sem( 1, "XS-Test-Semaphore-1" );
+    
+    this->RunHelper( "sem-wait", { "1", sem.GetName() } );
+    ASSERT_FALSE( sem.TryWait() );
+    
+    this->RunHelper( "sem-signal", { "1", sem.GetName() } );
+    ASSERT_TRUE( sem.TryWait() );
+    
+    {
+        std::atomic< bool > started( false );
+        std::atomic< bool > exited( false );
+        std::thread         t
+        (
+            [ & ]
+            {
+                started = true;
+                
+                this->RunHelper( "sem-wait", { "1", sem.GetName() } );
+                
+                exited = true;
+            }
+        );
+        
+        sleep( 1 );
+        ASSERT_TRUE( started );
+        sleep( 1 );
+        ASSERT_FALSE( exited );
+        sem.Signal();
+        t.join();
+        ASSERT_TRUE( exited );
+    }
+    
+    sem.Signal();
+    
+    this->RunHelper( { { "sem-wait", { "1", sem.GetName() } }, { "crash", {} } } );
+    ASSERT_TRUE( sem.TryWait() );
+    sem.Signal();
 }

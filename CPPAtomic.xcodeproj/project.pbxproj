@@ -24,8 +24,7 @@
 		057E726B1E847DB4006B9999 /* Test-Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057E72611E847D62006B9999 /* Test-Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		057E726E1E847F1B006B9999 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057E726D1E847F1B006B9999 /* CoreFoundation.framework */; };
 		057E726F1E8538C9006B9999 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
-		05A76A1A1E85A5040086C883 /* XS-IPC-TestBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A76A181E85A5040086C883 /* XS-IPC-TestBase.cpp */; };
-		05A76A1B1E85A5040086C883 /* XS-IPC-TestBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05A76A191E85A5040086C883 /* XS-IPC-TestBase.hpp */; };
+		05A76A1C1E85AD780086C883 /* XS-IPC-TestBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A76A181E85A5040086C883 /* XS-IPC-TestBase.cpp */; };
 		05CDB0391E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CDB0381E81F85000DD9BB2 /* XS-IPC-Semaphore.cpp */; };
 		05D17E7D1E8294F20009AF6E /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05D17E7C1E8294F20009AF6E /* Semaphore.cpp */; };
 		05EC8A5C1E81E945007233F2 /* libCPPAtomic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EC8A471E81E854007233F2 /* libCPPAtomic.a */; };
@@ -406,7 +405,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A76A1B1E85A5040086C883 /* XS-IPC-TestBase.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +630,7 @@
 				05F58B2B1E81EDC3000D50A0 /* XS-Atomic-Functions.cpp in Sources */,
 				051F9C811C19C3EE005D471A /* XS-Atomic-Trivial-Pointer.cpp in Sources */,
 				051F9C801C19C3EE005D471A /* XS-Atomic-Trivial-Integral.cpp in Sources */,
+				05A76A1C1E85AD780086C883 /* XS-IPC-TestBase.cpp in Sources */,
 				051F9C821C19C3EE005D471A /* XS-Atomic-Trivial-Struct.cpp in Sources */,
 				051F9C851C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp in Sources */,
 				055ABC201E833D0B00CBE8A3 /* XS-IPC-SharedMemory.cpp in Sources */,
@@ -662,7 +661,6 @@
 				05F58B251E81EB9D000D50A0 /* AtomicDecrement32.cpp in Sources */,
 				057CD63A1E81F36600A80970 /* RWLock.cpp in Sources */,
 				05F58B221E81EB9D000D50A0 /* AtomicCompareAndSwap32.cpp in Sources */,
-				05A76A1A1E85A5040086C883 /* XS-IPC-TestBase.cpp in Sources */,
 				05F58B281E81EB9D000D50A0 /* AtomicIncrement64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

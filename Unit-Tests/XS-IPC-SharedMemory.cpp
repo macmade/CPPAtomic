@@ -77,10 +77,14 @@ TEST( XS_IPC_SharedMemory, OperatorEqual )
     XS::IPC::SharedMemory mem2;
     XS::IPC::SharedMemory mem3( 666, 1024 );
     XS::IPC::SharedMemory mem4( 666, 1024 );
+    XS::IPC::SharedMemory mem5( 667, 1024 );
+    XS::IPC::SharedMemory mem6( 668, 2048 );
     
     ASSERT_FALSE( mem1 == mem2 );
     ASSERT_FALSE( mem1 == mem3 );
     ASSERT_TRUE(  mem3 == mem4 );
+    ASSERT_FALSE( mem4 == mem5 );
+    ASSERT_FALSE( mem4 == mem6 );
 }
 
 TEST( XS_IPC_SharedMemory, OperatorNotEqual )

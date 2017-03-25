@@ -125,4 +125,8 @@ TEST_F( XS_IPC_SharedMemory, CrossProcess )
     this->RunHelper( "mem-write", { "666", "1024", "\"hello, world\"" } );
     
     ASSERT_TRUE( strcmp( mem.Get< char * >(), "hello, world" ) == 0 );
+    
+    this->RunHelper( { { "mem-write", { "666", "1024", "\"hello, world\"" } }, { "crash", {} } } );
+    
+    ASSERT_TRUE( strcmp( mem.Get< char * >(), "hello, world" ) == 0 );
 }

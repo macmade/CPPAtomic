@@ -28,6 +28,7 @@
  */
 
 #include <XS/IPC/SharedMemory.hpp>
+#include <XS/CrashGuard.hpp>
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -36,6 +37,13 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #endif
+
+#include <mutex>
+#include <functional>
+#include <vector>
+
+static std::recursive_mutex                   * rmtx        = nullptr;
+static std::vector< XS::IPC::SharedMemory * > * memoryAreas = nullptr;
 
 namespace XS
 {
@@ -134,6 +142,31 @@ namespace XS
         _size( size ),
         _key( key )
     {
+        std::once_flag once;
+        
+        std::call_once
+        (
+            once,
+            []
+            {
+                rmtx        = new std::recursive_mutex();
+                memoryAreas = new std::vector< XS::IPC::SharedMemory * >();
+                
+                XS::CrashGuard::InstallHandler
+                (
+                    []
+                    {
+                        for( auto m: *( memoryAreas ) )
+                        {
+                            m->impl->ReleaseMemory();
+                        }
+                        
+                        memoryAreas->clear();
+                    }
+                );
+            }
+        );
+        
         this->AcquireMemory();
     }
 

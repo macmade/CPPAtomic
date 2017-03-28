@@ -47,6 +47,10 @@
 #pragma clang diagnostic pop
 #endif
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wc++98-compat-local-type-template-args"
+#endif
+
 #include <XS/RWLock.hpp>
 #include <thread>
 #include <atomic>

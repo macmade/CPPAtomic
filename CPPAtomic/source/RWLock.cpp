@@ -82,7 +82,7 @@ namespace XS
         
         if( this->impl->_r == 0 )
         {
-            this->impl->_wrmtx.lock();
+            this->impl->_wrmtx.unlock();
         }
         else if( this->impl->_r < 0 )
         {

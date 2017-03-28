@@ -221,3 +221,10 @@ TEST( XS_RWLock, WriteRead )
     
     ASSERT_TRUE( b );
 }
+        
+TEST( XS_RWLock, ThrowOnUnownedReadUnlock )
+{
+    XS::RWLock l;
+    
+    ASSERT_THROW( l.UnlockForReading(), std::runtime_error );
+}

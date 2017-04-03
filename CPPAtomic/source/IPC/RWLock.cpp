@@ -28,6 +28,8 @@
  */
 
 #include <XS/IPC/RWLock.hpp>
+#include <XS/IPC/Semaphore.hpp>
+#include <XS/IPC/SharedMemory.hpp>
 
 namespace XS
 {
@@ -39,6 +41,10 @@ namespace XS
             IMPL( void );
             IMPL( const IMPL & o );
             ~IMPL( void );
+            
+            IPC::Semaphore    _rsem;
+            IPC::Semaphore    _wsem;
+            IPC::SharedMemory _r;
     };
 }
 

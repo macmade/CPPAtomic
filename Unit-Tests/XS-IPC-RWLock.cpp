@@ -56,7 +56,8 @@
 #include <atomic>
 
 using namespace testing;
-        
+
+/*
 TEST( XS_IPC_RWLock, SingleReader )
 {
     XS::IPC::RWLock l;
@@ -228,3 +229,4 @@ TEST( XS_IPC_RWLock, ThrowOnUnownedReadUnlock )
     
     ASSERT_THROW( l.UnlockForReading(), std::runtime_error );
 }
+*/

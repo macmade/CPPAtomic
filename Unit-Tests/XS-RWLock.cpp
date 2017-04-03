@@ -97,6 +97,28 @@ TEST( XS_RWLock, MultipleWriters_SameThread )
     l.UnlockForWriting();
 }
         
+TEST( XS_RWLock, ReadWrite_SameThread )
+{
+    XS::RWLock l;
+    
+    ASSERT_TRUE( l.TryLockForReading() );
+    ASSERT_TRUE( l.TryLockForWriting() );
+    
+    l.UnlockForReading();
+    l.UnlockForWriting();
+}
+        
+TEST( XS_RWLock, WriteRead_SameThread )
+{
+    XS::RWLock l;
+    
+    ASSERT_TRUE( l.TryLockForWriting() );
+    ASSERT_TRUE( l.TryLockForReading() );
+    
+    l.UnlockForWriting();
+    l.UnlockForReading();
+}
+        
 TEST( XS_RWLock, MultipleReaders_DifferentThreads )
 {
     XS::RWLock          l;
@@ -154,7 +176,7 @@ TEST( XS_RWLock, MultipleWriters_DifferentThreads )
     ASSERT_TRUE( b );
 }
         
-TEST( XS_RWLock, ReadWrite )
+TEST( XS_RWLock, ReadWrite_DifferentThreads )
 {
     XS::RWLock          l;
     std::atomic< bool > b( false );
@@ -188,7 +210,7 @@ TEST( XS_RWLock, ReadWrite )
     ASSERT_TRUE( b );
 }
         
-TEST( XS_RWLock, WriteRead )
+TEST( XS_RWLock, WriteRead_DifferentThreads )
 {
     XS::RWLock          l;
     std::atomic< bool > b( false );

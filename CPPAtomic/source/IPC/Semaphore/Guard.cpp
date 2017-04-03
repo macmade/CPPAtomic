@@ -27,50 +27,53 @@
  * @brief       ...
  */
 
-#ifndef XS_IPC_SEMAPHORE_HPP
-#define XS_IPC_SEMAPHORE_HPP
+#include <XS/IPC/Semaphore.hpp>
 
-#include <XS/PIMPL/Object.hpp>
-#include <string>
+namespace XS
+{
+    template<>
+    class XS::PIMPL::Object< IPC::Semaphore::Guard >::IMPL
+    {
+        public:
+            
+            IMPL( void );
+            IMPL( const IMPL & o );
+            ~IMPL( void );
+            
+            IPC::Semaphore * _sem;
+    };
+}
+
+#define XS_PIMPL_CLASS XS::IPC::Semaphore::Guard
+#include <XS/PIMPL/Object-IMPL.hpp>
 
 namespace XS
 {
     namespace IPC
     {
-        class Semaphore: public XS::PIMPL::Object< Semaphore >
+        Semaphore::Guard::Guard( Semaphore & semaphore )
         {
-            public:
-                
-                using XS::PIMPL::Object< Semaphore >::impl;
-                
-                Semaphore( unsigned int count = 1, std::string name = "" );
-                
-                Semaphore( const Semaphore & o )      = delete;
-                Semaphore( Semaphore && o )           = delete;
-                Semaphore & operator =( Semaphore o ) = delete;
-                
-                bool TryWait( void );
-                void Wait( void );
-                void Signal( void );
-                
-                bool        IsNamed( void ) const;
-                std::string GetName( void ) const;
-                
-                class Guard: public XS::PIMPL::Object< Guard >
-                {
-                    public:
-                        
-                        using XS::PIMPL::Object< Guard >::impl;
-                        
-                        Guard( Semaphore & semaphore );
-                        
-                        Guard( const Guard & o )         = delete;
-                        Guard( Guard && o )              = delete;
-                        Guard & operator =( Guard o )    = delete;
-                        Guard & operator =( Guard && o ) = delete;
-                };
-        };
+            this->impl->_sem = &semaphore;
+            
+            this->impl->_sem->Wait();
+        }
+    }
+    
+    IPC::Semaphore::Guard::IMPL::IMPL( void ):
+        _sem( nullptr )
+    {}
+    
+    IPC::Semaphore::Guard::IMPL::IMPL( const IMPL & o ):
+        _sem( nullptr )
+    {
+        ( void )o;
+    }
+    
+    IPC::Semaphore::Guard::IMPL::~IMPL( void )
+    {
+        if( this->_sem != nullptr )
+        {
+            this->_sem->Signal();
+        }
     }
 }
-
-#endif /* XS_IPC_SEMAPHORE_HPP */

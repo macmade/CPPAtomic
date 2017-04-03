@@ -126,7 +126,8 @@ namespace XS
         _r( 0 )
     {}
     
-    PIMPL::Object< RWLock >::IMPL::IMPL( const IMPL & o )
+    PIMPL::Object< RWLock >::IMPL::IMPL( const IMPL & o ):
+        _r( 0 )
     {
         ( void )o;
     }

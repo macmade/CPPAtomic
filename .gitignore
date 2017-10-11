@@ -35,3 +35,4 @@ xcuserdata
 *.csproj.user
 *.VC.db
 ipch
+.vs

@@ -18,8 +18,6 @@
 		051F9C851C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051F9C841C19ECB4005D471A /* XS-Atomic-Trivial-Bitwise.cpp */; };
 		0535F8E71E92DF02001CE2FB /* XS-IPC-Semaphore-Guard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0535F8E61E92DF02001CE2FB /* XS-IPC-Semaphore-Guard.cpp */; };
 		053BEDC41B8EFDF3007D82A4 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053BEDBD1B8EFDE6007D82A4 /* GoogleMock.framework */; };
-		053BEDEC1B90ABB2007D82A4 /* travis-after.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE71B90ABB2007D82A4 /* travis-after.sh */; };
-		053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */ = {isa = PBXBuildFile; fileRef = 053BEDE81B90ABB2007D82A4 /* travis-before.sh */; };
 		0549BE9A1E92D165005D057D /* RWLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0549BE991E92D165005D057D /* RWLock.cpp */; };
 		0549BE9C1E92D228005D057D /* XS-IPC-RWLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0549BE9B1E92D228005D057D /* XS-IPC-RWLock.cpp */; };
 		0549BE9F1E92D599005D057D /* Guard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0549BE9E1E92D599005D057D /* Guard.cpp */; };
@@ -168,7 +166,6 @@
 		053BEDB51B8EFDE6007D82A4 /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
 		053BEDC71B8EFE1E007D82A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		053BEDE71B90ABB2007D82A4 /* travis-after.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
-		053BEDE81B90ABB2007D82A4 /* travis-before.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		0549BE931E92D136005D057D /* RWLock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RWLock.hpp; sourceTree = "<group>"; };
 		0549BE991E92D165005D057D /* RWLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RWLock.cpp; sourceTree = "<group>"; };
 		0549BE9B1E92D228005D057D /* XS-IPC-RWLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "XS-IPC-RWLock.cpp"; sourceTree = "<group>"; };
@@ -318,7 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				053BEDE71B90ABB2007D82A4 /* travis-after.sh */,
-				053BEDE81B90ABB2007D82A4 /* travis-before.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -769,8 +765,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				053BEDEC1B90ABB2007D82A4 /* travis-after.sh in Resources */,
-				053BEDED1B90ABB2007D82A4 /* travis-before.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

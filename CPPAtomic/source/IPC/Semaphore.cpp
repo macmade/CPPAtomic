@@ -219,7 +219,7 @@ namespace XS
         _count( count ),
         _name( name )
     {
-        std::once_flag once;
+        static std::once_flag once;
         
         std::call_once
         (

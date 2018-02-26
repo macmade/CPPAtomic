@@ -142,7 +142,7 @@ namespace XS
         _size( size ),
         _key( key )
     {
-        std::once_flag once;
+        static std::once_flag once;
         
         std::call_once
         (

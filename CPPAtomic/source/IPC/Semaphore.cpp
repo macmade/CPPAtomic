@@ -160,7 +160,7 @@ namespace XS
                 }
             }
             
-            if( ret )
+            if( ret && this->impl->_name.length() > 0 )
             {
                 rmtx->lock();
                 semaphores->push_back( this );
@@ -181,9 +181,12 @@ namespace XS
                 semaphore_wait( this->impl->_semaphore );
             }
             
-            rmtx->lock();
-            semaphores->push_back( this );
-            rmtx->unlock();
+            if( this->impl->_name.length() > 0 )
+            {
+                rmtx->lock();
+                semaphores->push_back( this );
+                rmtx->unlock();
+            }
         }
         
         void Semaphore::Signal( void )
@@ -197,18 +200,21 @@ namespace XS
                 semaphore_signal( this->impl->_semaphore );
             }
             
-            rmtx->lock();
-            
+            if( this->impl->_name.length() > 0 )
             {
-                auto p = std::find( semaphores->begin(), semaphores->end(), this );
+                rmtx->lock();
                 
-                if( p != semaphores->end() )
                 {
-                    semaphores->erase( p );
+                    auto p = std::find( semaphores->begin(), semaphores->end(), this );
+                    
+                    if( p != semaphores->end() )
+                    {
+                        semaphores->erase( p );
+                    }
                 }
+                
+                rmtx->unlock();
             }
-            
-            rmtx->unlock();
         }
         
         #endif

@@ -32,6 +32,7 @@
 
 #include <XS/PIMPL/Object.hpp>
 #include <string>
+#include <cstdint>
 
 namespace XS
 {

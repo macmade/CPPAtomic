@@ -56,10 +56,10 @@ namespace XS
         public:
             
             IMPL( void );
-            IMPL( key_t key, size_t size );
+            IMPL( int32_t key, size_t size );
             IMPL( const IMPL & o );
             ~IMPL( void );
-            
+
             void AcquireMemory( void );
             void ReleaseMemory( void );
             
@@ -105,10 +105,18 @@ namespace XS
                 return false;
             }
             
+            #ifdef _WIN32
+
+
+
+            #else
+
             if( this->impl->_key != o.impl->_key )
             {
                 return false;
             }
+
+            #endif
             
             return true;
         }
@@ -134,19 +142,51 @@ namespace XS
         }
     }
     
+    #ifdef _WIN32
+    
+    PIMPL::Object< IPC::SharedMemory >::IMPL::IMPL( void ):
+        _p( nullptr ),
+        _size( 0 )
+    {}
+
+    PIMPL::Object< IPC::SharedMemory >::IMPL::IMPL( int32_t key, size_t size ):
+        _p( nullptr ),
+        _size( size )
+    {
+        ( void )key;
+    }
+
+    PIMPL::Object< IPC::SharedMemory >::IMPL::IMPL( const IMPL & o ):
+        _p( nullptr ),
+        _size( o._size )
+    {
+        this->AcquireMemory();
+    }
+
+    PIMPL::Object< IPC::SharedMemory >::IMPL::~IMPL( void )
+    {
+        this->ReleaseMemory();
+    }
+
+    void PIMPL::Object< IPC::SharedMemory >::IMPL::AcquireMemory( void )
+    {}
+    
+    void PIMPL::Object< IPC::SharedMemory >::IMPL::ReleaseMemory( void )
+    {}
+    
+    #else
+    
     PIMPL::Object< IPC::SharedMemory >::IMPL::IMPL( void ):
         _p( nullptr ),
         _size( 0 ),
         _key( 0 )
     {}
     
-    PIMPL::Object< IPC::SharedMemory >::IMPL::IMPL( key_t key, size_t size ):
+    PIMPL::Object< IPC::SharedMemory >::IMPL::IMPL( int32_t key, size_t size ):
         _p( nullptr ),
         _size( size ),
         _key( key )
     {
-        #ifndef _WIN32
-        
         static std::once_flag once;
         
         std::call_once
@@ -171,9 +211,7 @@ namespace XS
                 );
             }
         );
-        
-        #endif
-        
+
         this->AcquireMemory();
     }
 
@@ -189,17 +227,7 @@ namespace XS
     {
         this->ReleaseMemory();
     }
-    
-    #ifdef _WIN32
-    
-    void PIMPL::Object< IPC::SharedMemory >::IMPL::AcquireMemory( void )
-    {}
-    
-    void PIMPL::Object< IPC::SharedMemory >::IMPL::ReleaseMemory( void )
-    {}
-    
-    #else
-    
+
     void PIMPL::Object< IPC::SharedMemory >::IMPL::AcquireMemory( void )
     {
         int    id;

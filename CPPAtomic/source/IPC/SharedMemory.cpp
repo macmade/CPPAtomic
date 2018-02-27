@@ -28,7 +28,10 @@
  */
 
 #include <XS/IPC/SharedMemory.hpp>
+
+#ifndef _WIN32
 #include <XS/CrashGuard.hpp>
+#endif
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -142,6 +145,8 @@ namespace XS
         _size( size ),
         _key( key )
     {
+        #ifndef _WIN32
+        
         static std::once_flag once;
         
         std::call_once
@@ -166,6 +171,8 @@ namespace XS
                 );
             }
         );
+        
+        #endif
         
         this->AcquireMemory();
     }

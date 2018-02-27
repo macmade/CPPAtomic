@@ -28,7 +28,10 @@
  */
 
 #include <XS/IPC/Semaphore.hpp>
+
+#ifndef _WIN32
 #include <XS/CrashGuard.hpp>
+#endif
 
 #ifdef __APPLE__
 #include <sys/semaphore.h>
@@ -219,30 +222,37 @@ namespace XS
         _count( count ),
         _name( name )
     {
+        #ifndef _WIN32
+        
         static std::once_flag once;
         
-        std::call_once
-        (
-            once,
-            []
-            {
-                rmtx       = new std::recursive_mutex();
-                semaphores = new std::vector< XS::IPC::Semaphore * >();
-                
-                XS::CrashGuard::InstallHandler
-                (
-                    []
-                    {
-                        for( auto s: *( semaphores ) )
+        if( name.length() > 0 )
+        {
+            std::call_once
+            (
+                once,
+                []
+                {
+                    rmtx       = new std::recursive_mutex();
+                    semaphores = new std::vector< XS::IPC::Semaphore * >();
+                    
+                    XS::CrashGuard::InstallHandler
+                    (
+                        []
                         {
-                            s->Signal();
+                            for( auto s: *( semaphores ) )
+                            {
+                                s->Signal();
+                            }
+                            
+                            semaphores->clear();
                         }
-                        
-                        semaphores->clear();
-                    }
-                );
-            }
-        );
+                    );
+                }
+            );
+        }
+        
+        #endif
         
         this->CreateSemaphore();
     }

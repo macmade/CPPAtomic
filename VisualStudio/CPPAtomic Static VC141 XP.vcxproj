@@ -37,6 +37,7 @@
     <ClCompile Include="..\CPPAtomic\source\Atomic-Functions\AtomicIncrement64.cpp" />
     <ClCompile Include="..\CPPAtomic\source\Atomic-Functions\MemoryBarrier.cpp" />
     <ClCompile Include="..\CPPAtomic\source\IPC\Semaphore.cpp" />
+    <ClCompile Include="..\CPPAtomic\source\IPC\Semaphore\Guard.cpp" />
     <ClCompile Include="..\CPPAtomic\source\IPC\SharedMemory.cpp" />
     <ClCompile Include="..\CPPAtomic\source\RWLock.cpp" />
   </ItemGroup>

@@ -67,5 +67,8 @@
     <ClCompile Include="..\CPPAtomic\source\RWLock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\CPPAtomic\source\IPC\Semaphore\Guard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

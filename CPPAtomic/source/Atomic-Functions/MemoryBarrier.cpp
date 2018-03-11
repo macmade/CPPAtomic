@@ -35,6 +35,9 @@
 
 namespace XS
 {
+    #ifdef MemoryBarrier
+    #undef MemoryBarrier /* VisualStudio x64 */
+    #endif
     void MemoryBarrier( void )
     {
         #if defined( _WIN64 ) && defined( _M_AMD64 )

@@ -8,7 +8,6 @@ install:
 - PATH=$PATH:/usr/local/opt/ccache/libexec
 - brew install macmade/tap/xcode-coveralls
 - export PYTHONUSERBASE=~/.local
-- easy_install --user scan-build
 script:
 - set -o pipefail && xcodebuild -project "CPPAtomic.xcodeproj" -scheme "CPPAtomic-Tests" build test | xcpretty
 before_script:

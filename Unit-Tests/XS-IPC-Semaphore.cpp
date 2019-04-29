@@ -33,8 +33,6 @@
 #include <atomic>
 #include <unistd.h>
 
-using namespace testing;
-
 class XS_IPC_Semaphore: public XS_IPC_TestBase
 {
     public:

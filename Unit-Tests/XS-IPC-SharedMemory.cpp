@@ -30,8 +30,6 @@
 #include "XS-IPC-TestBase.hpp"
 #include <XS/IPC/SharedMemory.hpp>
 
-using namespace testing;
-
 class XS_IPC_SharedMemory: public XS_IPC_TestBase
 {
     public:

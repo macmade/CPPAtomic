@@ -31,8 +31,6 @@
 #include <unistd.h>
 #include <CoreFoundation/CoreFoundation.h>
 
-using namespace testing;
-
 void XS_IPC_TestBase::SetUp( void )
 {
     CFBundleRef  bundle;

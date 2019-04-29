@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPAtomic Static VC120 XP", "VisualStudio\CPPAtomic Static VC120 XP.vcxproj", "{2E9DB08E-258A-4FC4-8E5D-04506C629383}"
-	ProjectSection(ProjectDependencies) = postProject
-		{42C37BE5-0A01-4054-9E69-76A499A1B160} = {42C37BE5-0A01-4054-9E69-76A499A1B160}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPAtomic Static VC140 XP", "VisualStudio\CPPAtomic Static VC140 XP.vcxproj", "{42C37BE5-0A01-4054-9E69-76A499A1B160}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPAtomic Static VC141 XP", "VisualStudio\CPPAtomic Static VC141 XP.vcxproj", "{A155D579-636A-40C1-AF81-DDC0F6A8623E}"
@@ -15,7 +10,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "All", "VisualStudio\All.vcxproj", "{BF41470D-22A7-46C5-A73C-6AB4DB932359}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A155D579-636A-40C1-AF81-DDC0F6A8623E} = {A155D579-636A-40C1-AF81-DDC0F6A8623E}
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383} = {2E9DB08E-258A-4FC4-8E5D-04506C629383}
 		{42C37BE5-0A01-4054-9E69-76A499A1B160} = {42C37BE5-0A01-4054-9E69-76A499A1B160}
 	EndProjectSection
 EndProject
@@ -27,14 +21,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Debug|x64.ActiveCfg = Debug|x64
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Debug|x64.Build.0 = Debug|x64
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Debug|x86.ActiveCfg = Debug|Win32
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Debug|x86.Build.0 = Debug|Win32
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Release|x64.ActiveCfg = Release|x64
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Release|x64.Build.0 = Release|x64
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Release|x86.ActiveCfg = Release|Win32
-		{2E9DB08E-258A-4FC4-8E5D-04506C629383}.Release|x86.Build.0 = Release|Win32
 		{42C37BE5-0A01-4054-9E69-76A499A1B160}.Debug|x64.ActiveCfg = Debug|x64
 		{42C37BE5-0A01-4054-9E69-76A499A1B160}.Debug|x64.Build.0 = Debug|x64
 		{42C37BE5-0A01-4054-9E69-76A499A1B160}.Debug|x86.ActiveCfg = Debug|Win32

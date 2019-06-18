@@ -631,7 +631,7 @@
 		05BD894A1A13FF4700A43CD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					053BEDAB1B8EFDC1007D82A4 = {
@@ -653,11 +653,11 @@
 			};
 			buildConfigurationList = 05BD894D1A13FF4700A43CD8 /* Build configuration list for PBXProject "CPPAtomic" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 05BD89491A13FF4700A43CD8;
 			productRefGroup = 05BD89531A13FF4700A43CD8 /* Products */;

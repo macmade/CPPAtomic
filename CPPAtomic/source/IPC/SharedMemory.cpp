@@ -240,7 +240,7 @@ namespace XS
             return;
         }
         
-        p = shmat( id, NULL, 0 );
+        p = shmat( id, nullptr, 0 );
         
         if( p == reinterpret_cast< char * >( -1 ) )
         {
@@ -262,7 +262,7 @@ namespace XS
             return;
         }
         
-        shmctl( this->_key, IPC_RMID, 0 );
+        shmctl( this->_key, IPC_RMID, nullptr );
     }
     
     #endif

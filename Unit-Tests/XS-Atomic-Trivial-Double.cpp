@@ -33,6 +33,11 @@
 #define XSTEST_GTEST_COMPAT
 #include <XSTest/XSTest.hpp>
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+#pragma clang diagnostic ignored "-Wfloat-equal"
+#endif
+
 static bool DoubleIsEqual( double x, double y );
 static bool DoubleIsEqual( double x, double y )
 {

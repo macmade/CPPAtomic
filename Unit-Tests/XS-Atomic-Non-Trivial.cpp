@@ -32,6 +32,10 @@
 #define XSTEST_GTEST_COMPAT
 #include <XSTest/XSTest.hpp>
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+#endif
+
 class Foo
 {
     public:

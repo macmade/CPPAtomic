@@ -631,7 +631,7 @@
 		05BD894A1A13FF4700A43CD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					053BEDAB1B8EFDC1007D82A4 = {
@@ -880,7 +880,6 @@
 					Submodules/PIMPL/PIMPL/include,
 					Submodules/CrashGuard/CrashGuard/include,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 			};
 			name = Debug;
 		};
@@ -894,7 +893,6 @@
 					Submodules/PIMPL/PIMPL/include,
 					Submodules/CrashGuard/CrashGuard/include,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 			};
 			name = Release;
 		};
@@ -906,6 +904,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -919,6 +918,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

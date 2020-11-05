@@ -85,7 +85,14 @@ TEST( XS_Atomic_Trivial_Struct, OperatorAssign )
     ASSERT_TRUE( IsP( a1, 42, 43 ) );
     ASSERT_TRUE( IsP( a2, 42, 43 ) );
     
+    #ifdef __clang__
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wself-assign-overloaded"
+    #endif
     a1 = a1;
+    #ifdef __clang__
+    #pragma clang diagnostic pop
+    #endif
     
     ASSERT_TRUE( IsP( a1, 42, 43 ) );
 }

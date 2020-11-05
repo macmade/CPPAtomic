@@ -880,6 +880,7 @@
 					Submodules/PIMPL/PIMPL/include,
 					Submodules/CrashGuard/CrashGuard/include,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Debug;
 		};
@@ -893,6 +894,7 @@
 					Submodules/PIMPL/PIMPL/include,
 					Submodules/CrashGuard/CrashGuard/include,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Release;
 		};
@@ -904,7 +906,6 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -918,7 +919,6 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

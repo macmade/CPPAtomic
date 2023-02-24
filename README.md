@@ -1,8 +1,8 @@
 CPPAtomic
 =========
 
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/CPPAtomic/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/CPPAtomic/actions/workflows/ci-mac.yaml)
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/CPPAtomic/ci-win?label=Windows&logo=windows)](https://github.com/macmade/CPPAtomic/actions/workflows/ci-win.yaml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/macmade/CPPAtomic/ci-mac.yaml?label=macOS&logo=apple)](https://github.com/macmade/CPPAtomic/actions/workflows/ci-mac.yaml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/macmade/CPPAtomic/ci-win.yaml?label=Windows&logo=windows)](https://github.com/macmade/CPPAtomic/actions/workflows/ci-win.yaml)
 [![Issues](http://img.shields.io/github/issues/macmade/CPPAtomic.svg?logo=github)](https://github.com/macmade/CPPAtomic/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
